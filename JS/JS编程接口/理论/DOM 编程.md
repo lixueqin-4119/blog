@@ -13,7 +13,7 @@ JS用document操作网页
 
 如果你觉得DOM很傻，不要怀疑自己，你觉得是对的。
 
-DOM的接口设计的非常反人类，导致前端程序员不得不使用jQuery去操作DOM。后来jQuery又被Vue代替了，于是我们又用Vue操作DOM。后来又有了React,我们又用React操作DOM。
+DOM的接口设计的非常反人类，导致前端程序员不得不使用jQuery去操作DOM。后来Vue、React相继问世。我们便用Vue或React来代替操作DOM。
 
 我们从来不会用DOM自带的功能操作DOM，因为实在是反人类。
 
