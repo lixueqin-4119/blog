@@ -8,7 +8,7 @@
 * [【JS编程接口】](https://github.com/lixueqin-4119/blog/tree/master/%E3%80%90JS%E7%BC%96%E7%A8%8B%E6%8E%A5%E5%8F%A3%E3%80%91/%E7%90%86%E8%AE%BA)
 * [【前后分离】](https://github.com/lixueqin-4119/blog/tree/master/%E3%80%90%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB%E3%80%91/%E7%90%86%E8%AE%BA)
 * [【JS进阶】](https://github.com/lixueqin-4119/blog/tree/master/%E3%80%90JS%E8%BF%9B%E9%98%B6%E3%80%91)
-* 【项目构建】
+* 【项目构建】（等待ing）
 * 【算法与数据结构】（等待ing）
 * 【Vue全解】（等待ing）
 * 【React全解】（等待ing）
