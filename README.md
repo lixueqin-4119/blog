@@ -1,4 +1,4 @@
-<h1>目录</h1>
+<h2>目录</h2>
 
 * [【Git入门】](https://github.com/lixueqin-4119/blog/tree/master/%E3%80%90Git%E5%85%A5%E9%97%A8%E3%80%91/%E7%90%86%E8%AE%BA)
 * [【HTML全解】](https://github.com/lixueqin-4119/blog/tree/master/%E3%80%90HTML%E5%85%A8%E8%A7%A3%E3%80%91/%E7%90%86%E8%AE%BA)
