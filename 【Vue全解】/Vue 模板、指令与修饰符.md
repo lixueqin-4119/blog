@@ -372,7 +372,10 @@ MVC章节讲过订阅发布系统eventBus，Vue内置了eventBus,所以我们可
  **总结**
 ```js
 @click.stop="xxx"
+
 @click.prevent="xxx"
+
 @keypress.enter="xxx"
+
 :money.sync="total"
 ```
