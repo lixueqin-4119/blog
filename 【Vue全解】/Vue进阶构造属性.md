@@ -29,6 +29,7 @@ Vue.directive('x',{ //单个directive
 //让HelloWorld也响应:进入HelloWorld.vue组件添加`<h1 v-x>`,再次点击<h1>控制台就会输出x。
 </template>
 ```
+
 **你可以在任何组件里用`v-x`了。**
 inserted你把**el**放哪个元素上，el就是哪个元素，比如放`<img>`上，el就是`<img>`
 
