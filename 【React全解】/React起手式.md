@@ -79,7 +79,6 @@ yarn start //启动服务
 ```
 **测试是否引用成功**`console.log(React)`
 
-![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d8f14b044e924b159a3e42d4647a1e0a~tplv-k3u1fbpfcp-zoom-1.image)
 
 
 **补充**
