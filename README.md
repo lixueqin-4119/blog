@@ -12,5 +12,5 @@
 * [【算法与数据结构】](https://github.com/lixueqin-4119/blog/tree/master/%E3%80%90%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91)
 * [【Vue全解】](https://github.com/lixueqin-4119/blog/tree/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91)
 * [【React全解】]()
-* 【其它】
+* 【其它文章】
 [1.云服务器](https://github.com/lixueqin-4119/blog/blob/master/%E4%BA%91%20%E6%9C%8D%20%E5%8A%A1%20%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
