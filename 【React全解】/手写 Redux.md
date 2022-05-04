@@ -1,7 +1,3 @@
----
-theme: juejin
----
-
 > 从零开始手写redux
 
 ### 全局state的读写
