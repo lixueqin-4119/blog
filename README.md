@@ -121,27 +121,27 @@
 
 * [数据结构](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
 
-<h3>【Vue全解】</h3>
+<h3>【Vue2 全解】</h3>
 
-* [Vue起手式](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E8%B5%B7%E6%89%8B%E5%BC%8F.md) 
+* [起手式](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E8%B5%B7%E6%89%8B%E5%BC%8F.md) 
 
-* [Vue构造选项](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9.md)
+* [构造选项](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9.md)
 
-* [Vue数据响应式](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F.md)
+* [数据响应式](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F.md)
 
-* [Vue中的 computed 和 watch](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E4%B8%AD%E7%9A%84%20computed%20%E5%92%8C%20watch.md)
+* [computed 和 watch](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E4%B8%AD%E7%9A%84%20computed%20%E5%92%8C%20watch.md)
 
-* [Vue 模板、指令与修饰符](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%20%E6%A8%A1%E6%9D%BF%E3%80%81%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6.md) 
+* [模板、指令与修饰符](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%20%E6%A8%A1%E6%9D%BF%E3%80%81%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6.md) 
 
-* [Vue进阶构造属性](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E8%BF%9B%E9%98%B6%E6%9E%84%E9%80%A0%E5%B1%9E%E6%80%A7.md)
+* [进阶构造属性](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E8%BF%9B%E9%98%B6%E6%9E%84%E9%80%A0%E5%B1%9E%E6%80%A7.md)
 
-* [Vue表单与v-model](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model.md)
+* [表单与v-model](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%E8%A1%A8%E5%8D%95%E4%B8%8Ev-model.md)
 
-* [Vue Router 前端路由实现的思路](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%20Router%20%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%80%9D%E8%B7%AF.md)
+* [Vue Router -前端路由实现的思路](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/Vue%20Router%20%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%80%9D%E8%B7%AF.md)
 
 * [深入理解Vue动画原理](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Vue%E5%85%A8%E8%A7%A3%E3%80%91/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Vue%E5%8A%A8%E7%94%BB%E5%8E%9F%E7%90%86.md) 
 
-<h3>【React全解】</h3>
+<h3>【React 全解】</h3>
 
 * [React起手式](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90React%E5%85%A8%E8%A7%A3%E3%80%91/React%E8%B5%B7%E6%89%8B%E5%BC%8F.md)
 
