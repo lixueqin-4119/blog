@@ -31,7 +31,7 @@
 
 * [Git远程仓库GitHub](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Git%E5%85%A5%E9%97%A8%E3%80%91/%E7%90%86%E8%AE%BA/Git%E5%85%A5%E9%97%A8-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93GitHub.md)
 
-* [搭建个人博客]()
+* 搭建个人博客
 
 <h3>【HTML全解】</h3>
 
