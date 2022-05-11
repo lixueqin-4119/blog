@@ -31,7 +31,7 @@
 
 * [Git远程仓库GitHub](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90Git%E5%85%A5%E9%97%A8%E3%80%91/%E7%90%86%E8%AE%BA/Git%E5%85%A5%E9%97%A8-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93GitHub.md)
 
-* [搭建个人博客]
+* [搭建个人博客](https://lixueqin-4119.xyz/docs/example-doc/git%E5%85%A5%E9%97%A8/%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/)
 
 <h3>【HTML全解】</h3>
 
@@ -123,9 +123,9 @@
 
 * [数据结构](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
 
-* [排序算法(上)]
+* [排序算法(上)](https://lixueqin-4119.xyz/docs/example-doc/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%8A/)
 
-* [排序算法(下)]
+* [排序算法(下)](https://lixueqin-4119.xyz/docs/example-doc/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E4%B8%8B/)
 
 <h3>【Vue2 全解】</h3>
 
@@ -163,9 +163,9 @@
 
 * [手写 Redux](https://github.com/lixueqin-4119/blog/blob/master/%E3%80%90React%E5%85%A8%E8%A7%A3%E3%80%91/%E6%89%8B%E5%86%99%20Redux.md)
 
-* 手写 Redux(2)
+* [手写 Redux(2)](https://lixueqin-4119.xyz/docs/example-doc/react-%E5%85%A8%E8%A7%A3/%E6%89%8B%E5%86%99redux2/)
 
-* 手写 Redux(3)
+* [手写 Redux(3)](https://lixueqin-4119.xyz/docs/example-doc/react-%E5%85%A8%E8%A7%A3/%E6%89%8B%E5%86%99redux3/)
 
 <h3>【其它文章】</h3>
 
