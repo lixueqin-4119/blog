@@ -1,6 +1,6 @@
 ## **一.命令缩写**
 
-程序员把动词缩写，就变成了命令
+动词缩写，就变成了命令
 
 ![image](https://upload-images.jianshu.io/upload_images/21487050-8980442a6672bb54.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
