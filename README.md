@@ -167,6 +167,6 @@
 
 * [手写 Redux(3)](https://lixueqin-4119.xyz/docs/example-doc/react-%E5%85%A8%E8%A7%A3/%E6%89%8B%E5%86%99redux3/)
 
-<h3>【其它文章】</h3>
+<h3>【其它】</h3>
 
 * [云服务器](https://github.com/lixueqin-4119/blog/blob/master/%E4%BA%91%20%E6%9C%8D%20%E5%8A%A1%20%E5%99%A8/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
