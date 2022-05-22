@@ -2,7 +2,7 @@
 
 > 前言
 > 
-> 1.这节课教的JS版本是[ES 6](https://www.w3school.com.cn/js/js_versions.asp)
+> 1.JS版本[ES 6](https://www.w3school.com.cn/js/js_versions.asp)
 > 
 > 2.对ES 6的评价
 > 
@@ -22,13 +22,11 @@
 > 
 > 纸上标准往往落后于浏览器，先实现，再写进标准。
 > 
-> 4.chrome控制台换行不执行命令快捷键:shift+enter
+> 4.推荐书籍
 > 
-> 5.推荐书籍 阮一峰的免费教程
+> 入门[《网道 JavaScript 教程》](https://wangdoc.com/javascript/)
 > 
-> 适合入门[《网道 JavaScript 教程》](https://wangdoc.com/javascript/)
-> 
-> 适合进阶[《你不知道的 JavaScript（上卷）》](https://book.douban.com/subject/26351021/)
+> 进阶[《你不知道的 JavaScript（上卷）》](https://book.douban.com/subject/26351021/)
 
 
 ## 表达式、语句、标识符
@@ -51,6 +49,7 @@
   (4)**面试题**
 
     console.log(3)表达式的值为？undefined
+    
 ![](https://pic1.zhimg.com/v2-de10a1685cfea935e284534961265cd4_b.jpg)
     
  解析:跟add(1,2)一样都是“函数+()”，函数调用的值为函数的返回值。
@@ -62,10 +61,10 @@
   var a=1是一个语句
 
   语句没有值，表达式才有值。语句主要是用来改变环境的。
-  ```
-  例子:  var a=1
-    输出结果:undefined
-  ```
+```
+var a=1
+输出结果:undefined
+```
 二者的区别
 
 (1)表达式一般都有值，语句可能有也可能没有
@@ -78,7 +77,7 @@
 
 1.关于表达式
 
-  重要:一定要搞清什么是值，什么是返回值，什么是打印出来的东西！
+ 搞清什么是值，什么是返回值，什么是打印出来的东西
 
 ### 二.大小写敏感
 
@@ -191,7 +190,7 @@ if(a=1){
 
 输出结果：a是1
 ```
-2.语句1里可以非常变态，如嵌套的if else
+2.语句1里可以非常变态，如嵌套的if...else
 
 例子
 ```
@@ -226,11 +225,11 @@ js没有行的概念，只会执行第1个语句.就算2个写在一行，也只
 5.正确写法
 ```
 if(表达式){
-语句
+  语句
 }else if(表达式){
-语句
+  语句
 }else{
-语句
+  语句
 }
 ```
 
@@ -289,7 +288,7 @@ switch(a){
 这也是js语言设计不好之处。
 
 ## 问号冒号表达式(又叫三元表达式)
-> 最简单的if...else...的写法
+> 最简单的if...else写法
 
 表达式1 ？表达式2 : 表达式3
  
@@ -301,18 +300,19 @@ switch(a){
  }
  
  function max(a,b){
-    return a>b ? a : b
+   return a>b ? a : b
  }
  
  function abs(n){//求一个数的绝对值
-  return n>0 ? n : -n
+   return n>0 ? n : -n
  }
 ```
+
 ## &&短路逻辑
 
 > 代替if...else...
 
-前端有个特点，能不用if...else...就不用
+前端有个特点，能不用if...else就不用
 
 A && B && C && D取第1个假值或D(读法andand)
 并不会取true/false
@@ -324,21 +324,21 @@ A && B && C && D取第1个假值或D(读法andand)
 if(window.f1){
   console.log("f1存在")
 }
-
 等价于
-
 window.f1 && console.log("f1存在")
 ```
 
 如果前面为真后面就执行,如果前面为假，后面就不执行.
 
-最常见写法
+常见写法
 ```
 console && console.log && console.log('hi')
 ```
+
 ## ||短路逻辑
 A || B || C || D取第1个真值或D(读法或或)
 并不会取true/false
+
 ```
 if(!a){ //如果不是a就是b
   b
@@ -368,7 +368,7 @@ if(a){
 
 1.if...else...
 
-  最常用，但是很多时候都不用它，尤其是代码简短的时候
+ 常用，但是很多时候都不用它，尤其是代码简短的时候
 
 2.switch
 
@@ -376,21 +376,21 @@ if(a){
 
 3.A ? B : C
 
-  最常用
+  常用
 
 4.A && B
 
-  最常用 
+  常用 
 
   fn && fn()如果fn存在就调用,不存在就不调用
 
 5.A || B
 
-  最常用
+  常用
 
   A = A || B  //A存在就取A，不存在就取B。B是保底值
   
-## while循环 当...时 (用的较少，但要了解)
+## while循环 当...时 
 1.语法
 
 while(表达式){语句}
@@ -510,6 +510,7 @@ setTimeout(()=>{console.log(i)},0)
 
 执行结果:5
 ```
+
 ## break 和 continue
 
 退出所有循环 VS 退出当前一次循环
@@ -565,8 +566,9 @@ for(var i=0;i<10;i++){
          7
          8
          9      
-```            
-## label语句(用的很少，面试5%会考)
+```      
+
+## label语句(面试5%)
 1.语法
 ```
 foo: {
@@ -576,6 +578,7 @@ foo: {
 }
 console.log(2);
 ```
+
 2.面试
 例1
 ```
