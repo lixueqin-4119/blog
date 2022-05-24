@@ -29,21 +29,10 @@ git config --global core.autocrlf input
 
 ## 二.git init & git add & git commit
 
-> 其它：
-> 
-> 1.**git解决了什么问题,为什么要git？**
+> **git解决了什么问题,为什么要git？**
 > 
 > 版本控制,git可以让你的代码有版本可以随时退到某个版本。
-> 
-> 2.用vscode打开当前目录 
-> 
-> *code .*
-> 
-> 3\. 打印当前目录，不包括.开头的
-> 
-> *ls*
-> 
-> 4\. 查看当前目录结构包含.git *ls -a*
+
 
 1.  `git init` //初始化，创建.git目录放置代码快照(版本)
 2.  快照实现存储版本怎么做？
