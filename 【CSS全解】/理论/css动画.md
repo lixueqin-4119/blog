@@ -83,7 +83,7 @@ Compose合成(根据层叠关系展示画面)
 
 第一种，全走
 
-div.remove()会触发当前消失，其它元素relayout
+div.remove()会触发当前消失，元素relayout
 
 第二种，跳过layout
 
@@ -187,7 +187,7 @@ translate3d(x,y,z)
 
 可用于场景:loading加载中...
 
-不支持IE 其它都支持
+不支持IE 都支持
 
 2.要学会看懂MDN的语法示例
 
@@ -264,20 +264,6 @@ transform:none;取消所有
 ```
 
 ### transition过渡
-
-> 其它
-> 
-> 1.#demo.end 注意不能有空格，表示demo拥有end的时候(#demo .end表示demo后代里面的end)
-> 
-> 意思是用css给demo增加一个class="end"
-> 
-> 注意要配合js
-> 
-> button.onclick=()=>{
-> 
-> demo.classList.add('start')
-> 
-> }
 
 **作用**
 
