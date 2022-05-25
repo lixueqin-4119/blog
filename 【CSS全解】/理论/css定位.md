@@ -63,7 +63,7 @@ z-index:-1/-2
 
 z-index与relative配合可以让后出来的div被覆盖
 
-只要比其他的元素多一个数，就会压制其它的元素。这就是相对定位互相压制的办法
+只要比其他的元素多一个数，就会压制的元素。这就是相对定位互相压制的办法
 
 默认每个元素的z-index是auto，auto计算出来值是0。但是不能写0，auto是auto 0是0。
 
@@ -71,19 +71,6 @@ z-index与relative配合可以让后出来的div被覆盖
 
 
 ## position:absolute;
-**其它**
-
-1.文字内容不许换行 white-space: nowrap;(经常用!)
-
-2.transform: translateX(-50%);
-
-3.calc() bottom: calc(100% + 10px);计算下100%+10px
-
-transform: scale(0.9);
-
-4.left:30%;
-
-5.absolute是相对于祖先元素中最近的一个定位元素 定位的，只要不是static就是定位元素。
 
 **1.使用场景**
 
@@ -128,18 +115,7 @@ top/left/buttom/right四个位置至少写两个，不然有得浏览器会乱�
 2’left:50%;transform:translateX(-50%);
 
 
-## position:fixed; (手机不要用这个属性)
-**其它**
-
-1.position:fixed;是相对于视口定位的
-
-2.transform会打破这个规则
-
-不要把fixed元素放到有transform属性的元素里面(不正交)
-
-transform: scale(0.9);
-![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-6eb75aaa6154da29?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+## position:fixed;
 
 **1.使用场景**
 
