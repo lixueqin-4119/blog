@@ -131,37 +131,6 @@ PSD
 
 ![image](https://upload-images.jianshu.io/upload_images/21487050-9c044081abd8af72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-其它
-
-1.inline内联元素，block块级元素
-
-2.常见的display为inline的内联元素有span，display为block的块级元素有div。
-
-3.忠告：不要在display为inline的元素里加上display为block的元素！可以在div里加span。
-
-**4.忠告：永远不要写 width:100%; 容易有bug**
-
-5.H5纠正：
-
-**元素不分内联和块级。所有元素都可以通过css变成内联元素或者块级元素。**
-
-如何确定呢？
-
-**取决于你自己给的样式。**
-
-**display:inline/block/inline-block;**
-
-```
-.ib{
-  border:1px solid red;
-  display:inline;
-}
-```
-
-6.脱离文档流 position:absolute;
-
-7.文档流 3 种 inline , block 和 inline-block
-
 
 ## **文档流Normal Flow**
 
