@@ -56,12 +56,6 @@ Grid布局功能最强大，尤其适合“**不规则布局**”。
 
 ## float布局
 
-> 其它
-> 
-> 1.调试 outline:1px solid red;
-> 
-> 2.取消默认样式 *{margin:0; padding:0; box-sizing:border-box;}
-
 **float布局两步走**
 
 第1步 在子元素上加float:left 和 width
@@ -172,30 +166,6 @@ margin-top:8px;
 三.内容区 三栏布局
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-ce78fb9a76d310ce?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-> 其它
-> 
-> 1.header{} 
-> 
-> ul,ol{} 
-> 
-> ul > li{} 
-> 
-> .content > main{} 
-> 
-> .content > .ad{}
-> 
-> 2.布局时第2个调试的方法outline:1px solid red; 
-> 
-> border会干扰你的宽度，占2像素。把border改为outline。
-> 
-> 3.如果是块级元素并且宽度固定，要想居中 
-> 
-> margin-left:auto; 
-> 
-> margin-right:auto; 
-> 
-> 不要用margin:0 auto;
-
 四.产品展示区 平均布局
 
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-146ef9932e7be72e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -225,33 +195,6 @@ x=191 y=12
 ## Flex布局
 容器container & 子元素items
 
-其它
-
-1.教程(来自CSS Tricks)
-
-2.不需要兼容IE(不需要PC网页)，只做手机H5页面,要兼容旧手机浏览器。必要时采用负margin(常用技巧)
-
-3.不固定高度要居中(logo和nav高度不固定)，用flex布局可以完美解决，float无法解决
-
-4.[Flex青蛙游戏](https://flexboxfroggy.com/#zh-cn)
-
-5.选择器
-
-
-(1)不能有多余的空格.item:first-child{}
-
-错误代码.item : first-child{}
-
-(2)选择
-
-第1个child,first-child,第n个child,nth-child(n),最后一个child,last-child
-
-```
-代码
-.item:first-child {}
-.item:nth-child(n) {}
-.item:last-child {}
-```
 **一.flex container的属性和样式**
 **1.让一个元素变成flex容器**
 
@@ -462,26 +405,6 @@ margin-right:auto;
 > Grid布局功能最强大，尤其适合“不规则布局”。
 
 一维布局用Flex(必须选择横着/竖着排列),二维布局用Grid(不需要选择两个方向都支持)
-
-其它
-
-1.a,.b,.d,.e {outline: 1px solid black;}
-
-中间可以加空格
-
-.container > * { outline: 1px solid red;}
-
-container里的所有元素
-
-2.如何在两套布局中切换？(PC用float布局,手机用flex布局)
-
-一个css文件写两种布局,然后用@media媒体查询做判断切换。
-
-3.min-height: 100vh;最小高度占满屏幕的100%
-
-4.rows行 次轴 垂直方向,columns 列 主轴 水平方向
-
-5.[ Grid小游戏](https://cssgridgarden.com/)
 
 **一.Grid跟flex差不多，也分container和items**
 
