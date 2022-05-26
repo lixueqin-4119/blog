@@ -5,29 +5,6 @@
 > 
 > 2021年12月24日js其实没有真正的数组，只是用对象模拟数组。
 
-其它
-
-1.第1层__proto__是共有属性，第2层是构造该Object的prorotype
-
-2.let divList=document.querySelectorAll('div') 获取所有div
-
-3.一个对象提供的函数就叫做API
-
-4.${} 意思是可以插入一个变量
-
-**5.for循环里的i是字符串下标的值**
-
-**6.数组中reduce和splice功能特别强大,最重要**
-
-7.n % 2 === 1? sum += n : false
-
-8.x%2只有2个值0或1,0偶数1奇数
-
-9.[js中各种类型的toString方法](https://blog.csdn.net/caosiyuan1991/article/details/115313960)
-
-js中定义了7种数据类型，在这7种数据类型中，除了undefined和null类型之外，都有toString方法。
-
-
 ### JS的数组不是典型数组
 
 **典型的数组**
