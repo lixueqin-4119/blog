@@ -1,39 +1,9 @@
 # js对象分类
 
-其它
-
-1.推荐文章
-
-  [你可以不会class，但是一定要学会prototype](https://zhuanlan.zhihu.com/p/35279244)
-
-  [JS的new到底是干什么的？](https://zhuanlan.zhihu.com/p/23987456)
-
+推荐文章\
+  [你可以不会class，但是一定要学会prototype](https://zhuanlan.zhihu.com/p/35279244)\
+  [JS的new到底是干什么的？](https://zhuanlan.zhihu.com/p/23987456)\
   [JS中proto和prototype存在的意义是什么？](https://www.zhihu.com/question/56770432/answer/315342130)
-
-  [ES6 所有新特性](https://fangyinghang.com/es-6-tutorials/)
-
-2.构造函数就是可以构造出对象的函数
-
-3.封装:把细节写到一个函数里，别人只需要调用函数并且传个参数(宽度)
-
-4.函数也是对象
-
-5.js之父为了让new可以运行提前规定:
-
-  所有js里的函数自带prototype属性。
-
-  prototype属性自带constructor。
-
-  constructor的值等于函数本身。
-
-6.共有属性与原型的关系：包含与被包含。
-
-  共有属性这整个对象叫做原型。
-
-  对象的地址就是原型的地址，里面的每一个属性叫共有属性。
-
-![](https://pic2.zhimg.com/v2-1ac81d4d79a15302e1a90276f92431cd_b.jpg)
-
 
 # 对象需要分类吗？
 
