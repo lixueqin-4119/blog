@@ -1,10 +1,4 @@
 > 手写 DOM 库(2)，上一次我们用对象风格封装DOM操作(原生js)，这次用jQuery风格重新封装。
-
-**其它**
-
-1.window.jQuery=function(){}
-
-  jQuery是全局变量可以直接使用jQuery()
   
 **jQuery核心思想** 
 
@@ -15,59 +9,6 @@
 return 一个对象。
 
 这个对象有些方法可以操作这个元素。
-
-2.旧语法key:value   //"addClass":function(参数){} 
-
-  ES6新语法       //addClass(参数) {}
-  
-3.声明一个对象api，再return这个对象。
-
-  其实可以直接return这个对象！
-  
-4.**当变量声明后只使用一次时，可省略不用声明。**
-
-5.array3 = array1.concat(array2); //concat里是伪数组
-
-  相当于array3 = array1 + array2
-  
-  concat方法创建一个新的数组，它由被调用的对象中的元素组成。
-  
-  将伪数组变成数组 Array.from()
-  
-6.[伪数组](https://zhuanlan.zhihu.com/p/454629738)
-
-7.const不能重复赋值，而且在声明时必须赋值
-
-  可以用let
-  
-8.if (typeof selectorOrArray === 'string') { 
-
-  ... 
-  
-  } else if (selectorOrArray instanceof Array) { //x instanceof object
-   
-   ...  
-   }
-  
- **对象用instanceof**
- 
-9.语法 arr.indexOf(searchElement[, fromIndex]) //fromIndex可选，示例略
-
-  indexOf()方法返回在数组中可以找到一个给定元素的第一个索引。
-  
-`>=0`表示存在，`===-1`表示不存在。
-
-```
-const beasts = ['ant', 'bison', 'camel', 'bison'];
-console.log(beasts.indexOf('bison'));   // 1
-console.log(beasts.indexOf('giraffe')); // -1
-```
-10.**...展开操作符,可以把一个数组展开**
-```
-...node.children 
-等同于
-node.children[0],node.children[1],node.children[2]
-```
 
 # 第二种.用jQuery风格重新封装
 [完整代码](https://sourcegraph.com/github.com/FrankFang/dom-2@master/-/blob/src/jquery.js?L94)
