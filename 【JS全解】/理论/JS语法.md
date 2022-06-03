@@ -16,13 +16,7 @@
 > 
 >  优点兼容，稳定。升级的时候以前的代码不需要重写。
 > 
-> 3.JS与ECMAScript(缩写ES)的关系
-> 
-> ECMAScript是纸上的标准，JS是浏览器的实现。
-> 
-> 纸上标准往往落后于浏览器，先实现，再写进标准。
-> 
-> 4.推荐书籍
+> 3.推荐书籍
 > 
 > 入门[《网道 JavaScript 教程》](https://wangdoc.com/javascript/)
 > 
