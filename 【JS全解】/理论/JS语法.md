@@ -1,26 +1,26 @@
 ## JS语法
 
 > 前言
-> 
-> 1.JS版本[ES 6](https://www.w3school.com.cn/js/js_versions.asp)
-> 
-> 2.对ES 6的评价
-> 
->  为啥说ES 6一半垃圾一半好？
-> 
->  JS的原创之处并不优秀，JS的优秀之处并非原创。
-> 
->  因为 ES 不能删除以前的特性，要兼容网站。
-> 
->  也就是说以前能运行的网站，以后都要能运行。
-> 
->  优点兼容，稳定。升级的时候以前的代码不需要重写。
-> 
-> 3.推荐书籍
-> 
-> 入门[《网道 JavaScript 教程》](https://wangdoc.com/javascript/)
-> 
-> 进阶[《你不知道的 JavaScript（上卷）》](https://book.douban.com/subject/26351021/)
+
+1.JS版本[ES 6](https://www.w3school.com.cn/js/js_versions.asp)
+
+2.对ES 6的评价
+
+为啥说ES 6一半垃圾一半好？
+
+JS的原创之处并不优秀，JS的优秀之处并非原创。
+
+因为 ES 不能删除以前的特性，要兼容网站。
+
+也就是说以前能运行的网站，以后都要能运行。
+
+优点兼容，稳定。升级的时候以前的代码不需要重写。
+
+3.推荐书籍
+
+入门[《网道 JavaScript 教程》](https://wangdoc.com/javascript/)
+
+进阶[《你不知道的 JavaScript（上卷）》](https://book.douban.com/subject/26351021/)
 
 
 ## 表达式、语句、标识符
