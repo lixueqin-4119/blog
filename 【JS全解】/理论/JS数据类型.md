@@ -2,6 +2,8 @@
 
 推荐阅读[《我用了两个月的时间才理解 let》](https://zhuanlan.zhihu.com/p/28140450)
 
+[JS秘密花园](https://bonsaiden.github.io/JavaScript-Garden/zh/)收录了JS的各种bug
+
 ## **数据为什么需要类型？**
 
 数字与字符串
@@ -131,14 +133,12 @@ UTF-8就是通过"让前面那个人告诉计算机我有多少位"来把这个�
 [BigInt](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
 
 
-总结：4基2空1对象
-
-前6种类型都是简单类型，只有object叫做复杂类型
+总结：4基2空1对象,前6种类型都是简单类型，只有object叫做复杂类型。
 
 
 **以下不是数据类型**
 
-数组,函数，日期
+数组,函数,日期
 
 它们都属于object
 
@@ -243,7 +243,7 @@ Number.MIN_VALUE:5e-324
 
 **用另一种写法表示你想要的东西(背下来)**
 
-```
+```js
 \' 表示'
 \" 表示"
 \n 表示换行
@@ -391,13 +391,11 @@ if(value){...}else{...}
 
 那怎么判断呢？
 
-## **5个falsy值(背下来)**
+## **5个falsy值**
 
 falsy就是相当于false但是又不是false的值
 
 **分别是undefined null 0 NaN ''(注意没空格)**
-
-**假：2个空2个数字1个字符串**
 
 2个空undefined null，2个数字0 NaN，1个字符串''。
 
@@ -419,11 +417,7 @@ falsy就是相当于false但是又不是false的值
 
 4基2空1对象
 
-**5个falsy值**
-
-undefined null 0 NaN ''
-
-2空2数字1字符串
+**5个falsy值**:2空2数字1字符串 undefined null 0 NaN ''
 
 ### **undefined和null两种空类型**
 
@@ -503,7 +497,7 @@ let a=2 //错误
 
 **面试题**
 
-```
+```js
  for(var i=0;i<5;i++){
    setTimeout(()=>console.log(i),0)
  }
@@ -513,7 +507,7 @@ let a=2 //错误
          5
          5
 ```
-```
+```js
  for(let i=0;i<5;i++){
    setTimeout(()=>console.log(i),0)
  }
@@ -534,9 +528,9 @@ const变量是只读变量，又叫做常量，不会变
 
 **只有一条不一样：声明时就要赋值，赋值后不能改**
 
-```
+```js
 const i=1
-i=2 //错误，不能修改
+i=2   //错误，不能修改
 ```
 变量声明时，既指定了值又指定了**类型！(重要)**
 
@@ -544,13 +538,13 @@ i=2 //错误，不能修改
 
 **name是变量**
 
-值可变，可能是'name',也可能是'hello'
+值可变，可能是`'name'`,也可能是`'hello'`
 
 **'name'是字符串常量**
 
 常量就是不变量
 
-'name'只能是'name'，不能是其他值
+`'name'`只能是`'name'`，不能是其他值
 
 ## **类型转换**
 
@@ -562,7 +556,7 @@ i=2 //错误，不能修改
 
 例子
 
-```
+```js
 1' var n=1
    String(n)
    输出结果："1"
@@ -591,8 +585,7 @@ js有个bug:String(100000000)
 3' parseInt(s)/parseFloat(s)
 
 例子
-
-```
+```js
 1' var s='123'
    Number(s)
    输出结果：123
@@ -621,11 +614,3 @@ js有个bug:String(100000000)
 ```
 改为(1).toString()或者1..toString()
 ```
-
-[JS秘密花园](https://bonsaiden.github.io/JavaScript-Garden/zh/)**收录了JS的各种bug**
-
-JS新增了一种类型[bigint](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
-因为太新了用得很少,面试基本不考。
-
-
-
