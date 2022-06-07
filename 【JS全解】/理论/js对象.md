@@ -1,5 +1,5 @@
 # JS 对象
-> 本节课主要讲解js的第7种数据类型，唯一一种复杂类型:对象object
+本节课主要讲解js的第7种数据类型，唯一一种复杂类型:对象object
 
 读对象的属性时：
 
@@ -22,7 +22,7 @@
 键值对的集合
 
 2.写法
-```
+```js
 1’ let obj={'name':'frank','age':18}  //推荐写法
 2’ let obj=new Object({'name':'frank'})
 3’ console.log('name':'frank','age':18)
@@ -44,7 +44,7 @@
 
 1.所有属性名会自动变成字符串
 
-```
+```js
 let obj={
   1:'a',
   3.2:'b',
@@ -62,12 +62,11 @@ Object.keys(obj)
 **如何用变量做属性名**
 
 之前都是用常量做属性名
-
+```js
 let p1='name'
-
-let obj={p1:'frank'}这样写属性名为'p1'
-
-**let obj={[p1]:'frank'}这样写属性名为'name'**
+let obj={p1:'frank'}   属性名为'p1'
+let obj={[p1]:'frank'} 属性名为'name'
+```
 
 **对比**
 
@@ -78,8 +77,7 @@ let obj={p1:'frank'}这样写属性名为'p1'
 值如果不是字符串，则会自动变成字符串
 
 例子
-
-```
+```js
 let a='xxx'
 var obj={
   a:1111
@@ -109,7 +107,7 @@ JS中每一个对象都有一个隐藏属性
 
 **代码示例**
 
-```
+```js
 var obj={}
 obj.toString() //居然不报错
 ```
@@ -127,11 +125,11 @@ var obj={'10':'十'}
 超纲知识
 
 除了字符串，symbol也能做属性名
-
+```js
 let a=Symbol()
 
 let obj={[a]:'hello'}
-
+```
 这有什么用呢？
 
 目前没用，在学习「迭代」时会用到
@@ -147,16 +145,16 @@ let obj={[a]:'hello'}
 请区分「属性值为undefined」和「不含属性名」
 
 2.不含属性名
-
+```js
  'xxx' in obj===false
-
+```
  含有属性名
-
+```js
  'xxx' in obj && obj.xxx===undefined
-
+```
  注意:obj.xxx === undefined 不能断定'xxx'是否为obj的属性
 
-```
+```js
 var obj={}
 var obj2={x:undefined} 
 
@@ -174,7 +172,7 @@ var obj2={x:undefined}
  只能判断属性值，不能判断属性名，要判断属性名只能用in
 
 例子
-```
+```js
 1' var obj={name:'frank',age:18}
   obj.name=undefined //这种也可以删除但不推荐！
   控制台输入:obj
@@ -194,7 +192,7 @@ var obj2={x:undefined}
 
 Object.keys(obj)
 
-```
+```js
 var obj={name:'frank',age:18}
 Object.keys(obj)   //查看key
 输出结果：['name','age']
@@ -215,7 +213,7 @@ console.dir(obj)
 
 **(3)判断一个属性是自身还是共有的**
 
-```
+```js
 obj.hasOwnProperty('toString')
 
 输出结果：false
@@ -241,16 +239,16 @@ obj.hasOwnProperty('toString')
 
   这里的name是字符串，而不是**变量**
 
-```
+```js
 let name='frank'
-  obj[name]等价于obj['frank']
+obj[name]等价于obj['frank']
 ```
 
 **考题**
 
 分清变量name和常量字符串'name'
 
-```
+```js
 let list=['name','age','gender']
 letperson={
  name:'frank',age:18,gender:'man'
@@ -283,7 +281,7 @@ obj={}的原型即为所有对象的原型
 这个原型包含所有对象的共有属性，是对象的根
 
 这个原型也有原型，是null
-```
+```js
 控制台输入：console.log(obj.__proto__.__proto__)
   输出结果：null
 ```
@@ -294,7 +292,7 @@ null就说明被人为指定为null的，是根
 ### 增加或修改属性(写属性)
 
 **直接赋值**
-```
+```js
 let obj={name:'frank'} //name是字符串
 obj.name='frank'       //name是字符串
 obj['name']='frank'
@@ -310,7 +308,7 @@ Object.assign(obj,{age:18,gender:'name',...})
 **修改或增加共有属性**
 
 **1.无法通过自身修改或增加共有属性**
-```
+```js
 let obj={},obj2={}.  //共有toString
 obj.toString='xxx' 只会改obj自身属性
 obj2.toString 还是在原型上
@@ -318,25 +316,25 @@ obj2.toString 还是在原型上
 2.我偏要修改或增加原型上的属性
 
 一般来说不要修改原型，会引起很多问题
-
+```
 obj.__proto__.toString='xxx'  //不推荐
 
 window.Object.prototype.toString='yyy'
-
+```
 3.修改隐藏属性(修改原型)
 
 不推荐使用__proto__ 代码:obj.__proto__=common
 
 **推荐使用Object.create**
 
-```
+```js
 let obj=Object.create(common)
 obj.name='frank'
 let obj2=Object.create(common)
 obj.name='jack'
 ```
 规范大概的意思是，要改就一开始改，别后来再改，影响性能。
-```
+```js
 var common={'国籍':'中国'，hairColor:'black'}
 var person=Object.create(common,{name:{value:'frank'}})
 cosole.log(person)
@@ -349,20 +347,20 @@ cosole.log(person)
 基本同上：有则改，没有属性则增
 
 **删**
-```
+```js
 delete obj['name']
 'name' in obj //false
 obj.hasOwnProperty('name') //false
 ```
 **改**
-```
+```js
 改自身obj['name']='jack'
 批量改自身Object.assign(obj,{age:18,...})
 改共有属性Object.prototype['toString']='xxx'
 改原型let obj=Object.create(common)
 ```
 **查**
-```
+```js
 Object.keys(obj)
 console.dir(obj)
 obj['name']
