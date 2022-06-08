@@ -7,11 +7,10 @@
 
 # 对象需要分类吗？
 
-> 需求：输出各种形状的面积和周长
+需求：输出各种形状的面积和周长
 
-```
-正方形
 分析 正方形有三个属性:边长、面积、周长
+```js
 let square={
   width:5,
   getArea(){
@@ -24,8 +23,7 @@ let square={
 ```
 
 来一打正方形
-
-```
+```js
 let squareList=[]
 for(let i=0;i<12;i++){
   squareList[1]={
@@ -41,7 +39,7 @@ for(let i=0;i<12;i++){
 ```
 width不全是5怎么办？
 
-```
+```js
 let squareList=[]
 let widthList=[5,6,7,8,5,6,7,5,5,4,5,6]
 for(let i=0;i<12;i++){
@@ -62,7 +60,7 @@ for(let i=0;i<12;i++){
 ![](https://pic4.zhimg.com/v2-30330aa89afdd80f23ec2fd808845c8b_b.jpg)
 借助原型，将12个对象的共用属性放到原型里
 
-```
+```js
 let squareList=[]
 let widthList=[5,6,7,8,9,5,6,7,8,9,5,6]
 let squarePrototype={
@@ -88,7 +86,7 @@ for(let i=0;i<12;i++){
 
 抽离到函数
 
-```
+```js
 let squareList=[]
 let widthList=[5,6,7,8,9,5,6,7,8,9,5,6]
 function createSquare(width){//此函数叫构造函数,构造函数就是可以构造出对象的函数
@@ -113,7 +111,7 @@ squarePrototype原型和createSquare函数还是分散的,能不能组合在一�
 
 函数也是一个对象，如果把原型放到函数上是不是更紧凑？
 
-```
+```js
 let squareList = []
 let widthList = [5,6,5,6,5,6,5,6,5,6,5,6]
 
@@ -149,7 +147,7 @@ new操作符，让我们感受js之父的爱
 
 函数和原型结合(重写)
 
-```
+```js
 let squareList = []
 let widthList = [5,6,5,6,5,6,5,6,5,6,5,6]
 function Square(width){ 
@@ -223,7 +221,7 @@ X函数本身负责给对象本身添加属性
 X.prototype对象负责保存对象的共用属性
 
 例子
-```
+```js
 function Dog(name){
   this.name=name
   this.color='白'
@@ -250,13 +248,13 @@ this指还未创建出来的新对象dog1
 
 所有构造函数首字母大写
 
-```
+```js
 function add(x,y){return x+y}  //不是构造函数不用大写
 function Dog(name){this.name=name}
 ```
 所有被构造出来的对象，首字母小写
 
-```
+```js
 let dog1=new Dog()
 ```
 
@@ -264,15 +262,15 @@ let dog1=new Dog()
 
 (1)new 后面的函数，使用名词形式
 
-   如new Person()、new Object()
+   如`new Person()、new Object()`
 
 (2)其它函数，一般使用动词开头
 
    普通函数一般都用动词
 
-如createSquare(5)、createElement('div') 
+如`createSquare(5)、createElement('div') `
 
-function createSquare(width){...}
+`function createSquare(width){...}`
 
 其它规则以后再说
 
@@ -280,11 +278,11 @@ function createSquare(width){...}
 
 1.怎么确定要传几个参数？
 
-function Square(width){...}
+`function Square(width){...}`
 
 自己写的话清楚。但如果是别人提供的构造函数，我怎么知道要接受几个参数？
 
-```
+```js
 let arr1=new Array(3) 
 ```
 
@@ -300,7 +298,7 @@ new Array(arrayLength) //一个参数就是数组的长度
 如何确定一个对象的原型？
 
 1.为什么
-
+```js
 let obj=new Object()的原型是Object.prototype
 
 let arr=new Array()的原型是Array.prototype
@@ -308,7 +306,7 @@ let arr=new Array()的原型是Array.prototype
 let square=new Square()的原型是Square.prototype
 
 let fn=new Function()的原型是Function.prototype
-
+```
 2.因为new操作故意这么做的
 
 ![](https://pic2.zhimg.com/v2-331b8c7ace0df66851e8a52bedaa1185_b.jpg)
