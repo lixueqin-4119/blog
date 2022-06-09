@@ -3,7 +3,7 @@
 > 
 > 数组对象是一种特殊的对象，所以对象能做的事情，数组都能做。
 > 
-> 2021年12月24日js其实没有真正的数组，只是用对象模拟数组。
+> js其实没有真正的数组，只是用对象模拟数组。
 
 ### JS的数组不是典型数组
 
@@ -28,39 +28,35 @@
 这意味着数组可以有任何key
 
 比如
-
+```js
 let arr=[1,2,3]
-
 arr['xxx']=1 //'xxx'是字符串下标哦
-
+```
 ![](https://pic4.zhimg.com/v2-83b0a880654cbccc632b6f1b4d41ef2f_b.jpg)
 
 ![](https://pic4.zhimg.com/v2-aeca05111fab8f527e6d708fea7421d3_b.jpg)
 
 js的所有数组并不是数组，假的，它实际上还是个对象。
 
-注意：下标是字符串，没有数字
 
 # 创建一个数组
 
 **方式一：**
-
+```js
 let arr=[1,2,3]
 
 let arr=new Array(1,2,3) //参数只有1个就是长度，多个就是元素
 
 let arr=new Array[3] //长度为3
-
+```
 **方式二：通过字符串创建数组**
 
 转化
-
+```js
 let arr='1,2,3'.split(',')
-
 let arr='123'.split('')
-
 Array.from('123')
-
+```
 要满足条件才能够转化：有"0123下标"和"length属性"
 
 js会自动将数字.toString()成字符串
@@ -69,7 +65,7 @@ js会自动将数字.toString()成字符串
 
 1.如果下标与length不一致呢？
 
-```
+```js
 Array.from({0:'a',1:'b',2:'c',3:'d',length:2})
 输出结果：['a', 'b']
 ```
@@ -83,24 +79,23 @@ Array.from({0:'a',1:'b',2:'c',3:'d',length:2})
 因为它的原型直接指到了Object原型，少了一层原型链中的共有属性。没有数组共用属性的「数组」，那么它就是伪数组。
 
 例子
-
+```js
 let divList=document.querySelectorAll('div')
-
 divList.push(4)//失败，不能push,伪数组不能使用共有属性
-
+```
 ![](https://pic2.zhimg.com/v2-48b3ac576ae7f28a78c337baafc7dfad_b.jpg)
 
 **怎么解决？**
 
-Array.from可以构造数组
+**Array.from**可以构造数组
 
-```
+```js
 let divList=document.querySelectorAll('div')
 let divArray=Array.from(divList)
 console.dir(divArray)
 ```
 
-伪数组有什么用？
+**伪数组有什么用？**
 
 没啥用，遇到伪数组第一件事把它转化成数组就行了。
 
@@ -109,17 +104,17 @@ console.dir(divArray)
 不改变原来的数据
 
 合并得到一个"新的"数组 //变长
-
+```js
 arr1.concat(arr2)
-
+```
 截取一个数组的一部分 //变短
-
+```js
 arr1.slice(1) //从第2个元素开始切
 
 arr1.slice(0) //全部截取，**经常用来复制一个数组！**
-
-**注意，JS只提供浅拷贝!**
 ```
+**注意，JS只提供浅拷贝!**
+```js
 let arr=[1,2,3,4,5,6,7,8,9]
 arr.slice(3)
 输出结果:[4, 5, 6, 7, 8, 9]
@@ -139,30 +134,30 @@ let arr3=arr.slice(0) //复制一个数组,js不提供单独的复制方法
 ### 一.删元素
 
 **1.删除第1个的元素**
-
+```
 arr.shift() //arr被修改，并返回被删元素
-
+```
 ![](https://pic2.zhimg.com/v2-754970027551245c3a4d0fe894d8ef5d_b.jpg)
 
 **2.删除最后1个的元素**
-
+```
 arr.pop() //arr被修改，并返回被删元素
-
+```
 ![](https://pic2.zhimg.com/v2-8c2adaac5c30b82bb7c7766b94389291_b.jpg)
 
 **3.删除中间的元素**
 
 splice强大的数组API
-
+```
 arr.splice(index,1) //删除index的一个元素
 
 arr.splice(index,1,'x') //并在删除位置添加'x'
 
 arr.splice(index,1,'x','y') //并在删除位置添加'x',y'
-
+```
 例子
 
-```
+```js
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 arr.splice(1, 1, 'x', 'y')
 console.log(arr)
@@ -183,7 +178,7 @@ console.log(arr)
 下面2种也能删,但不推荐!
 
 (1)跟对象一样
-```
+```js
 let arr=['a','b','c']
 delete arr['0']
 arr 
@@ -192,7 +187,7 @@ arr
 这种没有下标只有长度的叫**稀疏数组**,稀疏数组没任何好处只有bug，奇葩记住就好。
 
 (2)直接改length
-```
+```js
 let arr=[1,2,3,4,5]
 arr.length=1
 arr
@@ -213,13 +208,13 @@ arr
 1.查看所有属性名
 
 访问对象
-
+```
 1' Object.keys(arr)
 
 2' for(let key in arr){console.log(`${key}:${arr[key]}`)}
-
-for in是访问对象的,不要用Object.key它会获取到你不想要的东西。
 ```
+for in是访问对象的,不要用Object.key它会获取到你不想要的东西。
+```js
 let arr=[1,2,3,4,5];
 arr.x='xxx'
 1' Object.keys(arr)  //遍历**属性名**
@@ -245,17 +240,17 @@ arr.x='xxx'
 访问数组
 
 **1' for循环**
-
+```js
 for(let i = 0; i < arr.length; i++){
 
   console.log(`${i}:${arr[i]}`)
 
  }
-
+```
  要自己让i从0增长到length-1
 
  例子
-```
+```js
 for(let i = 0; i < arr.length; i++){
   //console.log(i)
    console.log(`${i}:${arr[i]}`)
@@ -274,16 +269,14 @@ forEach回调访问数组。
 forEach原理就是遍历这个数组，然后每一次都调研这个函数。
 
 第一个参数item是当前的元素，第二个参数index是下标。名字无所谓，顺序对就行。
-
+```js
 arr.forEach(function(item,index){
-
   console.log(`${index}:${item}`)
-
 })
-
+```
 例子
 
-```
+```js
 arr.forEach(function(xxx){
   console.log(xxx)
 })
@@ -305,7 +298,7 @@ arr.forEach(function(xxx,yyy){ //回调
 帮助理解
 
 等价于下面的写法
-```
+```js
 第1个参数
 function forEach(array,fn){ //forEach接收数组(第1个参数item)和函数
   for(let i = 0; i < array.length; i++){
@@ -320,7 +313,7 @@ forEach(['a','b','c'],function(x){console.log(x)})
         c
 ```
 第2个参数  
-```      
+```js      
 function forEach(array,fn){ 
   for(let i = 0; i < array.length; i++){
     fn(array[i],i) 
@@ -333,7 +326,7 @@ forEach(['a','b','c'],function(x,y){console.log(x,y)})
         c 2      
 ```			        
 第3个参数,很少用到       
-```
+```js
 function forEach(array,fn){ 
   for(let i = 0; i < array.length; i++){
     fn(array[i],i,array) 
@@ -366,23 +359,23 @@ forEach原理就是遍历这个数组，然后每一次都调研这个函数。
 # 查看单个属性
 
 **1.跟对象一样**
-
+```
 let arr=[111,222,333]
 
 arr[0] //都会变成字符串，js没有数字下标一说
-
+```
 要注意越界的问题。不能让下标是负数，也不能让下标等于length！
 
 **2.索引越界(重要)**
 
 给的下标索引不存在就是越界
-
+```js
 arr[arr.length]===undefined
 
 arr[-1]===undefined
-
-例子
 ```
+例子
+```js
 let arr=[1,2,3,4,5]
 for(let i = 0; i <= arr.length; i++){
    console.log(arr[i].toString)
@@ -397,7 +390,7 @@ undefined不是个对象，所以没有toString。
 
 7种数据类型中，除了undefined和null类型之外，都有toString方法。
 
-```
+```js
 数组越界
 Uncaught TypeError: Cannot read properties of undefined (reading 'toString')
 ```
@@ -407,14 +400,14 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'toString')
 (1)arr.indexOf(item) //存在返回索引，否则返回-1
 
 例子
-```
+```js
 arr.indexOf(5)
 返回结果：4
 arr.indexOf(6)
 返回结果：-1
 ```
 (2)也可以使用for循环，for循环可以解决数组的任何问题。不推荐
-```
+```js
 let arr=[22,55,3,77,45,108]
 for(let i=0;i<arr.length;i++){
   if(arr[i]===3){
@@ -423,17 +416,15 @@ for(let i=0;i<arr.length;i++){
 }
 ```
 (3)使用条件查找元素
-
+```js
 arr.find(item => item%2===0) //找第1个偶数
 
 等同于
 
 arr.find(function(x){
-
   return x%2 === 0
-
 })
-
+```
 (4)使用条件查找元素的索引
 
 .find永远只会返回找到的第1个结果，.findIndex会返回找到的第1个结果的**下标**
@@ -453,33 +444,30 @@ arr.findIndex(item => item%2===0)
 ![](https://pic2.zhimg.com/v2-f3961545fda1418f4b4de7d905bb3c2d_b.jpg)
 
 **1.在尾部添加元素**
-
+```js
 arr.push(newItem) //修改arr,返回新长度
-
 arr.push(item1,item2,item3) //修改arr,返回新长度
-
-返回新长度
 ```
+返回新长度
+```js
 arr.push(102,103,104)
 ```
 **2.在头部添加元素**
-
+```js
 arr.unshift(newItem)//修改arr,返回新长度
-
 arr.unshift(item1,item2,item3)//修改arr,返回新长度
-
+```
 返回新长度
 
 **3.在中间添加元素**
 
 **0表示不删，除0外其它数表示删除**
-
+```js
 arr.splice(index,0,'x')    //在index处插入'x',index是字符串数组下标
-
 arr.splice(index,0,'x','y')
-
-例子
 ```
+例子
+```js
 arr.splice(3,0,'x','y')
 arr
 输出结果：[-1, -1, 0, 'x', 'y', 1, 2, 3,4，5]
@@ -488,7 +476,7 @@ arr.splice(3,2)
 输出结果：[-1, -1, 0, 1, 2, 3,4，5]
 ```
 还可以用做修改
-```
+```js
 arr.splice(0,1,-2) //修改，等同于arr[0]=-2
 arr[-2, -1, 0, 1, 2, 3,4，5]
 ```
@@ -504,7 +492,7 @@ arr.reverse() //修改原数组
 **如何反转一个"字符串"**
 
 字符串没有.reverse()
-```
+```js
 var s='abcde'
 s.split('').reverse().join('')
 ```
@@ -538,7 +526,7 @@ arr.sort(function(a,b){})
 function有3个返回值1、0、-1，1表示前面的大，0表示一样大，-1表示后面的大。
 
 例子
-```
+```js
 var arr=[2,6,3,1,5]
 arr.sort(function(a,b){
   if(a>b){
@@ -552,7 +540,7 @@ arr.sort(function(a,b){
 输出结果： [1, 2, 3, 5, 6]
 ```
  把接收的值1和-1对调，就是从大到小排了。
-```
+```js
 var arr=[2,6,3,1,5]
 arr.sort(function(a,b){
   if(a>b){
@@ -568,7 +556,7 @@ arr.sort(function(a,b){
 js默认小的在前面，大的在后面，但是到底谁小它不知道。
 
 例子
-```
+```js
 let arr=[
 {name:'小白',score:99},{name:'小丽',score:69},{name:'小李',score:88},
 ]
@@ -583,7 +571,7 @@ arr.sort(function(a,b){
         length: 3
 ```
 可以简写成
-```
+```js
 arr.sort((a,b)=> a.score-b.score) //从小到大
 arr.sort((a,b)=> b.score-a.score) //从大到小
 ```
@@ -596,11 +584,11 @@ arr.sort((a,b)=> b.score-a.score) //从大到小
 
 reduce功能非常强大,可以代替map和filter，尽量都使用reduce。
 
-1.map     //n变n
+1.map n变n
 
-2.filter  //n变少
+2.filter n变少
 
-**3.reduce  //n变1**
+**3.reduce n变1**
 
 reduce是把所有东西合成一个东西。
 
@@ -616,7 +604,7 @@ reduce是把所有东西合成一个东西。
 
 **例1 map n变n**
 
-```
+```js
 把数组每项变成平方
 let arr=[1,2,3,4,5]
 for(let i=0; i < arr.length;i++){
@@ -630,14 +618,14 @@ arr.map(item => item * item)
 //[1, 4, 9, 16, 25]
 ```
 例2 filter n变少 过滤操作 
-```
+```js
 求偶
 arr.filter(item => item%2 ===0 ? true :false)
 //简写 arr.filter(item => item%2 ===0)
 输出结果：[2, 4]
 ```
 例3 reduce n变1
-```
+```js
 求和
 let arr=[1,2,3,4,5]
 let sum=0
@@ -674,7 +662,7 @@ arr.reduce((result,item)=>{return result.concat(item*item)},[])
 
 reduce替代filter，求偶
 
-```
+```js
 let arr=[1,2,3,4,5]
 arr.reduce((result,item)=>{
   if(item%2===1){
@@ -731,7 +719,7 @@ let arr=[
 }
 
 
-```
+```js
 arr.reduce((result,item)=>{
   if(item.parent === null){
     result.id=item.id
@@ -745,10 +733,10 @@ arr.reduce((result,item)=>{
 },{id:null,children:[]})  //初始化id和children
 ```
 
-**课后习题**
+**课后题**
 
 1.用 arr.map 把0变成'周日'，把1变成'周一'，以此类推
-```
+```js
 let arr = [0,1,2,2,3,3,3,4,4,4,4,6]
 let arr2 = arr.map((i)=>{
   const week = {0:'周日',1:'周一',2:'周二',3:'周三',4:'周四',5:'周五',6:'周六'}
@@ -760,7 +748,7 @@ console.log(arr2)
 ```
 
 2.找出所有大于60分的成绩
-```
+```js
 let scores = [95,91,59,55,42,82,72,85,67,66,55,91]
 let scores2 = scores.filter(x => x > 60 )
 
@@ -769,7 +757,7 @@ console.log(scores2)
 ```
 
 3.算出所有奇数之和
-```
+```js
 let scores = [95,91,59,55,42,82,72,85,67,66,55,91]
 let sum = scores.reduce((sum, n)=>{
  n % 2 === 1? sum += n : false
