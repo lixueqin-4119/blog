@@ -24,7 +24,7 @@ DOM的接口设计的非常反人类，导致前端程序员不得不使用jQuer
 > 标签又叫元素，获取元素的API
 
 **有很多API**
-
+```js
 1.window.id或者直接id  //最快
 
 2.document.getElementById('id') 
@@ -33,10 +33,10 @@ DOM的接口设计的非常反人类，导致前端程序员不得不使用jQuer
 
 4.document.getElementsByClassName('red')[0] //找到所有class名为red的'第1个'元素
 
-**5.document.querySelector('#id')**
+5.document.querySelector('#id')
 
-**6.document.querySelectorAll('#id')[0]**
-
+6.document.querySelectorAll('#id')[0]
+```
 **用哪一个**
 
 1.工作中用querySelector和querySelectorAll
@@ -44,7 +44,7 @@ DOM的接口设计的非常反人类，导致前端程序员不得不使用jQuer
 2.做demo直接用id
 
 3.要兼容IE的才用getElement(s)ByXXX
-```
+```js
 id="kw"
 window.kw 或者 kw
 document.querySelector('#id') //(css选择器的写法)
@@ -61,19 +61,20 @@ document.querySelector('#id') //(css选择器的写法)
 3.获取body元素:ducument.body
 
 4.获取窗口(窗口不是元素):window
-
-  代码:window.onclick=()=>{console.log('hi')}  //获取window,添加事件监听
-  
+```js
+window.onclick=()=>{console.log('hi')}  //获取window,添加事件监听
+```
 5.获取所有元素
-
-  document.all //获取当前页面所有标签
-  
+```js
+document.all //获取当前页面所有标签
+``` 
  **变态**
- 
+ ```js
   document.all是IE发明的奇葩，第6个falsy值。
   
   document.all以前用来区分是否是IE(现在document.all默认为假)
 ```
+```js
 if(document.all){console.log('ie浏览器'); 只能在ie运行}
 else{console.log('其它浏览器'); 只能在非ie运行}
 结果:其它浏览器
@@ -93,7 +94,7 @@ document.all[2]
 js的所有对象都有个隐藏属性，这个隐藏属性指向了对象的原型。
 
 div.__proto__===HTMLDivElement.prototype
-```
+```js
 百度浏览器
 let div=document.getElementsByTagName("div")[0]
 console.dir(div)
@@ -125,8 +126,8 @@ x.nodeType得到一个[数字](https://developer.mozilla.org/zh-CN/docs/Web/API/
 
 9表示文档Document
 
-例子
-```百度浏览器
+例子：百度浏览器
+```js
 div.nodeType
 输出:1
 div.childNodes
@@ -152,7 +153,7 @@ div.firstChild.nodeType
 # 节点的增删改查
 ### 一.增
 **创建一个标签节点**
-
+```js
 let div1=document.createElement('div')
 
 document.createElement('style')
@@ -160,13 +161,13 @@ document.createElement('style')
 document.createElement('script')
 
 document.createElement('li')
-
+```
 **创建一个文本节点**
-
+```
 let text1=document.createTextNode('你好')
-
+```
 **标签里面插入文本**
-
+```
 1' div1.appendChild(text1) 
 
 2' 推荐
@@ -174,7 +175,7 @@ let text1=document.createTextNode('你好')
 let div1=document.createElement('div')
 
 div1.innerText='你好' 或者 div1.textContent='你好'
-
+```
 但是不能用div1.appendChild('你好')
 
 不同的原型提供了不同的函数，但是不能混着用！
@@ -186,7 +187,7 @@ div1.innerText='你好' 或者 div1.textContent='你好'
 你创建的标签默认处于JS线程中，必须把它插到head(`<style>或<link>`)或者body里面才会生效。
 
 **document.body.appendChild(div1)或者 已在页面中的元素.appendChild(div1)**
-```
+```js
 document.body.appendChild(div1)
 div1.style.top = 0
 div1.style.left = 0
@@ -195,20 +196,19 @@ div2.style.width=300
 ```
 
 ### appendChild
-代码
 
 页面中有 div#test1 和 div#test2
-
+```
 let div=document.createElement('div')
 
 test1.appendChild(div)
 
 test2.appendChild(div)
-
+```
 请问最终div出现在哪里？
 
 test2里面。因为一个元素不能出现在两个地方，除非复制一份。
-```
+```js
 let div1=document.createElement('div')
 let text1=document.createTextNode('你好')
 div1.appendChild(text1)
@@ -227,25 +227,25 @@ document.body.appendChild(div2)
 2' childNode.remove() 注意:不支持ie
 
 例子
-```
+```js
 div1.parentNode  //id="div1" 
 div1.parentNode.removeChild(div1)
 ```
 怎样彻底删除节点？
-
+```
 div2.remove()
 
 div2=null
-                 
+```                 
 ### 三.改
 **1.改属性**
 
 **(1)写标准属性**
-
+```js
 1' 改class:div1.className='red' 会覆盖之前的,id="div1"
 
 2' 改class:div1.classList.add('green') 
-
+```
 改style:div1.style='width:200px;color:blue;' 会覆盖之前的
 
 改style的一部分:div1.style.width='200px'
