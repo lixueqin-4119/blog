@@ -1,6 +1,4 @@
-1.文章  [阮一峰](http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html) 、[中文文档(jQuery有哪些功能)](https://www.jquery123.com/)
-
-2.[完整代码](https://github.com/FrankFang/dom-2-prototype/blob/master/src/jquery.js)
+[阮一峰](http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html) 、[中文文档](https://www.jquery123.com/)、[完整代码](https://github.com/FrankFang/dom-2-prototype/blob/master/src/jquery.js)
 
 ### 1.简写jQuery
 **window.$=window.jQuery**
@@ -10,7 +8,7 @@
 `代码：$('.test').children().print()`
 
 类似于bash alias,添加一个别名即可。
-```
+```js
 window.jQuery=function(selectorOrArrayOrtemplate){...}
 window.$=window.jQuery
 这两句可以合成下面一句
@@ -24,7 +22,7 @@ window.$=window.jQuery=function(selectorOrArrayOrtemplate){...}
 
 ### 2.命名风格
 **下面的代码令人误解**
-```
+```js
 const div1=$('.test')
 const div2=document.querySelector('.test')
 ```
@@ -39,7 +37,7 @@ const div2=document.querySelector('.test')
 **怎么避免这种误解，如何区分？**
 
 **jQuery API加$ ,DOM API 加el或不加 。**
-```
+```js
 const $div1=$('.test')
 const elDiv2=document.querySelector('.test') 
 或者 const div2=document.querySelector('.test') 
@@ -110,7 +108,7 @@ jQuery实际上就是调用dom api,除此之外就是加一些if/for循环
 
 我们声明了一个函数，这个函数会获取到这个elements，然后会返回一个对象，这个对象里面的api会去操作这个elements。
 
-```
+```js
 window.$ = window.jQuery = function (selectorOrArray) { //声明函数
   let elements  //获取elements
   if (typeof selectorOrArray === 'string') { 
@@ -126,7 +124,7 @@ window.$ = window.jQuery = function (selectorOrArray) { //声明函数
  } }
 ```
 如果我有2次调用呢？这个操作实际上重复了。
-```
+```js
 const api1=$('.red')
 const api2=$('.blue')
 ```
@@ -142,10 +140,10 @@ api1和api2的内存实际上是一摸一样的，都需要find和each。
 
 即api1.__proto__===jQuery.prototype
 
-### 代码如何实现？
+### 如何实现？
 **第1步**
 **先把函数都移走，只留下自己的属性。然后加上下面的代码：**
-```
+```js
 jQuery.prototype={
   constructor:jQuery
 }
@@ -163,7 +161,7 @@ jQuery.prototype={
 注意elements不能拷它不是共用的。
 
 (2)再把jQuery.prototype={} 与 return{} 关联起来。
-```
+```js
 const  api=Object.create(jQuery.prototype)
 ```
 创建一个对象，这个对象的__proto__为括号里面的东西，也就是jQuery.prototype。
@@ -171,7 +169,7 @@ const  api=Object.create(jQuery.prototype)
 相当于`const api={__proto:jQuery.prototype}`
 
 **然后再将剩下的"非共有属性"关联起来。(改写return)**
-```
+```js
 api.elements=elements
 api.oldApi=selectorOrArrayOrTemplate.oldApi
 return api
@@ -180,7 +178,7 @@ return api
 
 上面代码可以优化为
 
-```
+```js
 window.$ = window.jQuery = function (selectorOrArray) {
   ...
   const  api=Object.create(jQuery.prototype)
@@ -211,7 +209,7 @@ selectorOrArrayOrTemplate.oldApi
 api.elements,this就是api。所以只需要在elements前加上this即可！
 
 将所有共用属性里对elements的读操作改成`this.elements`。 elements前面加上this，用this访问api.
-```
+```js
 Object.assign(api,{
     elements:elements,
     oldApi:selectorOrArrayOrTemplate.oldApi
@@ -221,7 +219,7 @@ Object.assign(api,{
 **jQuery觉得它的prototype太长了，便取了个别名fn**
 
 fn表示prototype
-```
+```js
 jQuery.fn=jQuery.prototype={ ... }
 ```
 
