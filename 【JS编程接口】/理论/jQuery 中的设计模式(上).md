@@ -10,7 +10,7 @@ return 一个对象。
 
 这个对象有些方法可以操作这个元素。
 
-# 第二种.用jQuery风格重新封装
+# 用jQuery风格重新封装
 [完整代码](https://sourcegraph.com/github.com/FrankFang/dom-2@master/-/blob/src/jquery.js?L94)
 
 **链式风格也叫jQuery风格**
@@ -30,7 +30,7 @@ jQuery(选择器)用于获取对应的元素
 # jQuery核心思想
 ### 1.闭包 ＆ 链式操作
 **添加class**
-```
+```js
 <div class="test">测试1</div>
 <div class="test">测试2</div>
 <div class="test">测试3</div> 
@@ -60,7 +60,7 @@ api.addClass('red') //遍历所有获取的元素，添加.red
 
 第2步.api.addClass('red').addClass('blue')
 
-```
+```js
 const api = {
   addClass(className) { //主要代码
     ...
@@ -94,14 +94,14 @@ api.addClass('red').addClass('blue')//链式操作
 api.addClass('red').addClass('blue')
 
 this就是api
-```
+```js
 addClass(className){
     ...
     return this //api
  }
 ```
 ### 声明一个对象api，再return这个对象。其实可以直接return这个对象！
-```
+```js
 window.jQuery = function (selector) { 
     const elements = document.querySelectorAll(selector)
     return {
@@ -131,7 +131,7 @@ jQuery提供一个函数，这个函数接收一个选择器(css中的选择器)
 this是**调用后**才确定的!(未知的)
 
 你在addClass前面传的什么，this就是什么。
-```
+```js
 const api = jQuery('.test') 
 api.addClass('red').addClass('blue')
 //this就是api
@@ -139,7 +139,7 @@ api.addClass('red').addClass('blue')
 **变量声明后只用一次时，可以省略声明**
 
 上面的代码可以简写为
-```
+```js
 jQuery('.test') 
   .addClass('red')
   .addClass('blue')
@@ -199,7 +199,7 @@ Function是个函数，Function对象/函数对象表示Function构造出来的�
 
 this是api,闭包变量elements。
 
-```
+```js
 <div class="test"> //elements为3，3个.test,一个一个遍历
   测试1
    <div class="child">child1</div>
@@ -243,13 +243,13 @@ elements类似于数组，数组不能querySelectorAll。
 当前是纯数组arr,返回的也是数组return arr
 
 **数组不是函数，不能直接操作。**
-```
+```js
 Uncaught TypeError: x1.addClass is not a function
 ```
 **那return this可以吗？不行**
 
 this 是当前对象'api'，api是操作elements的，它只能操作一个。因此不能操作arr!
-```
+```js
 接口
 jQuery('.test')
     .find('.child')
@@ -281,7 +281,7 @@ jQuery不能只接收选择器selector还要能接收数组Array
 第3步，如果是数组就等于"新的elements"
       
 **const elements在{}内作用域有限，可以把它放到外面，作用域提升。由于const必须赋值改用let**
-```
+```js
 window.jQuery = function (selectorOrArray) { //第2步
   let elements  //作用域提升
   if (typeof selectorOrArray === 'string') { 
@@ -317,7 +317,7 @@ const newApi = jQuery(arr),参数arr传入下面jQuery重新生成一个新arr�
 window.jQuery = function (selectorOrArray) {}
 
 ### 3.实现end函数
-```
+```js
 jQuery('.test')
   .find('.child')
   .addClass('red')
@@ -325,7 +325,7 @@ jQuery('.test')
   .addClass('fuck') //操作对象是.test而不是.child
 ```
 用户突然想回到上一次api操作test,如何实现？
-```
+```js
 oldApi: selectorOrArray.oldApi, //把oldApi复制到当前api(之前在数组上)
 find(selector) {
     ...
@@ -345,7 +345,7 @@ jQuery('.test')
 补充：数组是对象，对象可以加属性。
 
 **this为什么会变？**
-```
+```js
 帮助理解
 const api1 = jQuery('.test')
 const api2 = api1.find('.child').addClass('red')
@@ -357,7 +357,7 @@ oldApi放到数组上了并没有放到api上，api是操作数组，this是api�
 `oldApi: selectorOrArray.oldApi,//把oldApi复制过来,`
 
 **4.jQuery('.red').each(fn)遍历并对每个元素执行fn**
-```
+```js
 each(fn) {
   for (let i = 0; i < elements.length; i++) {//elements是闭包,会一直在上面
     fn.call(null, elements[i], i) //不用this
@@ -389,7 +389,7 @@ div就是第1个参数，名字无所谓不会有任何影响，只是用来占�
 **5.jQuery('#xxx').parent()获取爸爸**
 > 用each实现更多的函数
 
-```
+```js
 parent() {
   const array = []
   this.each((node) => {
@@ -409,7 +409,7 @@ x.parent().print()
 return array没有可操作性，封装个操作数组的对象jQuery(array)，jQuery会返回个对象，对象会操作这些元素
 
 **6.jQuery('#xxx').children()获取儿子**
-```
+```js
 children() {
   const array = []
   this.each((node) => {
@@ -430,7 +430,7 @@ node.children[0],node.children[1],node.children[2]
 
 # 实现createElement、get、appendTo、append、
 
-```
+```js
 window.jQuery = function (selectorOrArrayOrTemplate) {
   let elements
   if (typeof selectorOrArrayOrTemplate === 'string') {
@@ -488,14 +488,3 @@ const $div = $('<div><span>1</span></div>')
 const $childList = $('.child')
 $('body').append($childList)
 ```
-
-
-
-
-
-
-
-
-
-
-
