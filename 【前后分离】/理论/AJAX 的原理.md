@@ -441,7 +441,7 @@ getJSON.onclick = () => {
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/689c1ae413304c75abe40f9cafb68d72~tplv-k3u1fbpfcp-zoom-1.image)\
 ajax把json代替xml作为数据请求，JSON.parse()可以解析它。\
 我们可以对数据进行任意操作，用处很广泛。\
-例如，进入网站时会提示 “欢迎，李雪芹”
+例如，进入网站时会提示 “欢迎，李”
 
 ```js
 index.htm
