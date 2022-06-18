@@ -1,7 +1,7 @@
 # AJAX 的原理(Async JavaScript And XML)
 
 > js三座大山之Ajax\
-> **Ajax的全部内容: 用js控制浏览器发请求和收响应**
+> **Ajax: 用js控制浏览器发请求和收响应**
 
 **背景(原理)**\
 **1.Ajax是浏览器推出的一个功能**\
@@ -33,7 +33,7 @@ Usage使用: node-dev src/server.js
 ⚠️node-dev 已经出 bug 没人修理了，不要使用，请直接使用 node 并手动重启。\
 **添加index.html/main.js两个路由**
 
-```
+```js
 http://localhost:8888/index.html 注意浏览器路径要一致！
 
  if (path === '/index.html') { //1.添加index.html
@@ -66,7 +66,7 @@ http://localhost:8888/index.html 注意浏览器路径要一致！
 把html、css、js单独写到文件里\
 1.write接收字符串，[把文件变字符串](https://www.liaoxuefeng.com/wiki/1022910821149312/1023025763380448)
 
-```
+```js
 const string = fs.readFileSync('public/index.html') //html,注意不能有空格
 response.write(string)
 response.write(`fs.readFileSync('public/main.js')`) //js
@@ -85,7 +85,7 @@ response.write(`fs.readFileSync('public/main.js')`) //js
 **1’不用ajax怎么做？**\
 首先新建style.css写好样式,然后index.html里引入css`<link rel="styleheet" href="/style.css">`,最后添加路由,代码如下：
 
-```
+```js
 else if (path === '/style.css') {
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/css;charset=utf-8')
@@ -104,7 +104,7 @@ else if (path === '/style.css') {
 
 **1.创建HttpRequest对象(全称是XMLHttpRequest)**
 
-```
+```js
 const request=new XMLHttpRequest()
 ```
 
@@ -128,7 +128,7 @@ method:get/post
 **4.调用对象的send方法(发送请求)**\
 具体代码打开MDN用CRM大法搞定
 
-```
+```js
 request.onload = () => {
     console.log("成功了")
 }
@@ -143,7 +143,7 @@ request.send()
 拿到内容request.response\
 添加button请求css，方便查看
 
-```
+```js
 getCSS.onclick = () => {
   const request = new XMLHttpRequest()
   request.open('GET', './style.css')
@@ -161,7 +161,7 @@ getCSS.onclick = () => {
 **有内容后如何生效？**\
 创建style标签，填写style内容，插到头里面
 
-```
+```js
 const style = document.createElement('style')
 style.innerHTML = request.response
 document.head.appendChild(style)
@@ -174,7 +174,7 @@ document.head.appendChild(style)
 1’不用ajax\
 首先新建2.js写好代码,然后html里引入js`<script src="2.js"></script>`,最后添加路由,代码如下：
 
-```
+```js
 else if(path==='/2.js'){
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
@@ -186,7 +186,7 @@ else if(path==='/2.js'){
 **2’用ajax**\
 添加个button请求js,方便查看`<button id="getJS">请求JS</button>`
 
-```
+```js
 getJS.onclick = () => {
   const request = new XMLHttpRequest()
   request.open('GET', './2.js')
@@ -217,7 +217,7 @@ getJS.onclick = () => {
 2.添加button方便查看`<button id="getHtml">请求html</button>`\
 添加路由,代码如下：
 
-```
+```js
 else if (path === '/3.html') { 
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/html;charset=utf-8')
@@ -247,7 +247,7 @@ Ajax可以做到轻量级的请求。你想请求什么都可以，只要http支
 **什么时候会触发onerror呢？**\
 假设故意将路径写错成3.htm，这时只会触发404而不是onerror。
 
-```
+```js
 else {
   response.statusCode = 404
   response.setHeader('Content-Type', 'text/html;charset=utf-8')
@@ -269,7 +269,7 @@ onerror一开始是用来检测请求图片失败了，没有料想到会去监�
 将路径故意写错为styl.css,用onreadystatechange改写。\
 不管结果是成功还是失败都会打印出**下载完成**(1个请求)
 
-```
+```js
 getCSS.onclick = () => {
   const request = new XMLHttpRequest()
   request.open('GET', './styl.css') //readyState=1
@@ -301,7 +301,7 @@ getCSS.onclick = () => {
 **步骤**\
 1.新建文件4.xml写好要展示的[xml](https://developer.mozilla.org/zh-CN/docs/Web/XML/XML_Introduction#xml_.e7.a4.ba.e4.be.8b_2)
 
-```
+```js
 <?xml version="1.0" encoding="UTF-8"?>
 <message>
     <warning>
@@ -313,7 +313,7 @@ getCSS.onclick = () => {
 2.添加button方便查看`<button id="getXML">请求XML</button>`\
 添加路由,代码如下：
 
-```
+```js
 else if (path === '/4.xml') {
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/xml;charset=utf-8')
@@ -324,7 +324,7 @@ else if (path === '/4.xml') {
 
 补充：**当new后面没有参数时可以省略()**
 
-```
+```js
 const request = new XMLHttpRequest()
 没有参数时可以省略()
 const request = new XMLHttpRequest
@@ -335,7 +335,7 @@ const request = new XMLHttpRequest
 
 **DOM对象不止是用于html,还可以用于xml文档**
 
-```
+```js
 getXML.onclick = () => {
   const request = new XMLHttpRequest()
   request.open('GET', './4.xml')
@@ -403,7 +403,7 @@ null 没有undefined\
 
 ```
 {
-    "name":"李雪芹",
+    "name":"李",
     "age":18,
     "xxx":null
 }
@@ -412,7 +412,7 @@ null 没有undefined\
 2.添加button方便查看`<button id="getJSON">请求JSONL</button>`\
 添加路由,代码如下：
 
-```
+```js
 else if (path === '/5.json') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/json;charset=utf-8')
@@ -421,7 +421,7 @@ else if (path === '/5.json') {
     }
 ```
 
-```
+```js
 getJSON.onclick = () => {
     const request = new XMLHttpRequest()
     request.open('GET', './5.json')
@@ -443,7 +443,7 @@ ajax把json代替xml作为数据请求，JSON.parse()可以解析它。\
 我们可以对数据进行任意操作，用处很广泛。\
 例如，进入网站时会提示 “欢迎，李雪芹”
 
-```
+```js
 index.htm
 <h1>ajax hello<span id="myName"></span></h1>
 
@@ -474,7 +474,7 @@ JS数据 => JSON字符串\
 json不支持函数\
 **经验：使用JSON.parse时一定要try catch!**
 
-```
+```js
 JSON.parse(`{'name':'lixueqin'}`) //不能用单引号，必须是双引号
 Uncaught SyntaxError: Unexpected token ' in JSON at position 1
 
@@ -511,7 +511,7 @@ page2.json内容为[{“id”:11}, … {“id”:20}]\
 page3.json内容为[{“id”:21}, … {“id”:30}]\
 2.替换
 
-```
+```js
 <div>
   {{page1}}
 </div>
@@ -519,7 +519,7 @@ page3.json内容为[{“id”:21}, … {“id”:30}]\
 
 渲染首页时把page1改为page1的内容。
 
-```
+```js
 let string = fs.readFileSync('public/index.html').toString()
 const page1 = fs.readFileSync('db/page1.json')  //获取内容
 string = string.replace('{{page1}}', page1)  //将拿到的数据放到页面里      
@@ -535,7 +535,7 @@ string = string.replace('{{page1}}', page1)  //将拿到的数据放到页面里
 **示例：我们也可以将id变成li**\
 从数据库里拿到数据，然后拼接字符串.
 
-```
+```js
 let string = fs.readFileSync('public/index.html').toString()
   const page1 = fs.readFileSync('db/page1.json')
   //string = string.replace('{{page1}}', page1)
@@ -550,7 +550,7 @@ let string = fs.readFileSync('public/index.html').toString()
 
 加个按钮请求下一页`<button id="getPage">请求下一页</button>`，然后添加监听。
 
-```
+```js
 getPage.onclick = () => {
     const request = new XMLHttpRequest()
     request.open('GET', '/page2')
@@ -565,7 +565,7 @@ getPage.onclick = () => {
 
 添加后台响应
 
-```
+```js
 else if (path === '/page2') {
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/json;charset=utf-8')
@@ -575,7 +575,7 @@ else if (path === '/page2') {
 ```
 
 用js把page2放到page1后面
-```
+```js
 
 let n = 1 //值会变化时用let
 getPage.onclick = () => {
