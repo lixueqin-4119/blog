@@ -17,7 +17,8 @@ typeof window.XMLHttpRequest
 
 实际上跟window.Object是一样的。\
 window.Object用来创建普通对象，window.XMLHttpRequest用来创建XMLRequest对象。\
-XMLHttpRequest也是一个构造函数，可以构造出一个对象。\
+XMLHttpRequest也是一个构造函数，可以构造出一个对象。
+
 **2.准备一个服务器，用来接收请求**\
 使用[server.js](https://github.com/lixueqin-4119/nodejs-test/blob/master/server.js)作为我们的服务器\
 启动node server.js 8888\
@@ -57,7 +58,9 @@ http://localhost:8888/index.html 注意浏览器路径要一致！
         response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
         response.write(`console.log('我是js')`)
         response.end()
-    } else { ... }
+    } else {
+      ... 
+    }
 ```
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/437327eb06374dc98624935f7069c386~tplv-k3u1fbpfcp-zoom-1.image)
