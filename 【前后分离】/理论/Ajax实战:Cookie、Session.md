@@ -168,10 +168,7 @@ const $form = $('#registerForm')
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac4719a1393645dfabec35fef49816b6~tplv-k3u1fbpfcp-zoom-1.image)
 
-
-
 **GET请求只能把数据放到url上面，改为POST请求。**
-
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8e06e82f06a42eca6c2a77cd245bf3a~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -209,7 +206,6 @@ GET请求可以通过query拿到，POST请求怎么拿到？\
 因为不能确定你的数据长度是多少。也许你只传个name、password，但也许你也可能传个100兆的文件。100兆的文件上传是一点一点上传的，所以我们在获取时也要一条一条获取。\
 **(2)监听请求上的数据(data上传事件)**\
 server.js
-
 ```js
 const array = []
 request.on('data', (chunk) => {
