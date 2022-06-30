@@ -62,23 +62,21 @@ let f4 = (x,y) => ({name:x,age:y}) //括号内表示是一个整体
 
 let f=new Function('x','y','return x+y')
 
-基本没人用，但是能让你知道函数是谁构造的
+能让你知道函数是谁构造的
 
-所有函数都是Function构造出来的，包括Object、Array、Function也是
+所有函数都是Function构造出来的，包括Object、Array、Function
 
 **fn和fn()的区别是什么？**
 
-fn指函数自身,fn()调用(执行)这个函数
-
-例子
-```
+fn指函数自身,fn()执行这个函数
+```js
 let fn=()=>{console.log('hi')}
 let fn2=fn
 fn2()
 ```
-fn保存了匿名函数的地址,这个地址被复制给了fn2。
+fn保存了匿名函数的**地址**,这个地址被复制给了fn2。
 
-fn2()调用了匿名函数,fn和fn2都是匿名函数的引用而已
+fn2()调用了匿名函数,fn和fn2都是匿名函数的**引用**而已。
 
 真正的函数既不是fn也不是fn2
 
@@ -106,23 +104,23 @@ fn2()调用了匿名函数,fn和fn2都是匿名函数的引用而已
 
 ### 一.调用时机   
 
-> 时机不同结果不同
+时机不同结果不同
 
 **fn不加()永远不会调用**
 
 **例1**
-```
+```js
 let a=1
 function fn(){
   console.log(a)
 }
-a=2 //a更新到2了
+a=2 
 fn() 
 问打印出多少？ 
 2
 ```
 **例2**
-```
+```js
 let a=1
 function fn(){
   console.log(a)
@@ -133,7 +131,7 @@ a = 2
 1
 ```
 **例3**
-```
+```js
 let a=1
 function fn(){
   setTimeout(()=>{ //setTimeout 0一段时间(尽快)之后执行
@@ -150,7 +148,7 @@ js会先执行当前代码，然后再做等会再做的事。
 先执行a=2，然后执行setTimeout。
 
 **例4**
-```
+```js
 let i=0
 for(i=0;i<6;i++){
   setTimeout(()=>{
@@ -184,7 +182,7 @@ for执行了6次
 i=5时满足条件会进入循环，此时i=6
 
 **例5**
-```
+```js
 for(let i=0;i<6;i++){
   setTimeout(()=>{
     console.log(i) 
@@ -193,19 +191,17 @@ for(let i=0;i<6;i++){
 问打印出多少？
 0、1、2、3、4、5
 ```
-因为js在for和let一起用的时候会加东西，每次循环会多创建一个i(服了js)
+因为js在for和let一起用的时候会加东西，每次循环会多创建一个i(服了JS)
 
-js为满足新人想法设计的
-
-这种写法setTimeout根本没有意义
+js为满足新人想法设计的,这种写法setTimeout根本没有意义
 
 js函数由于变量值会变，所以每次求值时都要想想代码的顺序。
 
 如果不确定，那你求的值可能是以前的或者是错的。
 
 同样，下面2种方法也能打印出0～5。
-```
-for (var i=0; i<6; ++i) {  //利用 setTimeout 的第三个参数
+```js
+for (var i=0; i<6; ++i) {  //利用setTimeout的第3个参数
 	setTimeout(function(i){
 		console.log(i)
 	}, 0, i)
@@ -228,7 +224,7 @@ for(var i=0; i<6; ++i) {   //利用闭包
 每个函数都会默认创建一个作用域
 
 例1
-```
+```js
 function fn(){
   let a=1
 }
@@ -251,7 +247,7 @@ console.log(a) //a不存在
 **函数可嵌套，作用域也可嵌套**
 
 局部作用域可以套局部作用域
-```
+```js
 function f1(){
   let a=1
   function f2(){
@@ -285,8 +281,6 @@ f1()
 **闭包**
 
 js函数会就近寻找最近的变量，这就是闭包。
-
-例子
 ```js
 function f1(){
   let a=1
@@ -360,18 +354,16 @@ js没有typeScript那么严谨
 ### 返回值
 
 **每个函数都有返回值**
-
+```
 function hi(){console.log('hi')}
-
 hi()
-
+```
 没写return，所以返回值是undefined
-
+```
 function hi(){ return console.log('hi')}
-
 hi()
-
-返回值为 console.log('hi')的值，即undefined
+```
+返回值为console.log('hi')的值，即undefined
 
 打印值是打印值，返回值是返回值！
 
@@ -385,9 +377,11 @@ hi()
 
 **调用栈**
 
-> 我们在调用一个函数时,需要进入到另一个环境去执行它，执行完后再返回回来。
-> 那么如果我们进入到另一个函数时还需要进入下一个函数，多次过后，怎么知道回去的路？
-> 调用栈实际上就是记录，你进入一个函数后回去回到哪里。
+我们在调用一个函数时,需要进入到另一个环境去执行它，执行完后再返回回来。
+
+那么如果我们进入到另一个函数时还需要进入下一个函数，多次过后，怎么知道回去的路？
+
+调用栈实际上就是记录，你进入一个函数后回去回到哪里。
 
 **什么是调用栈**
 
@@ -418,15 +412,15 @@ console.log(2)
 **递归函数**
 
 1.阶乘
-
+```
 function f(n){
 
   return n !=== 1 ? n*f(n-1) : 1
 
 }
-
+```
 2.理解递归
-
+```
 f(4)
 
 =4 * f(3)
@@ -442,13 +436,13 @@ f(4)
 =4 * (6)
 
 24
-
+```
 先递进，再回归
 
 **递归函数的调用栈**
 
 递归函数的调用栈很长
-```
+```js
 function sum(n){
   return n !=== 1 ? n*sum(n-1) : 1
 }
@@ -463,9 +457,7 @@ Uncaught RangeError: Maximum call stack size exceeded
 保存函数所在环境的这个数组就叫调用栈，长度大概是1万～2万，超过程序就崩溃.
 
 **测试各浏览器的调用栈有多长**
-
-代码
-```
+```js
 function computeMaxCallStackSize(){
   try{
     return 1+computeMaxCallStackSize();
@@ -489,15 +481,15 @@ Node 12536
 长度大概在1～2万，超过这个值程序就崩溃。
 
 **七.函数提升**
-
+```
 function fn(){}
-
+```
 不管你把具名函数声明在哪里，它都会跑到第一行。
 
 什么不是函数提升
-
+```
 let fn=function(){}
-
+```
 这是赋值，右边的匿名函数声明不会提升
 
 # 八.arguments & this(最重要)
@@ -538,7 +530,7 @@ xxx是this,后面就是arguments
 
 声明函数时加上一句'use strict' 告诉js不要瞎加东西
 
-```
+```js
 function fn(){
   'use strict'
   console.log(this)
@@ -555,7 +547,7 @@ this是隐藏参数，arguments是普通参数。this是参数。(个人观点)
 
 假设没有this
 
-```
+```js
 let person={
   name:'brucelee',
   sayHi(){
@@ -566,7 +558,7 @@ let person={
 补充：用直接保存了对象地址的**变量**获取'name'，这种办法叫**引用**。
 
 问题一
-```
+```js
 let sayHi=function(){
   console.log(`你好，我叫`+person.name)
 }
@@ -609,8 +601,8 @@ class Person{  //用类
 我们在写函数的时候，需要得到一个对象。但我并不知道那个对象叫什么名字，因为那个对象可能还没出生。怎么在不知道一个对象的名字的情况下，拿到对象的引用呢？
 
 **一种土方法，用形参**
-```
-let person={ //对象
+```js
+let person={ 
   name:'bruselee',
   sayHi(p){
     console.log(`你好，我叫`+p.name)
