@@ -10,7 +10,7 @@
 用这个构造函数(类)可以构造出一个对象\
 JS通过它实现**发请求，收响应**
 
-```
+```js
 typeof window.XMLHttpRequest
 'function'
 ```
@@ -25,7 +25,7 @@ XMLHttpRequest也是一个构造函数，可以构造出一个对象。
 添加index.html/main.js两个路由\
 **工具** [node-dev](https://github.com/fgnass/node-dev) 是一个node.js开发工具，当文件被修改时会自动重启node进程。
 
-```
+```js
 Installation安装:yarn global add node-dev
 Usage使用: node-dev src/server.js
 ```
