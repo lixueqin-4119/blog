@@ -10,13 +10,12 @@ input/textarea/checkbox/radio/select/from
 .lazy/.number/.trim
 
 **运行环境**
-
 新建文件vue-demo,用**Vue的脚手架**给它初始化下。
 ```js
-vue create .
-选择在当前目录创建,使用默认的vue2
+vue create . //选择在当前目录创建,使用默认的vue2
 yarn serve
 ```
+
 ### 表单基本用法
 **1.input 文本**
 
@@ -70,7 +69,9 @@ export default {
 }
 </script>
 ```
+
 需要声明x，每个checkbox是需要对应有个变量的。
+
 ```js
 多个复选框，绑定到同一个数组：
 <template>
@@ -130,7 +131,9 @@ export default {
 }
 </script>
 ```
+
 **5.选择框 select**
+
 ```js
 单选时：
 <template>
@@ -164,6 +167,7 @@ export default {
 2.x:'' 改成 x:[]
 补充:尽量少用这种形式的multiple，一般会单独做个有复选框的select
 ```
+
 **6.from**
 **用from提交元素**
 ```js
@@ -202,6 +206,7 @@ export default {
 }
 </script>
 ```
+
 ### 修饰符
 `.lazy`延迟触发,比如，input时等用户输完了再触发
 
