@@ -86,10 +86,12 @@ XML书写更严格:所有空标签都可以直接闭合，比如`<div />`，必�
 {{ object.a }} 表达式。data里面的object.a
 {{ n+1 }} 可以写任何运算。但不支持if...else
 {{ fn(n) }} 可以调用函数。默认在methods里找叫fn的函数，并传了参数n
+```
 当值是`undefined 或 null`时,它就什么都不展示,它不会显示undefined和
 null，这是Vue的特殊处理。
-另一种写法为<div v-text="表达式"></div> 很少有人用
-```
+
+另一种写法为`<div v-text="表达式"></div>` 很少有人用
+
 **2.HTMl内容**
 > 指令v-html=""，支持内容里有html标签。
 
@@ -100,6 +102,7 @@ null，这是Vue的特殊处理。
 ```js
 <div v-pre> {{ n }} </div> //v-pre不会对模版进行编译
 ```
+
 ### 二.绑定属性
 **1.绑定字符串**
 
@@ -116,8 +119,9 @@ null，这是Vue的特殊处理。
 //补充:JS中100就是100px div.style.height=100 //'100px'
 //这种写法会在div上写一个内联样式
 ```
+
 ### 三.绑定事件 v-on
-> v-on就是在什么时候触发事件。
+> v-on指在什么时候触发事件。
 
 **v-on:事件名**
 
@@ -137,6 +141,7 @@ null，这是Vue的特殊处理。
 </div> 
 ```
 v-if是什么时候出现在DOM树里。
+
 ### 五.循环 v-for
 **`for(value,key)in 对象或数组`**
 
@@ -184,6 +189,7 @@ v-show是什么时候展示出来，是通过css隐藏的。
   <li v-for="i in list" v-once>{{i}}</li>
 </ul>
 ```
+
 ### 总结
 **Vue模版主要特点有**
 
@@ -278,6 +284,7 @@ new Vue({
 ```js
 @click.stop='add'
 ```
+
 ### .sync 修饰符(重要)
 ```js
 main.js
