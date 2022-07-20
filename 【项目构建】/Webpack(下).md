@@ -43,10 +43,10 @@ dart-sass已被重命名为sass
 ```js
 1.yarn add sass-loader sass --dev
 2.新建文件x.scss,并写好样式。
-//scss语法,还是最原始的css
 3.x.js
   import "./x.scss";
-  import "./y.scss";  
+  import "./y.scss";
+  
 4.webpack.config.base.js添加
 module: {
   rules: [{
@@ -74,6 +74,7 @@ webpack.config.prod.js添加
     use: [MiniCssExtractPlugin.loader, "css-loader"],
   }
 ]
+
 5.yarn build
 ```
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38ffcbd4ab1646a598af6eeb4f1c9e80~tplv-k3u1fbpfcp-zoom-1.image)
@@ -110,8 +111,10 @@ CSS有SASS、LESS、Stylus3种变种语言
    background: @color;
    color: @color;
  }
+ 
 3.x.js
   import "./y.less";
+  
 4.webpack.config.base.js添加
 rules: [
   {
@@ -126,7 +129,9 @@ rules: [
   },
   ...
 ]
+
 5.yarn build
+
 6.yarn start //预览
 ```
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e6b94f0fbe74c23be1197a91765fcc5~tplv-k3u1fbpfcp-zoom-1.image)
@@ -306,7 +311,7 @@ rm -rf dist
 pending挂起中。
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/848ae00ca7484f97a825a60982fdba6e~tplv-k3u1fbpfcp-zoom-1.image)
 
-vue-cli就是配置好 webpack 的 vue，有时候不想使用默认的webpack就必须自己配置webpack。
+`vue-cli`就是配置好 webpack 的 vue，有时候不想使用默认的webpack就必须自己配置webpack。
 
 
 
