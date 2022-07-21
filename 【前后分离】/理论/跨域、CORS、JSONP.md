@@ -1,9 +1,8 @@
 # 跨域、CORS、JSONP(面试必考)
 
-> ajax和Promise的跨域问题\
-> 跨域一般用2种方案JSONP和CORS
+> ajax和Promise的跨域问题：跨域一般用2种方案JSONP和CORS
 
-### []()跨域
+### 跨域
 
 > 前端与后端的交互。
 
@@ -34,7 +33,8 @@ https://baidu.com、https://www.baidu.com不同源
 举例(省略http协议)\
 假设diaoyu.com/index.html引用了cdn.com/1.js\
 那么就说1.js**运行在源diaoyu.com**里。注意这跟cdn.com没关系，虽然1.js从它那**下载**\
-所以1.js就只能获取diaoyu.com的数据\
+所以1.js就只能获取diaoyu.com的数据
+
 **1.js运行在哪个域名里就只能访问这个域名的数据**\
 **这是浏览器的功能，浏览器故意要这样设计的。**\
 浏览器这么做的目的是为了**保护用户隐私**。
@@ -50,8 +50,9 @@ https://baidu.com、https://www.baidu.com不同源
 假设你的女神(黑客)分享https://qzone-qq.com 给你，实际是钓鱼网站。\
 你点开这个网页，这个网页也请求你的好友列表\
 https://user.qzone.qq.com/friends.json\
-请问，你的好友列表是不是就被黑客偷走了？是的\
-**问题的根源**\
+请问，你的好友列表是不是就被黑客偷走了？是的
+
+**问题的根源**
 第1次是正常的请求，第2次是黑客的请求。几乎没有区别除了**referrer**\
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b9afeb0283242eca3d6518c6aebe563~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -117,7 +118,7 @@ response.write(fs.readFileSync('./public/index.html'))
 首先index.html应用js`<script src="qq.js"></script>`\
 然后qq.js发送请求
 
-```
+```js
 const request = new XMLHttpRequest()
 request.open('GET', './friends.json')
 request.onreadystatechange = () => {
@@ -133,7 +134,7 @@ request.send()
 首先index.html应用js`<script src="./diaoyu.js"></script>`\
 然后qq.js发送请求
 
-```
+```js
 const request = new XMLHttpRequest()
 request.open('GET', 'http://qq.com:8888/friends.json')//请求qq.com的json
 request.onreadystatechange = () => {
@@ -146,7 +147,7 @@ request.send()
 
 diaoyu-com不需要/friends.json路由
 
-```
+```js
 提示：从源“http://diaoyu.com：9999”访问“http://qq.com：8888/friends.json”的XMLHttp请求已被CORS策略阻止：请求的资源上不存在“访问-控制-允许源”头。
 ```
 
@@ -180,7 +181,7 @@ response拿不到qq.com的数据，因为**CORS策略阻止了**。\
 [CORS文档](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS#%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82) CORS分为简单请求和复杂请求具体看文档\
 示例代码
 
-```
+```js
 else if (path === '/friends.json') {
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/json;charset=utf-8')
@@ -214,14 +215,14 @@ JS又不是数据\
 **1.qq.com将数据写到/friends.js**\
 qq新建文件friends.js,代码
 
-```
+```js
 { { data } }  //占位
 ```
 
 **2.后台写路由**\
 后台获取js内容、获取数据json，把数据填到js内容。然后再返回给浏览器。
 
-```
+```js
 else if (path === '/friends.js') {
   response.statusCode = 200
   response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
@@ -254,12 +255,12 @@ document.body.appendChild(script)
 
 那怎么确定数据是否拿到呢？监听script的onload事件
 
-```
+```js
 const script = document.createElement('script') script.src = 'http://qq.com:8888/friends.js' script.onload = () => { console.log(window.xxx) } document.body.appendChild(script)
 ```
 **4.js文件中光有数据是不合法的需要赋值,但是xxx可能被占用，可以用函数**
 
-```
+```js
 //window.xxx={{data}}
 window.xxx({{ data }})
 ```
@@ -267,7 +268,7 @@ window.xxx({{ data }})
 diaoyu.js\
 **不用再监听onload了。因为只要执行成功就可以调用函数window.xxx了**
 
-```
+```js
 window.xxx = (data) => {
     console.log(data)
 }
@@ -287,7 +288,7 @@ document.body.appendChild(script)
 CORS可以指定谁访问者，JSONP没办法指定，那JSONP的js不是所有网站都可以用了吗？\
 是的，但是**JSONP可以做referer检查限制访问者。**
 
-```
+```js
 else if (path === '/friends.js') {
   if (request.headers['referer'].indexOf('http://diaoyu.com:9999') === 0) {
     response.statusCode = 200
@@ -315,7 +316,7 @@ else if (path === '/friends.js') {
 假如我有多个接口，除了"好友列表"，还有"最近访问的人"等，这明显不能满足我们的需求。其实名字不重要，只要diaoyu.com定义的函数名和qq.com/friends.js执行的函数名是同一个即可。那就把名字传给/friends.js\
 **1.思路：自动生成**
 
-```
+```js
 const random = Math.random()
 //console.log(random) 0~1的小数，所有的key都可以是字符串，只要是字符串就行
 window[random] = (data) => { //window['0.023216364']=函数
@@ -325,14 +326,14 @@ window[random] = (data) => { //window['0.023216364']=函数
 
 **2.如何把随机数给后台？查询参数`?functionName`**
 
-```
+```js
 diapyu.js
 script.src = `http://qq.com:8888/friends.js?functionName=${random}`
 ```
 
 **传进去后怎么渲染到js里?**
 
-```
+```js
 qq.com
 else if (path === '/friends.js') {
   if (request.headers['referer'].indexOf('http://diaoyu.com:9999') === 0) {
@@ -346,7 +347,7 @@ else if (path === '/friends.js') {
 
 **补充** [url.parse](https://blog.csdn.net/weixin_39037804/article/details/102467141?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.pc_relevant_default&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
 
-```
+```js
 var parsedUrl = url.parse(request.url, true)
 var query = parsedUrl.query
 
@@ -385,14 +386,14 @@ const string2=string.replace('{{ data }}', data).replace('{{xxx}}',query.functio
 
 **还可以更复杂点：加个前缀**
 
-```
+```js
 const random = 'diaoyuJSONPCallbackName' + Math.random()
 ```
 
 **二.执行完后删掉`<script>`标签**\
 每发一次请求就会增加一个`<script>`标签，页面也会变的臃肿。
 
-```
+```js
 const random = 'diaoyuJSONPCallbackName' + Math.random()
 console.log(random)
 window[random] = (data) => {
@@ -411,7 +412,7 @@ document.body.appendChild(script)
 **三.封装jsonp()**\
 封装成jsonp(‘url’).then(f1,f2)
 
-```
+```js
 function jsonp(url) {
   return new Promise((resolve, reject) => {
     const random = 'diaoyuJSONPCallbackName' + Math.random()
@@ -443,7 +444,7 @@ jsonp与ajax对比的弱点，**jsonp只能知道成功/失败，不能拿到状
 **四.删除文件friends.js**\
 friends.js的`window['{{xxx}}']({{ data }})`这句代码其实可以直接写在后台。
 
-```
+```js
 //const string = fs.readFileSync('./public/friends.js').toString()
 const string = `window['{{xxx}}']({{ data }})`           
 ```
