@@ -3,12 +3,13 @@
 
 
 ### Vue的历史
-vue、Angular.js、React.js前端三大主流框架。
+Vue、Angular.js、React.js前端三大主流框架。
 MVC中的V是Vue的重点，M和V则被简化。
 Vue和vue.js没有区别，vue就是vue.js的简称。
 Vue你可以认为是框架也可以说是库，Vue中文英文文档都是尤雨溪写的。
  
-15年的1.0版本Vue自称是MVVM框架，不是MVC是MVVM，不过这已经成历史了。现在Vue是**MV** * 框架,意思就是你说MVC、MVVM都行。但是Vue升级到2.0后，它虽然看起来是MVVM框架，但实际不是MVVM框架了。Vue3直接抄袭React。
+15年的1.0版本Vue自称是MVVM框架，不是MVC是MVVM，不过这已经成历史了。现在Vue是**MV** * 框架,意思就是你说MVC、MVVM都行。但是Vue升级到2.0后，它虽然看起来是MVVM框架，但实际不是MVVM框架了。
+
 **Vue作者**尤雨溪，**主要作品:** Vue、Vue Router、Vuex、@vue/cli(主要维护者是蒋豪群)
 Vue2版本`vue.runtime.min.js` Vue3版本`vue.runtime.global.prod.js`
 
@@ -37,7 +38,7 @@ vue create vue-demo //创建目录vue-demo
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a2b667a82cf04bdd936184b5fc88157b~tplv-k3u1fbpfcp-zoom-1.image)
 
 **3.运行**
-```
+```js
 cd vue-demo
 yarn serve
 中断control+c，然后把生成的目录vue-demo拖进来
@@ -270,7 +271,7 @@ render里面就是把html` <div class="red"> {{n}}...  </div>`翻译成`render(h
 
 ### SEO(搜索引擎优化)友好
 **百度如何知道某个的相关内容呢？**
-```
+```js
 curl https://www.taobao.com/
 ```
 用`curl命令`(或者右键显示网页源代码)可以得到淘宝输出给百度的curl结果，相关内容比如 `标题<title>淘宝网 - 淘！我喜欢</title>` `文章<h1>淘宝网</h1>`。这时去百度搜索淘宝网就有可能搜到该网站，因为curl后它得到的就是这些关键信息。
