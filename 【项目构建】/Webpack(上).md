@@ -1,5 +1,5 @@
 > 前端框架Webpack，前端最重要的工具之一。\
-> **CRM法学webpack,通过11个任务学会webpack。**\
+> **通过11个任务学会webpack。**\
 > [webpack文档](https://www.webpackjs.com/guides/getting-started/#%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85)、[npm文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
 
 **工具**\
@@ -20,7 +20,7 @@
 
 **安装依赖**
 
-```
+```js
 终端:yarn add webpack@4 webpack-cli@3 --dev //webpack-cli用于在命令行中运行webpack
 ```
 
@@ -29,7 +29,7 @@
 **1.调用webpack**\
 **(1)新建文件webpack-demo并用vscode打开，新建终端：**
 
-```
+```js
 npm init -y //创建package.json
 yarn add webpack@4 webpack-cli@3 --dev //安装它的2个依赖
 //会多个node_modules的目录。由于是本地安装，不是全局安装,文件在node_modules里的.bin目录下
@@ -37,7 +37,7 @@ yarn add webpack@4 webpack-cli@3 --dev //安装它的2个依赖
 
 **(2)新建目录src、新建index.js、新建x.js**
 
-```
+```js
 import x from './x.js'
 console.log(x)
 x.js
@@ -65,7 +65,7 @@ npx webpack //自动但可能不稳定
 
 **(1)新建文件webpack.config.js，打开[文档](https://webpack.js.org/concepts/configuration/)复制粘贴**
 
-```
+```js
 const path = require('path');
 
 module.exports = {
@@ -84,7 +84,7 @@ HTTP响应头中的Cache-Control
 **1.webpack配置entry和output(入口和出口)**\
 还是webpack.config.js文件，复制[文档](https://webpack.js.org/concepts/configuration/)
 
-```
+```js
 const path = require('path');
 
 module.exports = {
@@ -105,7 +105,7 @@ entry是你的入口文件名。index.js转义后会默认生成main.js，output
 **2.更多配置**\
 🔍[webpack filename hash](https://webpack.js.org/guides/caching/#output-filenames)
 
-```
+```js
 filename: '[name].[contenthash].js',
 ```
 
@@ -145,11 +145,10 @@ package.json
 
 **以后每次打包时直接运行**
 
-```
+```js
 yarn build //npm run build
 ```
 
-\
 **总结\
 hash的用途:便于你去添加缓存，这个缓存是http协议里规定的Cache-Control,浏览器自动支持**。
 
@@ -175,7 +174,7 @@ hash的用途:便于你去添加缓存，这个缓存是http协议里规定的Ca
 在安装HtmlWebpackPlugin后重启时报错：Cannot read property 'tap' of undefined。\
 **原因:**  html-webpack-plugin与webpack版本不一致
 
-```
+```js
 (1)先复制下面的package.json覆盖你的"devDependencies"。
 "devDependencies": {
     "css-loader": "^3.2.0",
@@ -208,7 +207,7 @@ dist目录下会生成一个空的index.html，并引入了你的main.xxxxxxxxxx
 
 **js文件名可修改**
 
-```
+```js
 webpack.config.js
 filename: 'index.[contenthash].js'
 //filename: '[name].[contenthash].js'
@@ -306,7 +305,7 @@ assets目录下的index.html随便设计，到时候生成就会按你这个写�
 
 **解决**🔍[webpack css-loader](https://www.webpackjs.com/loaders/css-loader/#%E5%AE%89%E8%A3%85)
 
-```
+```js
 (1)yarn add css-loader --dev //今天的所有依赖(loader)都是--dev。因为webpack的东西，用户是用不到的.
 (2)webpack.config.js添加module。
 //解析:如果你的文件名是以.css结尾就使用'css-loader'
@@ -497,7 +496,7 @@ yarn build //生产 <link/>标签,打开dist目录查看index.html
 1.新建文件[webpack.config.base.js](https://github.com/lixueqin-4119/js-demo51/blob/master/webpack.config.base.js)并归纳共有属性。\
 2.[webpack.config.js](https://github.com/lixueqin-4119/js-demo51/blob/master/webpack.config.js)继承base
 
-```
+```js
 const base = require('./webpack.config.base.js')
 module.exports = {
   ...base,//把base的所有属性抄到这来
@@ -517,7 +516,7 @@ module.exports = {
 
 3.[webpack.config.prod.js](https://github.com/lixueqin-4119/js-demo51/blob/master/webpack.config.prod.js)继承base
 
-```
+```js
 const base = require('./webpack.config.base.js')
 module.exports = {
   ...base,
