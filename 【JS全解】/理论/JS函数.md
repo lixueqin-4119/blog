@@ -9,25 +9,22 @@
 **1.具名函数**
 
 全局作用域
-
+```js
 function 函数名(形式参数1，形式参数2){
-
   语句
-
   return 返回值
-
 }
-
+```
 **2.匿名函数**
 
 上面的具名函数，去掉函数名就是匿名函数
-
+```js
 let a=function(x,y){return x+y}
-
+```
 等于号右边又叫函数表达式
 
 **面试题**
-```
+```js
 let a=function fn(x,y){return x+y}
 fn(1,2) //作用域
 ```
@@ -38,13 +35,13 @@ fn(1,2) //作用域
 ![](https://pic3.zhimg.com/v2-8fdfa08abfed480ff378b808e169132e_b.jpg)
 
 **3.箭头函数**
-
+```
 let f1 = x => x*x 
-
+```
 箭头左边是输入参数，右边是输出参数
-
+```
 let f2 = (x,y) => x+y
-
+```
 当有2个参数时需要扩起来
 ```js
 let f3 = (x,y) => { 
@@ -53,15 +50,15 @@ let f3 = (x,y) => {
 }
 ```
 2个语句需要用{}括起来,并且要return
-
+```
 let f4 = (x,y) => ({name:x,age:y}) //括号内表示是一个整体
-
+```
 **直接返回对象会出错，必须加个圆括号**
 
 **4.用构造函数(没人用)**
-
+```
 let f=new Function('x','y','return x+y')
-
+```
 能让你知道函数是谁构造的
 
 所有函数都是Function构造出来的，包括Object、Array、Function
@@ -316,7 +313,7 @@ f3用到了外面的a,那么a和f3就是闭包
 
 **1.形式参数的意思就是非实际参数**
 
-```
+```js
 function add(x,y){//不代表实际值，只代表参数的顺序
   return x+y
 }
@@ -328,7 +325,7 @@ function add(x,y){//不代表实际值，只代表参数的顺序
 **2.行参可认为是变量声明**
 
 上面代码近似等价于下面
-```
+```js
 function add(){
   var x=arguments[0]
   var y=arguments[1]
@@ -338,7 +335,7 @@ function add(){
 形参就是语法糖，形参本质就是变量声明。
 
 **3.形参可多可少，形参只是给参数取名字**
-```
+```js
 function add(x){
  return x+arguments[1] //arguments[1]第2位
 }
@@ -354,7 +351,7 @@ js没有typeScript那么严谨
 ### 返回值
 
 **每个函数都有返回值**
-```
+```js
 function hi(){console.log('hi')}
 hi()
 ```
