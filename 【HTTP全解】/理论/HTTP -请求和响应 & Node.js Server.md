@@ -1,6 +1,6 @@
 > 主要内容 
 > 
-> 用代码实现http(演示Node.js服务) 
+> 用代码实现http，演示Node.js服务
 > 
 > 前置条件:安装Node.js 14
 
