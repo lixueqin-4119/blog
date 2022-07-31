@@ -6,9 +6,9 @@
 
 **知识点：**
 
-(1)file不是命令没有缩写,recursive和force表示选项，无缩写；
+1.file不是命令没有缩写,recursive和force表示选项，无缩写；
 
-(2)cd就是改变目录的意思;
+2.cd就是改变目录的意思;
 
 **备注：**
 Git Bash 和 git 的关系是（mac系统里的终端就相当于 Git Bash）完全不一样的东西，一个是 bash，一个是 git，两种不同的软件.
@@ -28,9 +28,9 @@ Git Bash 和 git 的关系是（mac系统里的终端就相当于 Git Bash）完
 
 4.查看指定文件内容代码 cat+文件
 
-```
-    cd demo/
-    cat style.css
+```js
+cd demo/
+cat style.css
 ```
 
 5.除了cat外，head路径/tail路径/less路径都能查看内容，区别在哪？
@@ -50,11 +50,11 @@ tail style.css -n 14//展示后14行
 **创建文件: touch/echo**
 
 1.创建文件touch
-
+```js
 touch 1.txt //若不存在则创建//修改文件最后更新时间
 
 touch 2.txt 3.txt //同时创建多个文件
-
+```
 2.echo回声 用于创建有内容的文件
 
 (1)echo xxx 解析:返回xxx
@@ -93,16 +93,16 @@ mkdir -p a/b/c/d
 
 1.拷贝文件
 
-```
+```js
 echo hi > index.html
 cp index.html index2.html            
 ```
 
 2.复制目录cp -r 文件1 文件2 //recursive递归的的意思
 
-```
-       mkdir demo
-       cp -r demo demo2  
+```js
+mkdir demo
+cp -r demo demo2  
 ```
 
 > 删除
@@ -149,7 +149,7 @@ touch 1.txt && echo 创建成功
 
 2.;操作 不管成功失败，都执行另一条
 
-```
+```js
 rm 1.txt ; echo 删除成功
 ```
 
@@ -160,27 +160,27 @@ rm 1.txt ; echo 删除成功
 
 **步骤:**
 
-```
+```js
 touch 一键搞定
 code 一键搞定
 ```
 
 **然后打开一键搞定添加操作：**
 
-```
-     mkdir x  //回车代替;
-     cd x 
-     touch index.html
-     touch style.css
-     touch main.js
-     echo -e "<!DOCTYPE html>\n<h1>标题</h1>" >>index.html 
+```js
+mkdir x  //回车代替;
+cd x 
+touch index.html
+touch style.css
+touch main.js
+echo -e "<!DOCTYPE html>\n<h1>标题</h1>" >>index.html 
 ```
 
 **执行：**
 
-```
-     chmod +x 一键搞定  //Mac添加可执行权限，一键搞定这个脚本它就是可执行的了    
-     ./一键搞定         //当前目录下
+```js
+chmod +x 一键搞定  //Mac添加可执行权限，一键搞定这个脚本它就是可执行的了    
+./一键搞定         //当前目录下
 ```
 
 **传参数**：再次执行./一键搞定则会报错，因为x已经存在了。这个问题可以通过传参数搞定。
@@ -190,9 +190,11 @@ code 一键搞定
 ![image.png](https://upload-images.jianshu.io/upload_images/21487050-1e0e1d761ee530b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-```
-终端执行: ./一键搞定 xxx
-```
+终端执行: `./一键搞定 xxx`
+
 
 **总结：**
-这就是脚本的厉害之处，它可以把你之前通过鼠标不停重复的事情，全部写到一个文件里，通过接收一个参数一键帮你搞定。可以用sh代替./ ,sh是bash的缩写。 **命令行的本质就是个可执行的文件而已。** shebang是一行注释加上之后就可以指定用什么程序来运行当前的脚本。今天学的是bash,所以是bash脚本文件，bashscript语法。
+这就是脚本的厉害之处，它可以把你之前通过鼠标不停重复的事情，全部写到一个文件里，通过接收一个参数一键帮你搞定。
+可以用sh代替./ ,sh是bash的缩写。 **命令行的本质就是个可执行的文件而已。** 
+shebang是一行注释加上之后就可以指定用什么程序来运行当前的脚本。
+今天学的是bash,所以是bash脚本文件，bashscript语法。
