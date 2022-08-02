@@ -1,8 +1,11 @@
-> 使用github要先学会git。 git无需安装，有cmder/gitbash即可，comder内置了gitbash。查看版本号 git --version
 
 **git与gitbash的关系，傻傻分不清？**
 
-git 就是一个命令而已，bash就是包含命令的黑框框(iterm2)。这个黑框框(bash命令行)可以运行很多命令其中就包括git，我们在gitbash里面运行git。gitbash相当于Mac的iterm2！
+git 就是一个命令而已，bash就是包含命令的黑框框。
+
+这个黑框框可以运行很多命令其中就包括git，我们在gitbash里面运行git，gitbash相当于Mac的iterm2。
+
+使用github要先学会git，git无需安装，有cmder/gitbash即可，comder内置了gitbash。
 
 ## 一. 配置
 
@@ -10,7 +13,7 @@ git 就是一个命令而已，bash就是包含命令的黑框框(iterm2)。这�
 
 终端iterm2运行这6行代码：(出错可以重新再运行，运行完这6行才能开始用git)
 
-```
+```js
 git config --global user.name 你的英文名 
 git config --global user.email 你的邮箱     //最常用的邮箱
 git config --global push.default simple
@@ -23,8 +26,8 @@ git config --global core.autocrlf input
 
 **测试查看是否配置成功：**
 
-```
-    git config —-global —-list
+```js
+git config —-global —-list
 ```
 
 ## 二.git init & git add & git commit
