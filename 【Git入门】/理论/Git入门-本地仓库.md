@@ -32,9 +32,9 @@ git config —-global —-list
 
 ## 二.git init & git add & git commit
 
-> **git解决了什么问题,为什么要git？**
-> 
-> 版本控制,git可以让你的代码有版本可以随时退到某个版本。
+**git解决了什么问题,为什么要git？**
+
+版本控制,git可以让你的代码有版本可以随时退到某个版本。
 
 
 1.  `git init` //初始化，创建.git目录放置代码快照(版本)
