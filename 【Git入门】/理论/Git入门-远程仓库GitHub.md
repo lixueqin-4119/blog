@@ -1,20 +1,13 @@
-> Git 包括 本地仓库 和 远程仓库github, git 这个工具有个特点, 它的本地与远程是完全隔开的。在学习远程之前必须先搞熟本地。
-> 
-> 代码需要储存在云端，比如你需要在公司和家里写代码，比如你的笔记本被奶茶泡坏了，比如你不小心运行了rm-rf/ …
+Git 包括 本地仓库 和 远程仓库github, git的本地与远程是完全隔开的。在学习远程之前必须先搞熟本地。
 
-Github可以存储你的代码，只需要2行命令：
-
-```
-git remote add origin git@xxxxxxxx
-git push -u origin master
-```
+代码需要储存在云端，比如你需要在公司和家里写代码，比如你的笔记本被奶茶泡坏了，比如你不小心运行了rm-rf/ …
 
 ## 一.SSH key验证身份
+GitHub 是如何知道是 "你"在操作 “你的代码”?
 
-> GitHub 是如何知道是 "你"在操作 “你的代码”?
-> 
-> 有人说可以通过验证用户名和密码呀。每次上传时都要输入用户名和密码过于繁琐，有没有别的能验证身份的方式？
-> 有，SSH key验证
+有人说可以通过验证用户名和密码呀。每次上传时都要输入用户名和密码过于繁琐，有没有别的能验证身份的方式？
+
+有，SSH key验证
 
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-b9bcb9cb08dc6551?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -24,11 +17,9 @@ git push -u origin master
 
 **如何生成ssh key?**  [Github帮助文档](https://docs.github.com/cn/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-过程如下
-
 **1.终端运行**
 
-```
+```js
 ssh-keygen -t ed25519 -C "your_email@example.com" //修改为你的邮箱
 
 ```
@@ -44,7 +35,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com" //修改为你的邮箱
 
 **2.打出公钥id_rsa.pub的内容并复制其内容**
 
-```
+```js
 cat ~/.ssh/id_rsa.pub
 
 ```
@@ -55,7 +46,7 @@ cat ~/.ssh/id_rsa.pub
 
 **测试公私钥是否配对成功**
 
-```
+```js
 ssh -T git@github.com
 ```
 
@@ -63,7 +54,6 @@ ssh -T git@github.com
 
 这里GitHub也给我一个公钥证明它是它，我们两方都在证明自己的身份，输入yes接受它的公钥。当出现“Hi xxx!You are successfully…”代表已成功关联。
 
-**结束！**
 
 ## 二.将本地仓库上传到 GitHub
 
@@ -104,14 +94,14 @@ ssh -T git@github.com
 
 **复制SSH地址,终端执行**
 
-```
+```js
  git clone git@github.com:lixueqin-4119/git-demo1.git //SSH地址
 
 ```
 
 **切换分支，没有分支可跳过**
 
-```
+```js
  cd git-demo1/    //不要忘记cd
   ls
   git checkout x   //切分支
@@ -129,7 +119,7 @@ ssh -T git@github.com
 
 **4.git clone三种变形**
 
-```
+```js
 1.git clone git@?/xxx.git     //以原始目录名为目录名
 2.git clone git@?/xxx.git yyy //重命名目录为yyy
 3.git clone git@?/xxx.git .    //把远程代码塞到已建好的空目录里
@@ -148,7 +138,7 @@ ssh -T git@github.com
 
 新建2个GitHub远程仓库，1个编辑好的本地仓库。
 
-```
+```js
 vscode终端依次运行
 git remote add origin git@github.com:lixueqin-4119/git-demo2.git
 git remote add origin2 git@github.com:lixueqin-4119/git-demo3.git
@@ -171,7 +161,7 @@ git push -u origin2 master
 
 运行以下命令即可
 
-```
+```js
 touch ~/.bashrc
 echo 'alias ga="git add"'>> ~/.bashrc     //可以根据自己的习惯调整缩写哦
 echo 'alias gc="git commit -v"'>> ~/.bashrc
@@ -197,14 +187,14 @@ alias ga=“git add” //当输入ga时等于输入了git add
 
 首先复制下面代码：
 
-```
+```js
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -- | less"
 
 ```
 
 然后终端运行
 
-```
+```js
  code ~/.bashrc   //编辑bashrc
 
 ```
@@ -233,14 +223,12 @@ git stash pop  //弹出来
 ```
 
 ## 六.GitHub搭建个人博客
+git clone 和 git pull 都是下载，区别是什么？
 
-> 其它
-> 
-> 1.git clone 和 git pull 都是下载，区别是什么？ git clone 是在我没有代码的前提下，下载整个仓库到本地 git pull 是在我已经拥有本地仓库的前提下，只下载本地没有的那一部
-> 
-> 2.忠告：不要一边写一边看效果，这样很浪费时间！
-> 
-> 3.图片或链接 ![]()
+git clone 是在我没有代码的前提下，下载整个仓库到本地，
+
+git pull 是在我已经拥有本地仓库的前提下，只下载本地没有的那部分
+
 
 **GitHub功能之1，可以直接预览markdown**
 
