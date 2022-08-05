@@ -1,10 +1,10 @@
 ## 一.HTML5概述
-
-> WWW指万维网(WWW=URL+HTTP+HTML),是1990年由李爵士发明的,17年被颁发图灵奖 
-> 
-> WWW的直观感受，如何使用万维网:你输入网址，看到网页，看不见的部分由HTTP搞定。 
-> 
 > [MDN](https://developer.mozilla.org/en-US/docs/Glossary/HTML5#see_also) HTML5权威指南
+
+
+WWW指万维网(WWW=URL+HTTP+HTML),是1990年由李爵士发明的,17年被颁发图灵奖 
+
+WWW的直观感受，如何使用万维网:你输入网址，看到网页，看不见的部分由HTTP搞定。 
 
 **李爵士做了啥？**
 
@@ -22,7 +22,7 @@
 
 ## 二.HTML5技术集
 
-html5分 狭义Html5和 广义Html5
+html5分狭义Html5和广义Html5
 
 **1.狭义指 Html5新增的+旧的，大概 110 个标签。**
 
