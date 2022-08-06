@@ -22,7 +22,7 @@ WWW的直观感受，如何使用万维网:你输入网址，看到网页，看�
 
 ## 二.HTML5技术集
 
-html5分狭义Html5和广义Html5
+html5分为狭义Html5和广义Html5
 
 **1.狭义指 Html5新增的+旧的，大概 110 个标签。**
 
@@ -49,7 +49,7 @@ html5分狭义Html5和广义Html5
 ## 三. HTML的语法
 
 **标签**
-```
+```js
 <!DOCTYPE html> //文档类型
 
 <tag attr=value>内容</tag> //属性值加引号的规则
@@ -70,7 +70,7 @@ html5分狭义Html5和广义Html5
 
 
 **解析标签语法：**
-```
+```js
 1.<tag attr=value>内容</tag>
 ```
 属性值
@@ -80,22 +80,20 @@ id=xxx
 参数加 单/双引号和 无引号都是对的。
 
 属性值加引号的规则与命令行一致。有特殊字符就加，没有就不加。
-```
+```js
 2.<tag attr>内容</tag>
 ```
 没有等于号，没有值的属性，布尔属性(只有真和假)。
-
-例子:
-```
+```js
 <input type="checkbox" checked="false"> //运行结果为被勾选状态☑️. 新版语法不支持，只要写了checked那不管是true还是false结果都是checked。
 ```
 不过要注意不是所有的语法都这样。
-```
+```js
 3.<tag attr=value>
 ```
 语法：直接闭合
-```
-例子：<link href="xxx.css">
+```js
+<link href="xxx.css">
 ```
 由于html有超强纠错功能有/会自动纠错,最新版规范写法是不加/
 
@@ -112,7 +110,7 @@ id=xxx
 2‘.[W3C validator](https://www.npmjs.com/package/node-w3c-validator)
 
 全局安装
-```
+```js
  yarn global add node-w3c-validator
  node-w3c-validator --version 
 ```
@@ -120,8 +118,8 @@ id=xxx
 **使用**
 
 打开vscode新建终端运行 node-w3c-validator -i + 路径
-```
-代码：node-w3c-validator -i index.html 
+```js
+node-w3c-validator -i index.html 
 ```
 
 > 其它
@@ -140,8 +138,8 @@ id=xxx
 > 
 > 2.如何学? -CRM法 
 > 
-> copy 抄 
+> copy   抄
 > 
-> run 放在自己的机器上运行成功 
+> run    放在自己的机器上运行成功 
 > 
-> modify 改变，加入自己的想法，然后重新运行
+> modify 改，加入自己的想法，然后重新运行
