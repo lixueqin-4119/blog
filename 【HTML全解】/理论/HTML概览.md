@@ -122,9 +122,7 @@ id=xxx
 node-w3c-validator -i index.html 
 ```
 
-> 其它
-> 
-> 体系化学习 
+**体系化学习** 
 > 
 > 1.学一门语言必须学会什么?
 > 
