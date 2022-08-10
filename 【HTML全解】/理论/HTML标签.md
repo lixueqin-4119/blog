@@ -2,17 +2,13 @@
 
 **1.书籍《[网道HTML教程](http://link.zhihu.com/?target=https%3A//wangdoc.com/html/intro.html)》**
 
-**2.推荐个VSCode小插件**
-
-格式化工具 Prettier  **Code formatter**
+**2.VSCode格式化工具 Prettier - Code formatter**
 
 安装后开启自动格式化:
 
-文件-> 首选项-> 设置-> 1’搜索“auto save”选择onFocusChange-> 搜索并勾选"format on save"
+文件/首选项/设置-> 1’搜索“auto save”选择onFocusChange-> 搜索并勾选"format on save"
 
-**3.在线编码工具**
-
-[沙盒](http://link.zhihu.com/?target=https%3A//codesandbox.io/)
+**3.在线编码工具** [沙盒](http://link.zhihu.com/?target=https%3A//codesandbox.io/)
 
 ## 一.标签详解
 
@@ -26,7 +22,7 @@ content="IE=edge"告诉浏览器使用最新版本(内核)
 
 **2.章节标签 文章/书的层级**
 
-```
+```js
 标题h1~h6
 章节section
 文章article
@@ -36,16 +32,14 @@ content="IE=edge"告诉浏览器使用最新版本(内核)
 主要内容main
 旁支内容aside
 划分div
-
 ```
-
 ![image](https://upload-images.jianshu.io/upload_images/21487050-7440f5a39999e1a3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 二.全局属性
 
 所有标签都有的属性叫做全局属性。
 
-```
+```js
 class  
 contenteditable 可编辑的
 hidden
@@ -53,19 +47,15 @@ id
 style
 tabindex
 title
-
 ```
 
 **解析**
 
 **1.class可写多个**
-
+```js
 class="middle bordered"
-
-```
-使用：.middle{ }
-     .bordered{}
-
+.middle{ }
+.bordered{}
 ```
 
 **2.contenteditable 可以使任意一个元素被编辑**
@@ -81,18 +71,15 @@ class="middle bordered"
 这也是一种好用的调试技巧，可以用来**调试代码**！
 
 ```
-...
- <body>
- <style contenteditable>
- style{display:block; border:1px solid red;}
-        .middle{background: red;}
-        .bordered{
-            border:1px solid red;
-        }
+<body>
+<style contenteditable>
+  style{display:block; border:1px solid red;}
+  .middle{background: red;}
+  .bordered{
+    border:1px solid red;
+  }
  </style>
  </body>
- ...
-
 ```
 
 **5.hidden 可以让任何东西看不见**
@@ -118,16 +105,12 @@ id = xxx 不是老司机不要直接通过 xxx 直接获取到元素，**id不�
 每个元素可以写一个style属性
 
 css html js属性同时存在的话，**js优先级会覆盖css。**
-
-```
-例子: id=xxx
-     xxx.style.border='10px solid black'
-
+```js
+id=xxx
+xxx.style.border='10px solid black'
 ```
 
 **8.tabindex**
-
-用的较少
 
 **功能：代替鼠标用的**
 
@@ -137,13 +120,13 @@ tabindex=1，它会按照1 2 3顺序走，**特殊值0**“最后访问”，**�
 
 **9.title="显示完整的一段话"**
 
-**单行文字溢出该怎么写？** css不换行，溢出省略，溢出用省略号显示
+**单行文字溢出该怎么写？** 
 
-```
+```js
+//css不换行，溢出省略，溢出用省略号显示
 white-space:nowrap;
 text-overflow:ellipsis;
 overflow:hidden;
-
 ```
 
 **10.小技巧**
@@ -190,8 +173,7 @@ User Agent就是浏览器
 
 5.code 用于写代码，代码内容等宽；常与pre连用
 
-```
-例子：
+```js
 <pre>
  <code>
   var a=1;
