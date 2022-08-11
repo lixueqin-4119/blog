@@ -1,10 +1,10 @@
-推荐2个打开超链接(预览html)的工具
+推荐2个打开超链接,预览html的工具
 
 **1’http-server**
 
-```
+```js
 安装 yarn global add http-server
-使用 http-server . -c-1 (缩写hs -c-1)
+使用 http-server . -c-1 //hs -c-1
 ```
 
 然后在浏览器的地址栏中录入index的路径
@@ -13,14 +13,12 @@
 
 **2’parcel**
 
-```
+```js
 安装 yarn global add parcel
 使用 parcel index.html
 ```
-
 注意parcel有个bug,不引入js的的话，parcel是不会帮你自动打包的。
 
-control+c中断
 
 ## 一.a标签
 
@@ -61,15 +59,15 @@ vs code里的路径是基于文件的。浏览器里的路径是http服务的根
 为什么用浏览器打开地址不出错？因为它会以当前文件为根目录！
 
 **(3)伪协议写法 就是为了执行js用的。**
-```
-<a href="javascript:alert(1);">javascript伪协议</a> //现在基本不用了
+```js
+<a href="javascript:alert(1);">javascript伪协议</a> //基本不用了
 ```
 现在只用下面这个
 
 需求:什么都不做的a标签。
 
-```
-<a href="javascript:;">空的伪协议</a> //什么都不做的a标签
+```js
+<a href="javascript:;">空的伪协议</a> 
 ```
 
 (4)跳转到指定标签。可以加id ,例子：href="#xxx"
@@ -80,7 +78,7 @@ vs code里的路径是基于文件的。浏览器里的路径是http服务的根
 
 **2.target的取值**
 
-内置名字
+**内置名字**
 
 _blank 在空白页面打开
 
@@ -90,11 +88,11 @@ _top 在顶级窗口打开
 
 _parent 在当前链接所在的ifram的上一层打开
 
-程序员命名
+**程序员命名**
 
 1’window的name
 
-解析：target="xxx",xxx就是window的name值。作用：重复利用同一个窗口展示不同页面
+target="xxx",xxx就是window的name值。作用：重复利用同一个窗口展示不同页面
 
 2’iframe的name
 
@@ -105,9 +103,8 @@ _parent 在当前链接所在的ifram的上一层打开
 已经很少用了
 
 ## 三.table标签
+相关的标签
 
-> 相关的标签
-> 
 > table
 > 
 > thead 头部
@@ -129,18 +126,15 @@ _parent 在当前链接所在的ifram的上一层打开
 > border-collapse 边框是否合并(collapse)
 > 
 > border-spacing 表格间隙(0)
-```
-代码：
+
+```js
 <table> 
   <thead></thead>
   <tbody></tbody>
   <tfoot></tfoot>
 </table>
 ```
-
-示例
-
-```
+```js
     <table>
         <thead>
          <tr>
@@ -230,8 +224,7 @@ max-width:100%;
 
 button的type属性若不写则默认为submit。
 
-```
-代码：
+```js
 <form action="/xxx" method="POST" autocomplete="on" target="_blank">
    <input name="username" type="text" />
    <input type="submit" value="提交" />
@@ -240,8 +233,8 @@ button的type属性若不写则默认为submit。
 ```
 
 **input的submit与button的submit有什么区别？**
-```
-代码：<input type="submit" value="提交"/>
+```js
+<input type="submit" value="提交"/>
 
 <button type="submit">提交</button>
 ```
@@ -259,13 +252,13 @@ button的type属性若不写则默认为submit。
 
 text/color/password/radio/checkbox/file(单个文件)/hidden(给js自动填写id或者字符串之类的东西)
 
-```
-示例： <input type="file" multiple> //multiple可选择多个文件
+```js
+<input type="file" multiple> //multiple可选择多个文件
 ```
 
 2.性别用gender
 
-```
+```js
 <input name="gender" type="radio" />男
 <input name="gender" type="radio" />女
 ```
@@ -280,7 +273,7 @@ text/color/password/radio/checkbox/file(单个文件)/hidden(给js自动填写id
 
 **2.选择select+option**
 
-```
+```js
 <select>
 <option value="">请选择</option>
 <option value="1">星期一</option>
