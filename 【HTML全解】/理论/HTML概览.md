@@ -1,6 +1,5 @@
 ## 一.HTML5概述
-> [MDN](https://developer.mozilla.org/en-US/docs/Glossary/HTML5#see_also) HTML5权威指南
-
+**HTML5权威指南[MDN](https://developer.mozilla.org/en-US/docs/Glossary/HTML5#see_also)**
 
 WWW指万维网(WWW=URL+HTTP+HTML),是1990年由李爵士发明的,17年被颁发图灵奖 
 
