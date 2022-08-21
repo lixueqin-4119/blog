@@ -1,34 +1,10 @@
-> 体系化学习
-> 
-> 1.学一门语言必须学会什么
-> 
-> 语法
-> 
-> 如何调试
-> 
-> 在哪查资料
-> 
-> 标准制定者是谁
-> 
-> 2.如何学 -CRM
-> 
-> copy
-> 
-> run
-> 
-> modify
-> 
-
-**前言**
-
-![image](https://upload-images.jianshu.io/upload_images/21487050-c07f2eba8fec4bfc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 css 全称叫**层叠样式表**，是由李爵士的挪威同事赖先生提出的。
 
 **层叠** 表现在 **"样式层叠"**  **"选择器层叠"** 和 **“文件层叠”**。
 
 2004～2011年的css2.1版本是使用 **最广泛的版本** (IE支持)。
 从css3开始 **分模块升级**，**不存在css4了。**
+![image](https://upload-images.jianshu.io/upload_images/21487050-c07f2eba8fec4bfc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **如何知道哪些浏览器支持哪些特性？** 
 使用[caniuse.com](https://link.zhihu.com/?target=http%3A//caniuse.com)
