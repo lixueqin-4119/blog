@@ -1,24 +1,17 @@
-> 布局就是把页面分成一块一块,按左中右，上中下等排列
+**布局就是把页面分成一块一块,按左中右，上中下等排列**
 
 **布局一般分为3类**
 
-1’固定宽度布局，一般宽度为960/1000/1024px
+1’固定宽度布局，一般宽度为960/1000/1024px。例如淘宝
 
-例如淘宝
-
-2’不固定宽度布局，主要靠文档流的原理来布局
-
-一般在手机上用
+2’不固定宽度布局，主要靠文档流的原理来布局。一般在手机上用
 
 补充：文档流本来就是自适应的，不需要加额外的样式
 
 3’响应式布局
 
-PC上固定宽度，手机上不固定宽度
+PC上固定宽度，手机上不固定宽度。也就是一种混合布局
 
-也就是一种混合布局
-
-<br/>
 
 **布局的两种思路**
 
@@ -62,7 +55,7 @@ Grid布局功能最强大，尤其适合“**不规则布局**”。
 
 第2步 在父元素上加.clearfix。clearfix内容如下
 
-```
+```js
  .clearfix:after{
   content:'';
   display:block;
@@ -182,15 +175,6 @@ x=191 y=12
 
 做法：在image外再加个div把image包起来，然后设置该div的margin-right:-12px; 值就是每个y的值,这里是12
 
-> 老司机经验
-> 
-> 1.加上头尾，即可满足所有PC页面需求
-> 
-> 2.手机页面傻子才用float
-> 
-> 3.float要程序员自己计算宽度，不灵活
-> 
-> 4.float用来应付IE足矣
 
 ## Flex布局
 容器container & 子元素items
@@ -198,7 +182,7 @@ x=191 y=12
 **一.flex container的属性和样式**
 **1.让一个元素变成flex容器**
 
-```
+```js
 .container{
   display:flex|inline-flex;
 }
@@ -208,7 +192,7 @@ x=191 y=12
 
 改变items流动方向(主轴)
 
-```
+```js
 .container{
  flex-direction:row横,默认|row-reverse|column|column-reverse
 }
@@ -217,7 +201,7 @@ x=191 y=12
 3.flex弹性盒，控制是否换行flex-wrap
 空间不够时会自动压缩自己，不会折行(不同于文档流空间不够会自动折行)
 
-```
+```js
 .container{
 flex-wrap:wrap|nowrap默认,不折行
 }
@@ -229,10 +213,10 @@ flex-wrap:wrap|nowrap默认,不折行
 
 默认主轴是横轴 左右,除非你改变了flex-direction方向
 
-```
+```js
 .container{
   justify-content:center居中|space-between;2栏布局
-  }
+}
 ```
 
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-9e1a27add2a12b9d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -241,7 +225,7 @@ flex-wrap:wrap|nowrap默认,不折行
 
 默认次轴是纵轴 上下,
 
-```
+```js
 .container{
  align-items:stretch|center|flex-start|flex-end;
 }
@@ -252,7 +236,7 @@ flex-wrap:wrap|nowrap默认,不折行
 5.多行内容的分布(很少用)
 
 
-```
+```js
 align-content:flex-start|flex-end|center|stretch|..
 ```
 
@@ -260,7 +244,7 @@ align-content:flex-start|flex-end|center|stretch|..
 
 1.item上加order改变显示顺序
 
-```
+```js
 .item:first-child {
   order: 5;//改为几就会在第几个位置上出现
 }
@@ -272,7 +256,7 @@ align-content:flex-start|flex-end|center|stretch|..
 
 代码1 平均分配
 
-```
+```js
 .item {
 flex-grow: 1;
 }
@@ -280,7 +264,7 @@ flex-grow: 1;
 
 代码2 按比例分配
 
-```
+```js
 .item:first-child {
    flex-grow: 1;
 }
@@ -319,12 +303,8 @@ flex-grow: 1;
 4.主轴(左右)的对齐方式justify-content:center/space-between2栏布局
 
 5.align-items:center 纵轴(上下)居中
-## flex实践
 
-> 用flex做两栏布局 
-> 用flex做三栏布局 
-> 用flex做四栏布局 
-> 用flex做平均布局 
+## flex实践
 > 用flex组合使用，做更复杂的布局
 
 老手的经验
@@ -333,7 +313,7 @@ flex-grow: 1;
 尽量用min-width/max-width/min-height/max-height
 
 2.什么叫写死
-```
+```js
 写死  width:100px;
 不写死 width:50%;
       max-width:100px;
@@ -379,7 +359,7 @@ flex-grow: 1;
 
 用于设置main的width，让它自己填充，不写死
 
-```
+```js
 .content{min-width:800px}
 .content>aside{flex-grow:1;}
 ```
@@ -392,7 +372,7 @@ margin-right:auto;
 
 **三.用flex做产品展示区 平均布局**
 
-```
+```js
 .x {
   display: flex;
   flex-wrap: wrap; /*换行*/
@@ -410,7 +390,7 @@ margin-right:auto;
 
 1.让一个元素变成Grid容器
 
-```
+```js
 .container{
   display:grid|inline-grid;
 }
@@ -421,7 +401,7 @@ margin-right:auto;
 
 column主轴左右 row次轴上下
 
-```
+```js
 .container{   
   grid-template-columns:40px 50px auto 50px 40px; 3行5列
   grid-template-rows:25% 100px auto;
@@ -432,7 +412,7 @@ column主轴左右 row次轴上下
 
 Grid优点给每根线都取了个名字,默认是从1到4(grid-template-columns)，也可自定义
 
-```
+```js
 .container{
   grid-template-columns:[first]40px [line2]50px [line3]auto 
      [col4-start]50px [five]40px [end];
@@ -443,7 +423,7 @@ Grid优点给每根线都取了个名字,默认是从1到4(grid-template-columns
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-37d395e7bd1063b1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 (3)item设置范围
 
-```
+```js
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 1;
@@ -456,7 +436,7 @@ Grid优点给每根线都取了个名字,默认是从1到4(grid-template-columns
 
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-7d85a19d7f18fcc2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-```
+```js
 .container{   
   grid-template-columns:1fr 1fr 1fr 1fr; 2行4列
   grid-template-rows:1fr 1fr;
@@ -465,7 +445,7 @@ Grid优点给每根线都取了个名字,默认是从1到4(grid-template-columns
 
 (5)空隙gap
 
-```
+```js
 1.设置总空隙 gap:12px;
 2.左右 column-gap:10px;
 3.上下 row-gap:10px;
@@ -485,15 +465,15 @@ Grid优点给每根线都取了个名字,默认是从1到4(grid-template-columns
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-630851b14e0bb140?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 1.grid repeat**缩写方式**
-```
+```js
  grid-template-rows:240px 120px 120px 120px 120px; 
-  缩写grid-template-rows:240 repeat(4,120px);
+ // 缩写grid-template-rows:240 repeat(4,120px);
 ```
 
 **2.尽力往里缩**
 
-```
- display:inline-grid;
+```js
+display:inline-grid;
 ```
 因为内联元素会尽力往里缩,去掉额外的空间
 
