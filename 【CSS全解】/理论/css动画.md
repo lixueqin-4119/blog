@@ -101,9 +101,9 @@ div.remove()会触发当前消失，元素relayout
 
 ### [浏览器渲染性能优化](https://link.zhihu.com/?target=https%3A//developers.google.com/web/fundamentals/performance/rendering)
 
-> js/css/样式/Layout布局/Paint绘制/Composited合成
+js/css/样式/Layout布局/Paint绘制/Composited合成
 
-> 5个过程每一个都可以被优化
+5个过程每一个都可以被优化
 
 **1.优化JavaScript执行(优化js)**
 
@@ -165,7 +165,7 @@ TL;DR
 
 **经验**
 
-一般都需要配合transition过渡 代码:transition:all 1s;
+一般都需要配合transition过渡 `transition:all 1s;`
 
 inline元素不支持transform,需要先变成block
 
@@ -211,16 +211,15 @@ scale(<number>,<number>?)
 
 用的较少，因为容易出现模糊
 
-```
-代码：transition:all 1s;过渡
-     transform: scale(1.5);
+```js
+transition:all 1s;
+transform: scale(1.5);
 ```
 
 **三.transform:rotate旋转**
 
 常用写法
-
-```
+```js
 rotate([<angle>|<zero>])
 rotateX([<angle>|<zero>])
 rotateY([<angle>|<zero>])
@@ -228,21 +227,16 @@ rotateZ([<angle>|<zero>])
 rotate3d太复杂，无法用语言表述
 ```
 
-**经验**
+**经验**:一般用于360度旋转制作loading或者按钮的交互
 
-1.一般用于360度旋转制作loading或者按钮的交互
-
-2.用到时再搜索rotate mdn看文档
-
-```
-代码 transform: rotate(45deg);
+```js
+ transform: rotate(45deg);
 ```
 
 **四.transform:skew倾斜**
 
 **常用写法**
-
-```
+```js
 skewX([<angle>|<zero>])
 skewY([<angle>|<zero>])
 skew([<angle>|<zero>],[<angle>|<zero>]?)
@@ -258,7 +252,7 @@ transform多重效果
 
 **组合使用**
 
-```
+```js
 transform:scale(0.5)translate(-100%,-100%);
 transform:none;取消所有
 ```
@@ -273,26 +267,26 @@ transform:none;取消所有
 
 1.transition:属性名 时长 过渡方式 延迟 //4个值
 
-```
-  transition:left 200ms linear
+```js
+transition:left 200ms linear
 ```
 
 2.可以用逗号分隔两个不同属性
 
-```
-  transition:left 200ms,top 400ms
+```js
+transition:left 200ms,top 400ms
 ```
 
 3.可以用all代表所有属性
 
-```
-  transition:all 200ms ease-in-out 300ms;//再延迟300ms淡入淡出
+```js
+transition:all 200ms ease-in-out 300ms;//再延迟300ms淡入淡出
 ```
 
 4.过渡方式有:
 
-```
-  linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier|step-start|step-end|steps
+```js
+linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier|step-start|step-end|steps
 ```
 
 **变态**
@@ -316,7 +310,7 @@ display:none;=>block没法过渡
 
 **语法**
 
-```
+```js
 animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;
 ```
 
@@ -366,7 +360,7 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
 
 另一种写法是百分数(更广泛)
 
-```
+```js
  @keyframes slidein {
   from {
     transform: translateX(0%); 
@@ -383,5 +377,3 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
   100% { top: 100px; left: 100%; }
 }
 ``` 
-
-
