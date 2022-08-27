@@ -255,6 +255,7 @@ nslookup baidu.com
 ## URL 统一资源定位服务
 
 **URL = 协议+域名或IP+端口号+路径+查询字符串+锚点**
+
 ![在这里插入图片描述](https://upload-images.jianshu.io/upload_images/21487050-d49f70df7fcd59e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
