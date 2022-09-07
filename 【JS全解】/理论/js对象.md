@@ -300,8 +300,9 @@ let key='name';obj[key]='frank'
 let key='name';~~obj.key='frank'~~ ❌obj.key等价于obj['key']
 ```
 **批量赋值**
-
+```js
 Object.assign(obj,{age:18,gender:'name',...})
+```
 
 **修改或增加共有属性**
 
@@ -314,7 +315,7 @@ obj2.toString 还是在原型上
 2.我偏要修改或增加原型上的属性
 
 一般来说不要修改原型，会引起很多问题
-```
+```js
 obj.__proto__.toString='xxx'  //不推荐
 
 window.Object.prototype.toString='yyy'
