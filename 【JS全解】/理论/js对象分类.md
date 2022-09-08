@@ -1,6 +1,7 @@
 # js对象分类
 
 推荐文章:
+
   [你可以不会class，但是一定要学会prototype](https://zhuanlan.zhihu.com/p/35279244)\
   [JS的new到底是干什么的？](https://zhuanlan.zhihu.com/p/23987456)\
   [JS中proto和prototype存在的意义是什么？](https://www.zhihu.com/question/56770432/answer/315342130)
