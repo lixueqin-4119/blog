@@ -208,7 +208,7 @@ arr
 1.查看所有属性名
 
 访问对象
-```
+```js
 1' Object.keys(arr)
 
 2' for(let key in arr){console.log(`${key}:${arr[key]}`)}
