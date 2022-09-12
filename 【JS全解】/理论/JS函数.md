@@ -1,10 +1,8 @@
 # JS 函数
-> 本节课主要讲解函数对象，JS的第二座大山this
 
+定义函数(4种)
 
-# 定义函数
-
-> 4种方式:具名函数、匿名函数、箭头函数、用构造函数
+具名函数、匿名函数、箭头函数、用构造函数
 
 **1.具名函数**
 
@@ -538,7 +536,7 @@ fn.call(1)
 
 this是隐藏参数，arguments是普通参数。this是参数。(个人观点)
 
-# 验证"this是参数"这个观点(非常重要)
+# 验证"this是参数"这个观点
 
 我们在写函数时怎么得到，未来要创建的那个对象的引用。因为你没创建怎么引用它呢？
 
@@ -706,9 +704,11 @@ rethen x+y
 因为第一个参数要作为this,其实代码里没有用this,所以只能用undefined占位，其实用null也可以，叫什么无所谓。不用this就要这样写。
 
 **2.用this的写法**
+
 ![](https://pic2.zhimg.com/v2-7505c53e7b27e8eb476acdeac2f3ffe1_b.jpg)
 
 完善forEach2,模拟forEach功能
+
 ```
 Array.prototype.forEach2=function(fn){
   for(let i=0;i<this.length;i++){
