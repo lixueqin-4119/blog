@@ -354,7 +354,7 @@ function hi(){console.log('hi')}
 hi()
 ```
 没写return，所以返回值是undefined
-```
+```js
 function hi(){ return console.log('hi')}
 hi()
 ```
@@ -407,15 +407,13 @@ console.log(2)
 **递归函数**
 
 1.阶乘
-```
+```js
 function f(n){
-
   return n !=== 1 ? n*f(n-1) : 1
-
 }
 ```
 2.理解递归
-```
+```js
 f(4)
 
 =4 * f(3)
@@ -476,13 +474,13 @@ Node 12536
 长度大概在1～2万，超过这个值程序就崩溃。
 
 **七.函数提升**
-```
+```js
 function fn(){}
 ```
 不管你把具名函数声明在哪里，它都会跑到第一行。
 
 什么不是函数提升
-```
+```js
 let fn=function(){}
 ```
 这是赋值，右边的匿名函数声明不会提升
@@ -571,7 +569,7 @@ sayHi函数甚至有可能在另一个文件里面
 所以我们不希望sayHi函数里出现person引用
 
 问题二
-```
+```js
 class Person{  //用类
   constructor(name){
     this.name=name //这里的this是new强制指定的，先不讨论
@@ -623,7 +621,7 @@ js没有模仿Python的思路，走了另一条路
 **加关键字this**
 
 **js在每个函数里加了this,用this获取那个对象**
-```
+```js
 let person={
   name:'brucelee',
   sayHi(){  //(this)隐藏的this
@@ -675,7 +673,7 @@ js提供两种调用形式，解决这种不和谐。
 
 call在调用时就可以明确值。另一种写法无法明确值，所以用call更好
 
-```
+```js
 let person={
   name:'brucelee',
   sayHi(){  
@@ -692,7 +690,7 @@ sayHi放到person上干嘛呢？把函数放到对象上，这个函数和对象
 ### call指定this
 
 **1.不用this的写法**
-```
+```js
 function (x,y){ 
 rethen x+y
  }
@@ -709,7 +707,7 @@ rethen x+y
 
 完善forEach2,模拟forEach功能
 
-```
+```js
 Array.prototype.forEach2=function(fn){
   for(let i=0;i<this.length;i++){
     fn(this[i],i)
@@ -720,9 +718,9 @@ array.forEach2.call(array,(item)=>{console.log(item)}) //fn用箭头函数
 ```
 使用
 
-大师调用array.forEach2.call(array,(item)=>{console.log(item)}) //fn用箭头函数
+大师调用 array.forEach2.call(array,(item)=>{console.log(item)}) 
 
-小白调用array.forEach2((item)=>{console.log(item)})
+小白调用 array.forEach2((item)=>{console.log(item)})
 
 this是什么
 
@@ -733,7 +731,7 @@ this是什么
 **this可以不是数组**
 
 比如: 
-```
+```js
 Array.prototype.forEach.call({0:'a',length:1},(item)=>{console.log(item)}) 
 输出结果：a
 ```
@@ -741,39 +739,32 @@ Array.prototype.forEach.call({0:'a',length:1},(item)=>{console.log(item)})
 **this的两种使用方法**
 
 隐式传递
-
+```js
 fn(1,2) //	等价于fn.call(undefined,1,2)
-
 obj.child.fn(1) //等价于obj.child.fn.call(obj.child,1)
-
+```
 显示传递
-
+```js
 fn.call(undefined,1,2)
-
 fn.apply(undefined,[1,2])
-
+```
 this就是call的第一个参数
 
 ### 绑定this
 
 **使用.bind可以让this不被改变**
-
+```js
 function f1(p1,p2){
-
   console.log(this,p1,p2)
-
 }
-
 let f2=f1.bind({name:'brucelee'})
-
 f2()  //f2是f1绑定的版本
-
+```
 **.bind还可以绑定其它参数(所有)**
-
+```js
 let f3=f1.bind({name:'brucelee'},hi)
-
 f3() //等价于f1.call({name:'brucelee'},hi)
-
+```
 this和p1已经被绑死了
 
 vue、react经常用bind
@@ -781,7 +772,7 @@ vue、react经常用bind
 # 箭头函数
 
 没有arguments和this
-```
+```js
 console.log(this) //window
 let fn=()=>console,log(this)
 fn() //window
@@ -814,11 +805,10 @@ ES 5时代为了得到局部变量，必须引入一个函数。但这个函数�
 但js认为这种语法不合法，所以程序员发现只要在前面加个运算符(推荐!)即可。
 
 如果你的同事用了非!的运算符,记得在代码前一行加个分号;不然容易bug!
-
-console.log(a);  //加分号;
-
+```js
+console.log(a);  
 ! function (){...}
-
+```
 
 **新版js加个{}即可**
 
