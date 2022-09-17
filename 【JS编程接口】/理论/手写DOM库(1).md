@@ -58,12 +58,11 @@
   使用:parcel src/index.html  //启动一个服务器，这个服务器会自动刷新
   
 2.简写
-```
+```js
 window.dom.create = function () { } 可以简写成
 window.dom = {
     create() { }
 }
-
 const childNodes = node.childNodes 可以简写成
 const { childNodes } = node
 ```
@@ -104,13 +103,13 @@ const { childNodes } = node
 
 (1)||
 
-```
+```js
 return (scope || document).querySelectorAll(selector)
 ```
 **如果有scope就在scope里调用querySelectorAll, 没有就用document来querySelectorAll**
 
 (2)
-```
+```js
 if(typeof name==='string'){
   //如果name是字符串
 }else if(name instanceof object){
@@ -122,11 +121,10 @@ if(typeof name==='string'){
 **变量必须放进[]** node.style.[key]
 
 10.JS去操控CSS可能导致回流和重绘。
-
+```js
   document.style.background="red";
-  
   document.style.fontSize="24";
-  
+``` 
 这样的话相当于【元素的样式被改变了两次】！整个JavaScript的性能就下来了。必要的时候（对一个元素更改多个样式）我们可以“把他们合在一起”：
 
 document.style.cssText="background:red;font-size:24;";
@@ -149,7 +147,7 @@ document.style.cssText="background:red;font-size:24;";
    
    第2种.if...else 
    
-   第3种.while或者for循环
+   第3种.while 或者 for循环
 
 **封装技术，用2种风格封装DOM操作**
 
@@ -163,7 +161,7 @@ window.dom是我们提供的全局对象
 
 ### 一.增
 **增**
-
+```js
 dom.create(`<div>hello</div>`)用于创建节点
 
 dom.before(node,node2)用于新增哥哥
@@ -173,13 +171,11 @@ dom.after(node,node2)用于新增弟弟
 dom.append(parent,child)用于新增儿子
 
 dom.wrap(`<div></div>`)用于新增爸爸
-
+```
 **1.实现window.dom={} 和 create 创建节点**
 
 新建dom.js进行封装，main.js是接口
-
-代码如下：
-```
+```js
 window.dom={
   create(tagName){  //create
     return document.createElement(tagName);
@@ -190,14 +186,14 @@ const div = dom.create("div") //接口
 console.log(div)
 ```
 实现
-```
+```js
 <div>  
   <span>1</span>
 </div>
 思路：这段其实就是个html,把html写到标签里，就可以自动变成元素了。
 ```
 代码
-```
+```js
 window.dom = {
     create(string) {  
         const container = document.createElement("div")
@@ -228,7 +224,7 @@ div里是不能放<td>的，<td>是表格里的只能放在table tr，否则不�
 **trim()把字符串两边的空格给去掉。**
 
 const div =dom.create("`<td>hi</td>`");
-```
+```js
 window.dom = {
     create(string) {  
         const container = document.createElement("template")
@@ -240,7 +236,7 @@ window.dom = {
 ```
 **2.实现after新增弟弟**
 > 把node2插入到node的下一个节点的后面
-```
+```js
 after(node, node2) { 
     node.parentNode.insertBefore(node2, node.nextSibling)
   }
@@ -248,7 +244,7 @@ after(node, node2) {
 ```
 
 **当node是最后一个节点时，还能插入吗？**
-```
+```js
 <div>
   <div id="test">test</div> //回车在html里是文本
 </div>
@@ -262,7 +258,7 @@ console.log(node.nextSibling)
 当node是最后一个节点时，测试后可以插入。
 
 **3.实现before新增哥哥**
-```
+```js
 before(node, node2) {
         node.parentNode.insertBefore(node, node2)
     }    
@@ -270,7 +266,7 @@ before(node, node2) {
 dom.before(test, div)
 ```
 **4.实现append新增儿子**
-```
+```js
 append(parent, node) {
   parent.appendChild(node)
 }
@@ -285,7 +281,7 @@ dom.append(div, test)
 
 ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9e31936a8caf430b8b400c1436040016~tplv-k3u1fbpfcp-watermark.image?)
 
-```
+```js
 wrap(node,parent){
   dom.before(node,parent)
   dom.append(parent,node)
@@ -304,7 +300,7 @@ dom.wrap(test, div3)
 dom.remove(node) 删除节点
 
 dom.empty(parent)自己不删，删后代
-```
+```js
 remove(node) {
    node.remove() //node.parentNode.removeChild(node)
    return node   //保留节点的引用
@@ -313,7 +309,7 @@ remove(node) {
 dom.remove(test)
 ```
 **remove特点：移除会返回节点**
-```
+```js
 <div id="empty">
   <div id="em1">
     empty1
@@ -344,7 +340,7 @@ console.log(nodes)
 回车在html中是文本节点
 
 ### 三.改
-
+```js
 1.dom.attr(node,'title',?)用于读写属性
 
 2.dom.text(node,?)用于读写文本内容
@@ -362,9 +358,9 @@ console.log(nodes)
 8.dom.on(node,'click',fn) 用于添加事件监听
 
 9.dom.off(node,'click',fn)用于删除事件监听
-
-**1.dom.attr(node,'title',?)用于读写属性**
 ```
+**1.dom.attr(node,'title',?)用于读写属性**
+```js
 attr(node,name,value){
     node.setAttribute(name,value)
 }
@@ -378,7 +374,7 @@ const title=dom.attr(test,'title')
 > 读写操作是一起的，可以根据参数长度判断用户是读还是写。
 
 读写操作是一起的，可以根据参数长度判断用户是读还是写。
-```
+```js
 attr(node, name, value) { //重载
         if (arguments.length === 3) { //如果参数为3个就set
             node.setAttribute(name, value)
@@ -395,7 +391,7 @@ console.log(`title:${title}`)
 **重载:根据参数个数写不同的代码就是重载**
 
 **2.dom.text(node,?)用于读写文本内容**
-```
+```js
 text(node,string){  
     if(arguments.length===2){  //重载
       //console.log('innerText' in node)
@@ -420,7 +416,7 @@ dom.text(test)
 **适配：为了确保功能的实现，根据不同的生产环境，编写相应的代码。**
  
 **3.dom.html(node,?)用于读写html内容**
-```
+```js
 html(node,string){
     if(arguments.length===2){
     node.innerHTML=string
@@ -435,7 +431,7 @@ console.log(empty)
 ```
 
 **4.dom.style(node,{color:'red'})用于修改style**
-```
+```js
 style(node, object) {
   for (let key in object) { //遍历object的key
   //key:border/color
@@ -453,7 +449,7 @@ dom.style(test, 'border', '1px solid red')
 //如果参数是3个就是设置，如果是2个可能是读也可能是写
 ```
 **变量必须放[]**
-```
+```js
 style(node, name, value) {
   if (arguments.length === 3) {
     //dom.style(div,'color','red')
@@ -479,7 +475,7 @@ dom.style(test, 'border', '1px solid black')
 5.**dom.class.add(node,'blue')   用于添加class**
   **dom.class.remove(node,'blue')用于删除class**
   **dom.class.has(node,'blue')用于验证是否包含class**
-```
+```js
 <style>
   .red { background: red; } 
   .blue {color: blue;}
@@ -505,7 +501,7 @@ console.log(dom.class.has(test, 'red'))
 6.**dom.on(node,'click',fn)  用于添加事件监听**
 
   **dom.off(node,'click',fn) 用于删除事件监听**
-```
+```js
 on(node, eventName, fn) {
   node.addEventListener(eventName, fn)
     },
@@ -542,7 +538,7 @@ dom.off(test, 'click', fn)
 实际应该是可选的
 
 **(1)实现find，返回用户可选的对应元素**
-```
+```js
 find(selector) {
   return document.querySelectorAll(selector) //返回数组
     }
@@ -553,7 +549,7 @@ console.log(testDiv)
 用户提供选择器,不管给的选择器是一个还是多个元素，全给你返回数组的第1个。
   
 **(2)在指定范围找特定标签**
-```
+```js
 <div>
   <div id="test"><span>test1</span>
     <p class="red">find指定范围找特定标签1</p>
@@ -580,7 +576,7 @@ console.log(dom.find('.red', testDiv)[0])
 
 
 **2.dom.parent(node)用于获取父元素**
-```
+```js
 parent(node) {
   return node.parentNode
 }  
@@ -588,7 +584,7 @@ parent(node) {
 console.log(dom.parent(em1))
 ```
 **3.dom.children(node)用于获取子元素**
-```
+```js
 <div id="em1">
   <div id="em2"></div>
   <div id="em3"></div>
@@ -609,7 +605,7 @@ js函数被调用时，如果没有明确return任何内容，就会默认返回
 如果函数里存在判断导致没有返回值，返回undefined，如何看待或处理这个undefined?    [如何处理函数参数的意外值？](https://www.zhihu.com/question/510046198)
 
 **4.dom.siblings(node)用于获取兄弟姐妹元素**
-```
+```js
 <div id="siblings">
   <div id="s1"></div>
   <div id="s2"></div>
@@ -629,7 +625,7 @@ children是伪数组，要先变成数组Array.from()，变成数组后就可以
 
 直接return node.nextSibling会返回文本,需要筛选[nodeType](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType)
 
-```
+```js
 next(node) {
   let x = node.nextSibling
   while (x && x.nodeType === 3) {
@@ -642,7 +638,7 @@ const s2 = dom.find("#s2")[0]
 console.log(dom.next(s2))
 ```
 **6.dom.previous(node)用于获取哥哥**
-```
+```js
 previous(node) {
   let x = node.previousSibling
   while (x && x.nodeType === 3) {
@@ -657,7 +653,7 @@ console.log(dom.previous(s2))
 **7.dom.each(nodes,fn)用于遍历所有节点**
 
 find返回的是数组，要找第1个元素。dom.find('#travel')[0]
-```
+```js
 <div id="travel">
   <div id="t1">t1</div>
   <div id="t2">t2</div>
@@ -675,7 +671,7 @@ dom.each(dom.children(t), (n) => dom.style(n, 'color', 'red'))
 ```
 
 **8.dom.index(node)用于获取排行老几**
-```
+```js
 index(node) {
         const list = dom.children(node.parentNode)
         let i
