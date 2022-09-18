@@ -1,14 +1,11 @@
-> 上一次我们用对象风格封装DOM操作(原生js)，这次用jQuery风格重新封装。
+上一次我们用对象风格封装DOM操作(原生js)，这次用jQuery风格重新封装。
   
 **jQuery核心思想** 
 
-接受一个selector。
-
-根据这个选择器得到一些元素。
-
-return 一个对象。
-
-这个对象有些方法可以操作这个元素。
+> 接受一个selector。\
+> 根据这个选择器得到一些元素。\
+> return 一个对象。\
+> 这个对象有些方法可以操作这个元素。
 
 # 用jQuery风格重新封装
 [完整代码](https://sourcegraph.com/github.com/FrankFang/dom-2@master/-/blob/src/jquery.js?L94)
