@@ -1,7 +1,9 @@
 # DOM 编程
 **网页其实是颗树,JS如何操作这棵树?**
 
-JS操作不了。让浏览器往window上加一个document。
+JS操作不了。
+
+让浏览器往window上加一个document。
 
 JS用document操作网页
 
@@ -10,8 +12,6 @@ JS用document操作网页
 **记住一个事实：DOM很难用**
 
 下节课我们会想办法解决这个难题(封装)。
-
-如果你觉得DOM很傻，不要怀疑自己，你觉得是对的。
 
 DOM的接口设计的非常反人类，导致前端程序员不得不使用jQuery去操作DOM。后来Vue、React相继问世。我们便用Vue或React来代替操作DOM。
 
@@ -52,6 +52,7 @@ document.querySelector('#id') //(css选择器的写法)
 ```
 
 ### 二.获取特定元素
+```js
 1.获取html元素:document.documentElement
 
   获取标签名 document.documentElement.tagName
@@ -61,20 +62,19 @@ document.querySelector('#id') //(css选择器的写法)
 3.获取body元素:ducument.body
 
 4.获取窗口(窗口不是元素):window
-```js
-window.onclick=()=>{console.log('hi')}  //获取window,添加事件监听
-```
+
+  window.onclick=()=>{console.log('hi')}  //获取window,添加事件监听
+
 5.获取所有元素
-```js
-document.all //获取当前页面所有标签
+
+  document.all //获取当前页面所有标签
 ``` 
  **变态**
  ```js
   document.all是IE发明的奇葩，第6个falsy值。
   
   document.all以前用来区分是否是IE(现在document.all默认为假)
-```
-```js
+
 if(document.all){console.log('ie浏览器'); 只能在ie运行}
 else{console.log('其它浏览器'); 只能在非ie运行}
 结果:其它浏览器
@@ -163,11 +163,11 @@ document.createElement('script')
 document.createElement('li')
 ```
 **创建一个文本节点**
-```
+```js
 let text1=document.createTextNode('你好')
 ```
 **标签里面插入文本**
-```
+```js
 1' div1.appendChild(text1) 
 
 2' 推荐
@@ -198,7 +198,7 @@ div2.style.width=300
 ### appendChild
 
 页面中有 div#test1 和 div#test2
-```
+```js
 let div=document.createElement('div')
 
 test1.appendChild(div)
@@ -232,7 +232,7 @@ div1.parentNode  //id="div1"
 div1.parentNode.removeChild(div1)
 ```
 怎样彻底删除节点？
-```
+```js
 div2.remove()
 
 div2=null
@@ -257,7 +257,7 @@ div2=null
 获取自定义属性值:div1.getAttribute('data-x')或者div1.dataset.x
 
 例子
-```
+```js
 自定义属性
 s_is.dataset.x='fuck' //id='s_is'
 输出：dataset.x='fuck'
@@ -278,7 +278,7 @@ s_is.getAttribute('data-x')或者 s_is.dataset.x
 **用href时，有可能浏览器会自动加一些东西。**
 
 例子
-```
+```js
 <a id='test' href="/xxx">/xxx</a>
 
 1' console.log(test.href) //浏览器会自动加些东西
@@ -303,7 +303,7 @@ div1会被当作this,event则包含了点击事件的所有信息，如坐标
 如果需要this，就不能用箭头函数，用function才能得到this。因为箭头函数不支持this。
 
 **div1.addEventListener是升级版的div1.onclick,后面会说**
-```
+```js
 <div id='div1'>test</div>
 
 console.log(div1.onclick);
@@ -331,44 +331,44 @@ div1.innerHTML='`<p> <strong>重要</strong> </p>`'
 字符限制在2万以内超出浏览器会卡死
 
 **改标签**
-
+```js
 div1.innerHTML='' 
-
 div1.appendChild(div2)
+//先清空再加内容
+```
 
-先清空再加内容
 
 **(5)改爸爸**
+```js
 newParent.appendChild(div1)
-
+```
 ### 查
 **查爸爸**
-
+```js
 node.parentNode或者node.parentElement
-
-**查爷爷**
-
-node.parentNode.parentNode
-
-例子
 ```
+**查爷爷**
+```js
+node.parentNode.parentNode
+```
+例子
+```js
 <div id='div1'></div>
 div1.parentNode
 div1.parentNode.parentNode
 div1.children
 ```
 **查子代**
-
+```js
 1' node.childNodes //不要用，包括文本节点，会获取到不想要的
-
 2' node.children 
-
+```
 当子代变化时，两者也会实时变化吗？
 
 都会实时变化。querySelectorAll不会实时更新
 
 let c=document.querySelectorAll('li')
-```
+```js
 <ul id='test'>
   <li>1</li>
   <li>2</li>
@@ -387,7 +387,7 @@ console.log(test.children.length) //2
 1' node.parentNode.childNodes //需要排除自己以及所有的文本节点，更麻烦
 
 2' node.parentNode.children //需要排除自己
-```
+```js
 id='div2'
 div2.parentNode.childNodes //包含自己
 let siblings=[] //遍历,排除自己
@@ -417,7 +417,7 @@ node.nextSibling //包含文本节点
 可以避开文本节点node.previousElementSibling
 
 例子
-```
+```js
 id='div2'
 document.body.firstChild //或者document.body.children[0]
 document.body.lastChild
@@ -425,7 +425,7 @@ div2.previousSibling
 div2.previousElementSibling
 ```
 **遍历一个div里面的所有元素**
-```
+```js
 travel=(node,fn)=>{ //接收节点和函数
   fn(node) //传参，fn在后面定义
   if(node.children){ //如果当前节点有子元素，遍历子元素
@@ -483,7 +483,7 @@ div1.id='newId'可能会重新渲染，也可能不会
 div1.title='new'可能会重新渲染，也可能不会
 
 例子
-```
+```js
 <div title="titlehi"></div>
 div::after{ 
   content:attr(title);
