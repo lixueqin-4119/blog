@@ -1,6 +1,6 @@
-[阮一峰](http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html) 、[中文文档](https://www.jquery123.com/)、[完整代码](https://github.com/FrankFang/dom-2-prototype/blob/master/src/jquery.js)
+> [阮一峰](http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html) 、[中文文档](https://www.jquery123.com/)、[完整代码](https://github.com/FrankFang/dom-2-prototype/blob/master/src/jquery.js)
 
-### 1.简写jQuery
+# 1.简写jQuery
 **window.$=window.jQuery**
 
 方法:页面最后添加`window.$=window.jQuery`,任意地方就可以直接使用`$`
@@ -20,7 +20,7 @@ window.$=window.jQuery=function(selectorOrArrayOrtemplate){...}
 
 得到window.jQuery的值后，再将值赋值给window.$。
 
-### 2.命名风格
+# 2.命名风格
 **下面的代码令人误解**
 ```js
 const div1=$('.test')
