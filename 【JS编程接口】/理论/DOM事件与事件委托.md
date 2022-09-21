@@ -1,6 +1,6 @@
 ### 点击事件
 **第一部分.概念**
-```
+```js
 <div class=爷爷>
   <div class=爸爸>
     <div class=儿子>文字</div>
@@ -53,6 +53,7 @@ IE5认为先调fnEr，网景认为先调fnYe,然后掐上了，最后闹到了W3
 开发者**自己选择**把fnYe放在**捕获阶段**还是**冒泡阶段**
 
 DOM事件机制图
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/815f1903a11e46158aa8f80fc0f0f4d8~tplv-k3u1fbpfcp-zoom-1.image)
 
 
@@ -81,7 +82,7 @@ W3C:baba.addEventListener('click',fn,bool)
 例子 [代码](http://js.jirengu.com/guterijaja/2/edit)
 
 1.css
-```
+```css
 div[class^=level] {
   border: 1px solid;
   border-radius: 50%;
@@ -95,7 +96,7 @@ div[class^=level] {
 e是空的。
 
 保存e 代码：const t=e.currentTarget
-```
+```js
 let n=1
 level1.addEventListener('click',(e)=>{
   //console.log(e) 空的
@@ -113,7 +114,7 @@ level1.addEventListener('click',(e)=>{
 **捕获过程：**
 
 颜色变换顺序，从外到里。加true。
-```
+```js
 level7.addEventListener('click',(e)=>{
 const t=e.currentTarget
 setTimeout(()=>{
@@ -123,7 +124,7 @@ setTimeout(()=>{
 },true)
 ```
 **4.怎么同时绑定两个事件？(冒泡和捕获)**
-```
+```js
 level1.addEventListener('click',(e)=>{
   const t=e.currentTarget
   setTimeout(()=>{
@@ -143,6 +144,7 @@ level1.addEventListener('click',(e)=>{
 **代码优化**
 
 把重复代码取个名字
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9fac4b7730b64e9f8aaa5f55ee5008ef~tplv-k3u1fbpfcp-zoom-1.image)
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f2bd236d17c444ebb5addba380cbe114~tplv-k3u1fbpfcp-zoom-1.image)
@@ -190,7 +192,7 @@ div>span{文字}，用户点击文字
 e.target就是span
 
 e.currentTarget就是div
-```
+```html
 <div><span>文字</span></div>
 ```
 
@@ -208,7 +210,7 @@ propagation传播、蔓延
 **一般用于封装某些 独立 的组件**
 
 示例
-```
+```js
 level4.addEventListener('click',fn,true)
 level4.addEventListener('click',(e)=>{
   e.stopPropagation()
@@ -246,7 +248,7 @@ Cancelable的意思是,开发者是否可以阻止默认事件
 但是滚动条还能用，🔍css hide scrollbar，用CSS让滚动条display:none; 
 
 **别忘了考虑手机**
-```
+```js
 css
 ::-webkit-scrollbar { //设置滚轮宽度为0
   width:0 ! important
@@ -281,6 +283,7 @@ Cancelable表示是否支持开发者取消默认事件
 取消特定元素的wheel和touchstart的默认动作
 
 ### [自定义事件](https://developer.mozilla.org/zh-CN/docs/Web/Events/Creating_and_triggering_events#%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE_%E2%80%93_customevent)
+
 **浏览器自带事件**
 
 除了click和scroll事件还有其它 [事件类型(eventType)](https://developer.mozilla.org/zh-CN/docs/Web/Events)
@@ -288,7 +291,7 @@ Cancelable表示是否支持开发者取消默认事件
 除了自带事件，还可以**自定义一个事件**[示例代码](http://js.jirengu.com/tuhonowiga/1/edit?js,output)
 
 **触发事件**.dispatchEvent()
-```
+```js
 button1.addEventListener('click', () => {//添加自定义事件
   //第1步.声明自定义事件(事件名，信息)
   //第2步.触发事件
@@ -302,7 +305,7 @@ button1.addEventListener('frank', (e) => {//触发自定义事件
 **这个事件会冒泡吗？** 不监听button1，监听button1外的div1
 
 可以自己设置bubbles和cancelable的值
-```
+```js
 button1.addEventListener('click', () => { //添加自定义事件
     const event = new CustomEvent('frank', {
         'detail': { name: 'frank', age: 18 },
@@ -341,7 +344,7 @@ button1.addEventListener('click', () => { //添加自定义事件
  `<button data-id="1">click 1</button> ` 
  
 示例 
-```
+```js
 <div id=div1>
     <span>span 1</span>
     <button data-id="1">click 1</button>
@@ -369,7 +372,7 @@ div1.addEventListener('click',(e)=>{
 **你要监听目前不存在的元素的点击事件怎么办？**
 
 监听祖先，等点击的时候看看是不是我想要监听的元素即可。
-```
+```js
 <div id=div1>
 </div>
 
@@ -404,7 +407,7 @@ div1.addEventListener('click', (e) => {
 判断target是否匹配'li'
 
 解析
-```
+```js
 on('click','#div1','button',()=>{
   console.log('button被点击了')
 })
@@ -431,7 +434,7 @@ selectorString 是个css选择器字符串.
 比如说，判断一个元素是不是button
 
 答案一
-```
+```js
 <div id=div1></div>
 
 setTimeout(() => {
@@ -460,7 +463,7 @@ function on(eventType, element, selector, fn) {
 
 
 假设在button里套个span，点击按钮测试会有什么后果？[代码](http://js.jirengu.com/jubehalefu/2/edit)
-```
+```js
 setTimeout(() => {
     const button = document.createElement('button')
     const span = document.createElement('span')
@@ -474,7 +477,7 @@ button点击后没有响应。因为当我们在执行 **if(t.matches(selector))
 **答案二** [代码](http://js.jirengu.com/jeturirobi/4/edit)
 
 递归判断target/target的爸爸/target的爷爷。
-```
+```js
 function on(eventType,element, selector, fn) {
   if(!(element instanceof Element)){ //如果element是假的,instanceof返回bool值
     element=document.querySelector(element)
