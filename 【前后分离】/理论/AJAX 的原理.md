@@ -598,7 +598,6 @@ getPage.onclick = () => {
 }
 ```
 
-xxx.appendChild(li)\
-解析:window.idxxx可以直接idxxx 或者 document.querySelector(’#idxxx’)
+xxx.appendChild(li)
 
-添加page3路由代码略
+window.idxxx可以直接idxxx 或者 document.querySelector(’#idxxx’)
