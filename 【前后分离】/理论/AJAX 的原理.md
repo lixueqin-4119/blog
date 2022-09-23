@@ -1,6 +1,5 @@
 # AJAX 的原理
-> Async JavaScript And XML\
-> js三座大山之Ajax：用js控制浏览器发请求和收响应
+> Ajax：用js控制浏览器发请求和收响应
 
 **原理**\
 **1.Ajax是浏览器推出的一个功能**\
