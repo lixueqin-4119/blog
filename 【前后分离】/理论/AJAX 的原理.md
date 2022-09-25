@@ -596,7 +596,3 @@ getPage.onclick = () => {
   request.send()
 }
 ```
-
-xxx.appendChild(li)
-
-window.idxxx可以直接idxxx 或者 document.querySelector(’#idxxx’)
