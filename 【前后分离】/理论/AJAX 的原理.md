@@ -76,12 +76,12 @@ response.write(`fs.readFileSync('public/main.js')`) //js
 对node.js来说文件就是字符串
 
 这个服务器可以用js来控制你访问什么路径。\
-**注意，这(判断语句)是服务器端的js(node.js),不是ajax.它也可以用java或者php写，跟ajax无关**。
+注意，这(判断语句)是服务器端的js(node.js),不是ajax.它也可以用java或者php写，跟ajax无关。
 
 ### []()挑战1 加载CSS
 
 以前我们用`<link rel=stylesheet href="1.css"/>`\
-今天用AJAX加载css,**4步走**
+今天用AJAX加载css,4步走
 
 **1’不用ajax怎么做？**\
 首先新建style.css写好样式,然后index.html里引入css`<link rel="styleheet" href="/style.css">`,最后添加路由,代码如下：
@@ -96,12 +96,11 @@ else if (path === '/style.css') {
 ```
 
 **2’用ajax怎么做？**\
-在js里请求Ajax\
-**4步骤**\
-**1.创建HttpRequest对象(全称是XMLHttpRequest)**\
-**2.调用对象的open方法**\
-**3.监听对象的unload & onerror事件(成功/失败)**\
-**4.调用对象的send方法(发送请求)**
+在js里请求Ajax，4个步骤\
+1.创建HttpRequest对象(全称是XMLHttpRequest)\
+2.调用对象的open方法\
+3.监听对象的unload & onerror事件(成功/失败)\
+4.调用对象的send方法(发送请求)
 
 **1.创建HttpRequest对象(全称是XMLHttpRequest)**
 
