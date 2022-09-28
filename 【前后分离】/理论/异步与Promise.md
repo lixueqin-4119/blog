@@ -1,4 +1,4 @@
-# 异步与Promise(面试必考)
+# 异步与Promise(必考)
 
 > AJAX(Async JavaScript And XML)\
 > 内容:Ajax异步编程在js里的统一解决方案(js异步编程模型) **Promise**
@@ -31,7 +31,7 @@ request.onreadystatechange函数\
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8c5f8d86d4b44ecfba91713d146c1099~tplv-k3u1fbpfcp-zoom-1.image)
 
 
-```
+```js
 getJSON.onclick = () => {
   ...
   request.send()
@@ -59,7 +59,7 @@ request.onreadystatechange就是**我写给浏览器调用**的\
 **举例**\
 **1.把函数1给另一个函数2**
 
-```
+```js
 function f1(){}
 function f2(fn){
   fn()
@@ -74,7 +74,7 @@ f2调用f1了没有？调了\
 没有调用、传给别人了、别人调用了\
 **补充**
 
-```
+```js
 //request.setCallback(onreadystatechange)
 request.onreadystatechange
 ```
@@ -86,7 +86,7 @@ request.onreadystatechange
 会报错:fn不是一个函数。看到报错你不就知错了\
 **抬杠2**
 
-```
+```js
 function f1(x){
   console,log(x)
 }
@@ -131,7 +131,7 @@ AddEventListener\
 **例子:异步1个结果的处理**\
 1s后返回1～6的随机数
 
-```
+```js
 function 摇骰子(){ 
   setTimeout(()=>{ 
     return parseInt(Math.random() * 6 ) + 1 
@@ -151,14 +151,14 @@ console.log(n) //undefined
 **那怎么才能拿到异步结果(1～6的随机数)？**\
 可以用回调。写个函数，然后把函数地址给它
 
-```
+```js
 function f1(x){console.log(x)}
 摇骰子(f1)
 ```
 
 然后我要求**摇骰子函数**得到结果后**把结果作为参数**传给f1
 
-```
+```js
 function 摇骰子(fn){ 
   setTimeout(()=>{ 
     fn(parseInt(Math.random() * 6 ) + 1) //得到结果后传给fn
@@ -171,7 +171,7 @@ function 摇骰子(fn){
 简化为箭头函数。f1声明后只用了一次，所以可以删掉f1\
 **优化技巧：**  函数声明后只用了一次时，可以简化为匿名函数
 
-```
+```js
 function f1(x){console.log(x)}
 摇骰子(f1)
 改为
@@ -184,7 +184,7 @@ function f1(x){console.log(x)}
 
 **如果参数个数不一致就不能这样简化，有个面试题**
 
-```
+```js
 摇骰子(x,y=>{
   console.log(x)
 })
@@ -192,7 +192,7 @@ function f1(x){console.log(x)}
 
 **面试题**
 
-```
+```js
 const array=['1','2','3'].map(parseInt)
 console.log(array)
 输出结果:[1, NaN, NaN]
@@ -212,7 +212,7 @@ console.log(array)
 
 正确简化
 
-```
+```js
 const array=['1','2','3'].map((item,i,arr)=>{
   return parseInt(item)
 })
@@ -234,7 +234,7 @@ console.log(array)
 **如果异步任务有2个结果成功和失败，怎么办？**\
 方法1:回调接受两个参数(node.js就是用的这个方案,接收两个参数)
 
-```
+```js
 fs.readFile('./1.txt',(error,data)=>{//2个参数:失败的错误，成功的结果
   if(error){console.log('失败'); return}
   console.log(data.toString()) //成功
@@ -243,7 +243,7 @@ fs.readFile('./1.txt',(error,data)=>{//2个参数:失败的错误，成功的结
 
 方法2:搞两个回调
 
-```
+```js
 ajax('Get','./1.json',data=>{},error=>{})
 //前面函数是成功回调，后面函数是失败回调
 或者
@@ -259,7 +259,7 @@ ajax('Get','./1.json',{
 3.很难进行**错误处理**\
 回调地狱举例
 
-```
+```js
 getUser(user=>{
   getGroups(user,(groups)=>{
     groups.forEach((g)=>{
@@ -280,7 +280,7 @@ promise思想是在1976年提出的，后来被前端抄袭的。\
 以ajax的封装为例，解释promise的用法\
 示例：写一个回调的封装
 
-```
+```js
 //1.ajax的定义
 ajax=(method,url,options)=>{
   const {success,fail}=options //析构赋值，从options里拿到success和fail这2个回调函数
@@ -308,7 +308,7 @@ ajax('Get','/xxx',{
 
 **ES 6语法：析构赋值**
 
-```
+```js
 const {success,fail}=options //析构赋值，从options里拿到success和fail这2个回调函数
   //等价于
   //const success=options.success
@@ -317,7 +317,7 @@ const {success,fail}=options //析构赋值，从options里拿到success和fail�
 
 Promise说这代码太傻了，我们改成promise写法
 
-```
+```js
 ajax('Get','/xxx',{
   success(response){},fail:(request,status)=>{}
 })
@@ -334,7 +334,7 @@ then的第1个参数就是success,第2个参数就是fail\
 **那如何得到这个含有.then()的对象呢？**\
 那就要改造ajax的源码了
 
-```
+```js
 ajax=(method,url,options)=>{
   return new Promise((resolve,reject)=>{ //1处
     const {success,fail}=options 
@@ -411,7 +411,7 @@ resolve和reject会再去调用成功和失败函数\
 
 代码示例
 
-```
+```js
 axios.get('/5.json')
   .then(response=>
     console.log(response)
@@ -436,7 +436,7 @@ axios如何发现响应的Content-Type是json\
 比如说，我们要在请求里统一加个参数，不管这个请求是怎样的都要加一个参数。\
 那么就可以加个拦截器。
 
-```
+```js
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
@@ -453,7 +453,7 @@ axios.interceptors.request.use(function (config) {
 
 function(response){ return response;}得到原始响应数据。如果你对数据不满意，可以对它进行修改。这样你就可以对它进行一些测试。
 
-```
+```js
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
     // Do something with response data
@@ -469,7 +469,7 @@ axios.interceptors.response.use(function (response) {
 
 instance就是axios的复制品
 
-```
+```js
 var instance = axios.create({
   baseURL: 'https://some-domain.com/api/',
   timeout: 1000,
