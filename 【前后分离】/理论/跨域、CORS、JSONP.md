@@ -6,10 +6,10 @@
 
 > 前端与后端的交互。
 
-**关键知识**\
-**1.同源策略** 浏览器故意设计的一个功能限制\
-**2.CORS** 突破浏览器限制的一个办法\
-**3.JSONP** IE时代的妥协
+关键知识\
+1.同源策略 浏览器故意设计的一个功能限制\
+2.CORS 突破浏览器限制的一个办法\
+3.JSONP IE时代的妥协
 
 ### []()一.同源策略
 
@@ -19,12 +19,10 @@
 源=协议+域名+端口号\
 如果两个url的协议、域名、端口号完全一致，那么这两个url就是同源的。\
 **举例**
-
-```
+```js
 https://qq.com、https://www.baidu.com不同源
 https://baidu.com、https://www.baidu.com不同源
 ```
-
 完全一致才算同源
 
 **2.同源策略定义**\
@@ -70,7 +68,7 @@ qq-com目录新建server.js,模拟QQ空间\
 diaoyu-com目录新建server.js,模拟坏人空间\
 **先打开第1个目录，然后将第2个目录添加到工作区**
 
-```
+```js
 安装：yarn global add node-dev 
 使用：node-dev server.js 8888 //qq-com
      node-dev server.js 9999 //diaoyu-com
@@ -91,7 +89,7 @@ diaoyu-com目录新建server.js,模拟坏人空间\
 Node.js文件系统封装在fs模块中，它提供了文件的读取、写入、更名、删除、遍历目录、链接等POSIX文件系统操作\
 fs模块的基本使用：
 
-```
+```js
 var fs = require('fs') //引用fs
 response.write(fs.readFileSync('./public/index.html'))
 ```
