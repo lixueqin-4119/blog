@@ -48,7 +48,7 @@ server.listen(port)
 console.log('监听 ' + port + ' 成功\n请用在空中转体720度然后用电饭煲打开 http://localhost:' + port)
 ```
 
-```
+```js
 安装：yarn global add node-dev 
 运行：node-dev server.js 8888
 ```
@@ -81,7 +81,7 @@ response.end()
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/46fc1a14255a4a0c90a6d5189d51e96c~tplv-k3u1fbpfcp-zoom-1.image)
 
 **如果是根目录就默认为/index.html**
-```
+```js
 const filePath = path === '/' ? '/index.html' : path
 ```
 实际上很多浏览器都会默认加上这句话。
