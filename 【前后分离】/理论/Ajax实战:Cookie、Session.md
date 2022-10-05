@@ -416,7 +416,7 @@ response.end(`{"errorCode":4001}`)
 1.[🔍mdn array find](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find)查找数组里有没有符合要求的。\
 浏览器兼容性：IE不支持，node.js支持就行了。\
 用法
-```
+```js
 const array1 = [5, 12, 8, 130, 44];
 const found = array1.find(element => element > 10);
 console.log(found); // expected output: 12
@@ -469,7 +469,7 @@ Cookie就是门票\
 那后端给浏览器下发一个Cookie不就完事了嘛\
 代码
 
-```
+```js
 response.setHeader('Set-Cookie','logined=1')//发票，1是true
 ```
 
@@ -579,7 +579,7 @@ else if (path === '/home.html') {
 } catch (error) { }
 ```
 
-```
+```js
 解析：[ 'logined=1', ' user_id=2' ]
      cookie.split(';').filter(s => s.indexOf('user_id=') < 0) //[ 'logined=1' ]
      cookie.split(';').filter(s => s.indexOf('user_id=') >= 0)[0]因为是数组，所以取第0个，user_id=2
@@ -627,7 +627,7 @@ home.html
 **Bug:用户可以篡改user_id**\
 如果是HttpOnly只能用开发者工具改，如果没有HttpOnly那JS就能改。\
 如何解决用户篡改cookie的问题？\
-**思路1，把信息隐藏在服务器，推荐**\
+**思路1**，把信息隐藏在服务器(推荐)\
 用随机数\
 把用户信息放在服务器的X里，再给信息一个随机id\
 把随机id发给浏览器\
@@ -666,9 +666,6 @@ request.on('end', () => {
 
 把id给浏览器，浏览器并不知道id对应的啥，那我怎么知道呢？我的session.json记录了。
 
-
-
-
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d16dde5039554d948163e9db771acb01~tplv-k3u1fbpfcp-zoom-1.image)
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87f282ba81e24a56ad25119520a22753~tplv-k3u1fbpfcp-zoom-1.image)
@@ -703,8 +700,10 @@ if (sessionId && session[sessionId]) {
 ```
 
 **session的时效性:**  数据通过文件操作时可用性很强，因为数据是在服务器上的，Session保存在服务器的文件中。可以随时删掉有问题的sesstionId。服务器一般会将Session id放到Cookie中，发放给浏览器。\
-**加密**数据是在用户那边的，无法修改。\
-**思路2，加密**\
+**加密**数据是在用户那边的，无法修改。
+  
+\    
+**思路2**，加密\
 将user_id加密发送给前端，后端读取user_id时解密，此法可行但有安全漏洞。\
 漏洞：加密后的内容可以无限期使用**没办法注销掉**，如果被窃听者拿到了加密的user_id，他就可以一直用这个加密的user_id复制到他的浏览器上，然后不停的模拟你登录。\
 解决办法：JWT
