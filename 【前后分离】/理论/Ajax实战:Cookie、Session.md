@@ -72,7 +72,7 @@ fs.writeFileSync('./db/users.json', string)
 3.UTF-8的编码怎么变成字符串？\
 用`Buffer.concat(）`
 
-```
+```js
 例子:const string=Buffer.concat(array).toString()
 ```
 
@@ -640,7 +640,7 @@ x是什么？是文件。不能用内存，因为断电内存就清空\
 **session.json默认是个对象**\
 如果我给浏览器这个数字(0.05239442708348885),意思就是我给了你这个对象(user_id是2)，表驱动编程。
 
-```
+```js
 {
   // "0.05239442708348885":{"user_id":2} 记得清空，内容是自动生成的无需手写。
 }
