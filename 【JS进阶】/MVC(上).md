@@ -1,5 +1,3 @@
-> MVC是进入Vue/React的必经之路，MVC本来就是模糊的，你觉得MVC是什么就是什么，只要能自圆其说即可。这就是抽象，抽象就是不具体。
-
 ### 什么是MVC?
 
 设计模式是个框，什么都能往里装，MVC是框里的一个东西。设计模式就是对通用代码取个名字而已。
@@ -142,7 +140,6 @@ $tabBar.on('click', 'li', (e) => {
 $tabBar.children().eq(index).trigger('click') //保底值0
 ```
 
-
 ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adf5dbcd0ea745baa1f1045013493a4f~tplv-k3u1fbpfcp-watermark.image?)
 
 # MVC的抽象思维
@@ -185,7 +182,6 @@ const $element = $(html).prependTo($('body>.page'))
 补充：插到元素的前面用`prependTo`，插到元素的后面用`appendTo`。\
 别人用我这个模版时只需要写个空的`<div>`,引入main.js,main.js里依次引入4个模块即可。
 
-\
 **页面空白的解决方法**
 
 > 加菊花、加骨架、加占位内容、SSR技术等
@@ -193,8 +189,6 @@ const $element = $(html).prependTo($('body>.page'))
 **1.加菊花**
 
 [图标库](https://www.iconfont.cn/search/index?searchType=icon&q=loading&page=1&fromCollection=-1&fills=&tag=) 🔍loading
-
-
 
 ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2476635bd53944ce868db4bc90713fcf~tplv-k3u1fbpfcp-watermark.image?)
 
@@ -208,19 +202,13 @@ img.remove()
 
 **2.加骨架**
 
-
-
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4bde0b52e7e4fef93c940b6c9ffdee2~tplv-k3u1fbpfcp-watermark.image?)
 
 **3.SSR服务器端渲染技术(大公司会用)**\
 逻辑:把页面中的标记替换成字符串\
 比如，把app1的内容替换成html
 
-
-
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5e230ce5d8847869e5ed6e058e726a4~tplv-k3u1fbpfcp-watermark.image?)
-
-
 
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b9136d98d7749ec8984a5e732646693~tplv-k3u1fbpfcp-watermark.image?)
 
@@ -356,7 +344,6 @@ render() {
                   .prependTo($('body>.page'))
     }
 ```
-
 **2.既然render可以更新n,那update就不需要那么复杂,直接再次render就好了。**
 
 ```js
@@ -577,7 +564,6 @@ v.container.on('click', '#add1', () => { ... })
 目前只有痛苦。以前很简单监听事件改变DOM元素就完了，现在它从一个非常高的角度说你应该用mvc,但你并不能发现它的好处，因为现在还缺少一些过程。现在还处于初级阶段，但等你实现好了就没有那么多弊端了。
 
 ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cf5da71f7927448aa11ae67ce13de6f7~tplv-k3u1fbpfcp-watermark.image?)
-
 
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a777bc47a40d4b92b699e7c533854348~tplv-k3u1fbpfcp-watermark.image?)
 
