@@ -24,7 +24,7 @@
 **步骤**\
 **(1)新建目录base存放基础代码，新建文件Model.js**(js中的类都大写)。
 
-```
+```js
 class Model {
 }
 ```
@@ -35,7 +35,7 @@ class Model {
 > app1的data 与app2的data完全没有关系，是独享的不能抽。4个函数可以抽。\
 > 可以用原型的思想或类的思想，这里**用类的思想**。
 
-```
+```js
 //(2)所有的model都有增删改查4个属性，不需要实现。
 class Model {
   constructor(options) { //data初始化时给我
@@ -59,7 +59,7 @@ export default Model
 
 (3)使用
 
-```
+```js
 app1.js
 import Model from './base/Model.js' //.js可加可不加
 
@@ -86,7 +86,7 @@ m.update = (data) => {
 
 > 将调用也移到构造函数里,就是将`m.update`移到data的后面。
 
-```
+```js
 Model.js
 constructor(options) {
 /*this.data = options.data
@@ -162,7 +162,7 @@ const m = new Model({
 **步骤**\
 **(1)新建View.js (js中的类都大写)。**
 
-```
+```js
 class View {
 }
 ```
@@ -179,7 +179,7 @@ class View {
 > [抽离前代码](https://github.com/lixueqin-4119/js-demo48/blob/master/src/app2.js)\
 > [抽离后代码](https://github.com/lixueqin-4119/js-demo49/blob/master/src/app1.js)
 
-```
+```js
 //(2)抽离共用的
 import $ from 'jquery'
 class View {//初始化写到constructor上
@@ -229,7 +229,7 @@ app2.js
 新建文件EventBus.js\
 之前我们用的是jquery的eventBus，实际上应该自己写。
 
-```
+```js
 import $ from "jquery"
 
 class EventBus {
@@ -251,7 +251,7 @@ export default EventBus
 
 使用
 
-```
+```js
 app1.js
 import EventBus from './base/EventBus'
 
@@ -276,7 +276,7 @@ app2.js  ...
 1.先继承\
 **如果你继承了一个类就必须在初始化constructor里调用类的父类的初始化。**
 
-```
+```js
 Model.js
 import EventBus from "./EventBus"
 class Model extends EventBus {
@@ -289,7 +289,7 @@ View.js ...
 
 **2.后使用**
 
-```
+```js
 app1.js
  m.trigger("m:updated")
  //继承后就不需要再给eventBus赋值了
@@ -311,7 +311,7 @@ JS要么每句话加";" ,要么不能以[]开头,二选一。
 **parcel快速搭建Vue项目**\
 **1.导入Vue**
 
-```
+```js
 先安装: yarn add vue@2.6.10 //指定版本
 重启: parcel src/index.html
 导入:import Vue from 'vue' //app1.js
@@ -321,7 +321,7 @@ JS要么每句话加";" ,要么不能以[]开头,二选一。
 
 **2.新建Vue**
 
-```
+```js
 const init = (el) => {
     new Vue({
         el: el
@@ -336,7 +336,7 @@ const init = (el) => {
 **新建Vue时报错，提示要切换为Vue完整版,默认是不完整版。**\
 **方法:**  在package.json添加
 
-```
+```js
 "alias": {
   "vue$" : "./node_modules/vue/dist/vue.common.js"
 }
@@ -349,7 +349,7 @@ const init = (el) => {
 **1.Vue认为m也没必要写,那怎么替换呢？**  {{n}} //占位\
 **2.Vue如何绑定事件？** @click=""
 
-```
+```js
 <button @click="add"> +1 </button>
 <button @click="minus"> -1 </button>
 <button @click="mul"> *2 </button>
@@ -365,7 +365,7 @@ methods:{  //事件
 **3.Vue如何保存值？**\
 监听事件变化
 
-```
+```js
 watch: {
   n() { //当n变化时执行函数 n:function(){}
     localStorage.setItem('n', this.n)
@@ -378,7 +378,7 @@ render不用写。只用绑定事件就好。\
 
 > Vue的属性:el、data、methods、watch、template
 
-```
+```js
 const init = (el) => {
   new Vue({
     el: el,
@@ -412,7 +412,7 @@ render不用写。只用绑定事件就好。
 > 假如我们要写一个查询年龄的函数，如果用if else代码量是线性增长的。但用哈希表来记录这些映射关系会简单很多.\
 > 数据部分被抽离了，分工明确。函数主体只是去表中查找然后输出结果，这就是表编程的基本思想。
 
-```
+```js
 const list={
     "小明":10,
     "小白":14,
@@ -449,7 +449,7 @@ function age2(name){
 **抽象思维2:MVC思想**\
 虽然MVC思想在Vue里浓缩的只有v了，但思想一直在。只不过当你需求太简单时不会再想着把它分开，但当你复杂的时候你还是得分开。Vue只能满足最基础的需求，当你的应用复杂时MVC就还是MVC,Vue就还是MVC。
 
-```
+```js
 const m = {
   get(){ return parseFloat(localStorage.getItem('n')),
   set(n){ localStorage.getItem('n',this.n),
@@ -469,7 +469,7 @@ Vue里methods、watch就是表，你只要告诉我什么东西变化了做什�
 
 **抽象思维4:事不过三原则**
 
-```
+```js
 const v=new Vue({ ... })
 console.log(v) //打印Vue的实例
 ```
@@ -478,7 +478,7 @@ console.log(v) //打印Vue的实例
 
 **Vue它也是个eventBus,所以我们可以直接用Vue做eventBus:**
 
-```
+```js
 const init = (el) => {
 
     const eventBus = new Vue()
