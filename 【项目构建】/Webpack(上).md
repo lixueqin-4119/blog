@@ -1,5 +1,4 @@
-> 前端框架Webpack，前端最重要的工具之一。\
-> **通过11个任务学会webpack。**\
+> 通过11个任务学会webpack。\
 > [webpack文档](https://www.webpackjs.com/guides/getting-started/#%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85)、[npm文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
 
 **工具**\
