@@ -45,7 +45,7 @@ export default 'fuck'
 
 **(3)运行:**  由于是本地安装，运行时只能用绝对路径调用webpack
 
-```
+```js
 npx webpack //自动但可能不稳定
 //或者./node_modules/.bin/webpack --version // 手动调用本地webpack
 ```
@@ -134,7 +134,7 @@ filename: '[name].[contenthash].js',
 **方法:**  每次更新时删掉旧的，或者怕忘记可以添加到package.json里。\
 npx webpack可简写成webpack。
 
-```
+```js
 package.json
 "scripts": {
     "build":"rm -rf dist && webpack",
@@ -160,7 +160,7 @@ hash的用途:便于你去添加缓存，这个缓存是http协议里规定的Ca
 🔍[webpack create html page](https://webpack.docschina.org/plugins/html-webpack-plugin/#installation)\
 **步骤**
 
-```
+```js
 (1)安装:yarn add html-webpack-plugin --dev
 (2)使用:webpack.config.js添加plugins
    const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -223,7 +223,7 @@ index.html就是个空框架想加点东西都不行。dist目录下所有东西
 **3.如何在index.html里加个div？[抄文档](https://github.com/jantimon/html-webpack-plugin#options)**\
 **先试试加个title:**
 
-```
+```js
 1.webpack.config.js
 new HtmlWebpackPlugin({
   title: 'My App'
@@ -234,7 +234,7 @@ new HtmlWebpackPlugin({
 **再加个`<div>`** [抄文档](https://github.com/jantimon/html-webpack-plugin#generating-multiple-html-files)\
 模仿文档:新建目录assets表示资源,再新建index.html
 
-```
+```js
 1.webpack.config.js
 plugins: [new HtmlWebpackPlugin({
   title: '小李子',
@@ -253,14 +253,11 @@ plugins: [new HtmlWebpackPlugin({
 
 再看下生成的index.html
 
-
-
-
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40a23c77280d496d8e824a16d2066e17~tplv-k3u1fbpfcp-zoom-1.image)
 
 **4.怎么用配置webpack.config.js里的title？[抄文档](https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates)**
 
-```
+```js
 1.修改配置文件webpack.config.js,写好需要展示的内容.
   title: '前端框架 -webpack',
 2.修改assets目录下的index.html
@@ -271,7 +268,7 @@ plugins: [new HtmlWebpackPlugin({
 dist目录下的index.html就会被设置好。\
 **5.重置meta:vp**
 
-```
+```js
 assets目录下的index.html
 重置它的meta:vp
 ```
@@ -291,7 +288,7 @@ assets目录下的index.html随便设计，到时候生成就会按你这个写�
 
 **步骤**
 
-```
+```js
 第1步.新建x.css  body { background: red; }
 第2步.在x.js里引入  import './x.css'
 第3步.yarn build
@@ -327,7 +324,7 @@ module: {
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8205ec6bf5bb4e9ebfa2ec22aad32b00~tplv-k3u1fbpfcp-zoom-1.image)
 
-```
+```js
 plugin和loader部分遇到报错时(遇到警告3步走):
 (1)请复制上面的package.json覆盖你的"devDependencies"。
 (2)yarn install
@@ -338,7 +335,7 @@ plugin和loader部分遇到报错时(遇到警告3步走):
 **第4步.预览css**\
 查看dist下的index是否成功引入css
 
-```
+```js
 cd dist    
 hs -c-1   //当前目录
 ```
@@ -351,7 +348,7 @@ webpack配置:如果发现以.css结尾的文件就用`css-loader`先将文件�
 
 每次**修改**都要中断http-server,退出dist目录,重新运行,太麻烦.
 
-```
+```js
 快捷键:control+c
 cd ..
 yarn build
@@ -362,7 +359,7 @@ yarn build
 > 注意:webpack-dev-server不依赖dist目录文件，直接在内存中搞定。不会生成dist目录。\
 > 会读你的index.js并转义成可运行的js,然后读到内存里。
 
-```
+```js
 1.cd ..  //中断并退出dist目录 
 2.yarn add webpack-dev-server --dev
 //npm info webpack-dev-server
@@ -391,7 +388,7 @@ yarn build
 
 🔍[webpack css extract plugin](https://webpack.docschina.org/plugins/mini-css-extract-plugin/) 中文易过时
 
-```
+```js
 1.安装:yarn add mini-css-extract-plugin --dev
 2.webpack.config.js添加
 const MiniCssExtractPlugin=require("mini-css-extract-plugin");
@@ -421,7 +418,7 @@ html自动生成时，会自动帮你加该引入的东西。
 
 [4.如何缓存css文件？](https://webpack.docschina.org/plugins/mini-css-extract-plugin/#publicpath)
 
-```
+```js
 1.webpack.config.js添加
   new MiniCssExtractPlugin({
      filename: '[name].[contenthash].css',
@@ -439,7 +436,7 @@ html自动生成时，会自动帮你加该引入的东西。
 
 > **切换模式:**  生产环境上线代码`yarn build`,开发`yarn start`。
 
-```
+```js
 package.json
 "script":{
   "start": "webpack serve",
@@ -452,26 +449,26 @@ package.json
 1.生产环境webpack.config.prod.js\
 复制webpack.config.js重命名为webpack.config.prod.js。
 
-```
+```js
 mode: 'production',
 use: [MiniCssExtractPlugin.loader, "css-loader"]
 ```
 
 2.开发环境webpack.config.js
 
-```
+```js
 use: ['style-loader', 'css-loader'] //将<script>标签插到页面,速度更快
 ```
 
 **3.通过命令选择要切换的文件**
 
-```
+```js
 npx webpack --help //帮助文档
 ```
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/322b12c1a40f452eb957b09d4c7080f3~tplv-k3u1fbpfcp-zoom-1.image)
 
-```
+```js
 package.json
 "scripts": {
   "start": "webpack-dev-server --open",
@@ -482,7 +479,7 @@ package.json
 
 **4.测试**
 
-```
+```js
 yarn start //开发 <style>标签
 再开一个终端
 yarn build //生产 <link/>标签,打开dist目录查看index.html
