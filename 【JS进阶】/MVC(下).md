@@ -265,11 +265,17 @@ app2.js  ...
 
 ### [继承EventBus](https://github.com/lixueqin-4119/js-demo49/blob/master/src/base/EventBus.js)
 
-> 把m和v都继承EventBus，这样就能直接做到**少一层概念**`m.trigger、v.on`不需要再`m.eventBus.trigger、v.eventBus.on`\
-> 这也是目前所有主流库的选择,比如DOM就是这样做的。把eventBus放到所有东西的最上面，因为事件这个东西太常用了。\
-> `console.dir(document.body)`
->![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a206b717b95244d789539bc8f8171d3f~tplv-k3u1fbpfcp-watermark.image?)
-> eventTarget实际上就是eventBus，换了个名字而已。这就是所有的DOM元素都能触发事件、监听事件的原因，所有DOM的类的类的...最后倒数第2层都是eventBus。
+把m和v都继承EventBus，这样就能直接做到**少一层概念**
+
+`m.trigger、v.on`不需要再`m.eventBus.trigger、v.eventBus.on`
+
+这也是目前所有主流库的选择,比如DOM就是这样做的。把eventBus放到所有东西的最上面，因为事件这个东西太常用了。
+
+`console.dir(document.body)`
+
+![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a206b717b95244d789539bc8f8171d3f~tplv-k3u1fbpfcp-watermark.image?)
+
+eventTarget实际上就是eventBus，换了个名字而已。这就是所有的DOM元素都能触发事件、监听事件的原因，所有DOM的类的类的...最后倒数第2层都是eventBus。
 
 
 **步骤**\
