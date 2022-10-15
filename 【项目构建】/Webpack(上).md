@@ -1,5 +1,6 @@
-> 通过11个任务学会webpack。\
 > [webpack文档](https://www.webpackjs.com/guides/getting-started/#%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85)、[npm文档](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
+> 
+> 通过11个任务学会webpack。
 
 **工具**\
 **webpack@4 和 webpack-dev-server**本地预览\
@@ -332,6 +333,7 @@ plugin和loader部分遇到报错时(遇到警告3步走):
 ```
 
 2个错误搞定！
+
 **第4步.预览css**\
 查看dist下的index是否成功引入css
 
@@ -406,9 +408,6 @@ const MiniCssExtractPlugin=require("mini-css-extract-plugin");
 
 放到页面或抽成文件，只能2选1。
 
-
-
-
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6d6367f4d7b4b6bbd1a2ec95f48554b~tplv-k3u1fbpfcp-zoom-1.image)
 
 **遇到警告3步走...**
@@ -443,7 +442,6 @@ package.json
   "build": "rm -rf dist; webpack",
 }
 ```
-
 **思路:** `build`和`start`对应不同的命令，可以设置它们用不同的config，实现2个插件的切换。\
 **步骤**\
 1.生产环境webpack.config.prod.js\
@@ -476,9 +474,7 @@ package.json
  //当build时用生产配置
 }
 ```
-
 **4.测试**
-
 ```js
 yarn start //开发 <style>标签
 再开一个终端
