@@ -11,6 +11,7 @@ Vue你可以认为是框架也可以说是库，Vue中文英文文档都是尤�
 15年的1.0版本Vue自称是MVVM框架，不是MVC是MVVM，不过这已经成历史了。现在Vue是**MV** * 框架,意思就是你说MVC、MVVM都行。但是Vue升级到2.0后，它虽然看起来是MVVM框架，但实际不是MVVM框架了。
 
 **Vue作者**尤雨溪，**主要作品:** Vue、Vue Router、Vuex、@vue/cli(主要维护者是蒋豪群)
+
 Vue2版本`vue.runtime.min.js` Vue3版本`vue.runtime.global.prod.js`
 
 ## 目标一: 项目搭建
@@ -21,7 +22,7 @@ Vue2版本`vue.runtime.min.js` Vue3版本`vue.runtime.global.prod.js`
 **步骤** 🔍[@vue/cli文档](https://cli.vuejs.org/zh/guide/installation.html)
 
 **1.打开终端**
-```git
+```
 cd ~/Desktop/
 yarn global add @vue/cli@4.1.0-beta.0
 vue --version
@@ -111,6 +112,7 @@ Vue不支持{{n}}，接下来介绍Vue的2个版本，就知道为什么Vue有�
 1.[文档:](https://cn.vuejs.org/v2/guide/installation.html#CDN) 使用[BootCDN](https://www.bootcdn.cn/vue/2.6.14/)安装
 
 [对不同构建版本的解释](https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A)
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/341502e07a2349cbab707a239fdea294~tplv-k3u1fbpfcp-zoom-1.image)
 
 CDN后缀为vue.min.js是vue.js的简洁版，**推荐用vue.min.js**。
@@ -164,6 +166,7 @@ CDN选择后缀为`vue.runtime.min.js`，选择复制`<script>`标签，插到`i
 **解决方法:修改render**
 
 [文档](https://cn.vuejs.org/v2/guide/installation.html#%E8%BF%90%E8%A1%8C%E6%97%B6-%E7%BC%96%E8%AF%91%E5%99%A8-vs-%E5%8F%AA%E5%8C%85%E5%90%AB%E8%BF%90%E8%A1%8C%E6%97%B6)
+
 ```js
 index.html
 <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.runtime.min.js">
@@ -187,6 +190,7 @@ new Vue({
   }
 })
 ```
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6a31e275d93e44538c0ecf9dbec76b1c~tplv-k3u1fbpfcp-zoom-1.image)
 
 **不完整版vue**必须要用createElement方式把所有元素构造出来。
@@ -217,9 +221,8 @@ compiler(编译器)特点复杂，占用一定代码体积，比「不完整版V
 
 **步骤**
 
-**1.使用它提供的方法，src目录下新建文件Demo.vue**
+**1.使用它提供的方法，src目录下新建文件Demo.vue**,代码如下：
 
-代码
 ```js
 Demo.vue
 //语法
