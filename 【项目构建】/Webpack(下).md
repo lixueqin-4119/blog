@@ -1,4 +1,5 @@
 ### loader VS plugin
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/730a46d493fc4b1abdfcfc85331424b3~tplv-k3u1fbpfcp-zoom-1.image)
 
 **用webpack生成JS**
@@ -275,6 +276,7 @@ cd ..
 git push //提交新代码
 ```
 如果你已经添加过想换一个新的地址，将add改为set即可。
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7de9b5d6c77140f69101f9bc376f5421~tplv-k3u1fbpfcp-zoom-1.image)
 
 
@@ -309,6 +311,7 @@ rm -rf dist
 浏览器逆时针转表示**正在请求**，顺时针转表示**在下载**。
 
 pending挂起中。
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/848ae00ca7484f97a825a60982fdba6e~tplv-k3u1fbpfcp-zoom-1.image)
 
 `vue-cli`就是配置好 webpack 的 vue，有时候不想使用默认的webpack就必须自己配置webpack。
