@@ -79,7 +79,9 @@ webpack.config.prod.js添加
 5.yarn build
 ```
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/38ffcbd4ab1646a598af6eeb4f1c9e80~tplv-k3u1fbpfcp-zoom-1.image)
+
 **遇到警告"[3步走](https://github.com/lixueqin-4119/webpack-demo/tree/master#readme)"**
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a0af79a57a19483f8110f5fb5260cb20~tplv-k3u1fbpfcp-zoom-1.image)
 
 
@@ -205,6 +207,7 @@ rules: [
  ]
 5.yarn start
 ```
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b57756d6ac414197963e70cb851e9e55~tplv-k3u1fbpfcp-zoom-1.image)
 
 每张图片都要引一次，loader一对一。
@@ -289,7 +292,7 @@ git push //提交新代码
 删多了可以通过重置`git reset --hart HEAD`挽回。
 
 3.把dist里面的东西都拷出来
-```git
+```js
 rm -rf dist
 git add .
 git commit -m 'remove dist'
@@ -304,6 +307,7 @@ rm -rf dist
 再次提交
 ```
 **最终效果图**
+
 ![请添加图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/271ca1a1dfa7444998fcdf518327a996~tplv-k3u1fbpfcp-zoom-1.image)
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ad738720aa84d9ab588ae3427d4a94e~tplv-k3u1fbpfcp-zoom-1.image)
