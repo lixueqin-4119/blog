@@ -4,7 +4,8 @@
 
 **工具**\
 **webpack@4 和 webpack-dev-server**本地预览\
-本地预览httpserver没有webpack-dev-server功能强,parcel也能本地预览但与webpack不配套,所以只能用webpack-dev-server。
+本地预览httpserver没有webpack-dev-server功能强\
+parcel也能本地预览但与webpack不配套,所以只能用webpack-dev-server。
 
 **webpack这么多插件怎么学？**\
 重要的"不是用什么"，而是"怎么知道用什么"，要学会搜+CRM法。\
