@@ -1,7 +1,4 @@
----
-highlight: a11y-dark
-theme: juejin
----
+
 # React起手式
 > **目录**
 > 
