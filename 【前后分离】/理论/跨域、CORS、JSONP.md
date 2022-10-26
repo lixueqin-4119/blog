@@ -50,7 +50,8 @@ https://user.qzone.qq.com/friends.json\
 请问，你的好友列表是不是就被黑客偷走了？是的
 
 **问题的根源**
-第1次是正常的请求，第2次是黑客的请求。几乎没有区别除了**referrer**\
+第1次是正常的请求，第2次是黑客的请求。几乎没有区别除了**referrer**
+
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b9afeb0283242eca3d6518c6aebe563~tplv-k3u1fbpfcp-zoom-1.image)
 
 **控制台的XHR是XMLHttpRequest的缩写也就是ajax的缩写**
@@ -158,8 +159,9 @@ response拿不到qq.com的数据，因为**CORS策略阻止了**。\
 原因同上。曾经由于服务器比较贵，很多公司共用同一个服务器，这导致了一个端口一个公司，这两个公司数据是不共享的。记住安全链条的强度取决于最弱的一环，任何安全相关的问题都要谨慎对待。\
 **3.为什么两个网站的IP是一样的，也算跨域？**\
 原因同上。IP都一样说明在同一台服务器上。很早的时候服务器很贵的，所以一台服务器挂了20个不同网站的网页都是有可能的。所以由于**IP可以共用**，实际上它们是不同的公司。\
-**4.为什么可以跨域使用CSS、JS、图片？**\
-**面试题**\
+**4.为什么可以跨域使用CSS、JS、图片？**
+
+**面试题**
 同源策略限制的是数据访问，我们引用CSS、JS、图片的时候，其实并不知道其内容，我们只是在引用。能引用但不能读取。不信我问你，你能知道CSS的第1个字符是什么吗？
 
 虽然理论上要求不同网站不能共享数据，不允许跨域，但实际工作或者面试中经常会问**如何跨域共享数据**。
@@ -235,14 +237,14 @@ else if (path === '/friends.js') {
 
 **补充:js文件中光有数据是不合法的需要赋值**
 
-```
+```js
 window.xxx = { { data } } 
 ```
 
 **3.diaoyu.com用script标签引用/friends.js,js动态引用**\
 diaoyu.js
 
-```
+```js
 const script = document.createElement('script')
 script.src = 'http://qq.com:8888/friends.js'
 document.body.appendChild(script)
@@ -371,13 +373,13 @@ url.parse("http://user:pass@host.com:8080/p/a/t/h?query=string#hash",true);
 **将随机数插入到字符串里**\
 friends.js
 
-```
+```js
 window['{{xxx}}']({{ data }})
 ```
 
 **再将{{xxx}}替换成随机数**
 
-```
+```js
 const string2=string.replace('{{ data }}', data).replace('{{xxx}}',query.functionName)
 ```
 
