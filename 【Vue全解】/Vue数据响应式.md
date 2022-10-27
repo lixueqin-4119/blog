@@ -401,8 +401,6 @@ Vue无法事先监听和代理
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/747dd91fdf354b1eb0055a0d2905105c~tplv-k3u1fbpfcp-zoom-1.image)
 
 
-**面试题**
-
-**说说你对Vue数据响应式的理解**
-
+**面试题**\
+**说说你对Vue数据响应式的理解**\
 Vue数据响应式,使得数据更新时得到及时的渲染。vue通过`Object.defineProperty()`给数据对象添加value属性，设置getter和setter监控属性的读写，并使用vm对象负责数据对象的代理，当属性更新时，调用rander()更新。
