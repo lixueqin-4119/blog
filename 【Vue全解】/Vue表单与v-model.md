@@ -1,14 +1,13 @@
 # Vue表单与v-model
 > [Ant Design Vue 文档](https://1x.antdv.com/docs/vue/getting-started-cn/#%E5%BC%95%E5%85%A5-ant-design-vue)
+> 
+> **表单基本用法**\
+> input/textarea/checkbox/radio/select/from
+> 
+> **修饰符**\
+> .lazy/.number/.trim
 
-**表单基本用法**\
-input/textarea/checkbox/radio/select/from
-
-**修饰符**\
-.lazy/.number/.trim
-
-**运行环境**\
-新建文件vue-demo,用Vue的脚手架给它初始化下。
+**运行环境**:新建文件vue-demo,用Vue的脚手架给它初始化下。
 ```js
 vue create . //选择在当前目录创建,使用默认的vue2
 yarn serve
