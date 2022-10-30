@@ -1,14 +1,12 @@
 # 深入讲解 Vue 动画原理
 > 文档 [过渡 & 动画](https://vuejs.bootcss.com/guide/transitions.html)
 
-**轮播组件slides**
-
+**轮播组件slides**\
 轮播难点在于最末位到首位的切换方式，在讲轮播之前需要讲下动画。\
 Vue动画支持很多种不同的方式。
 
 ### Vue动画方式1 - CSS transition
 > Vue提供了transition组件
-
 
 ```js
 HTML
