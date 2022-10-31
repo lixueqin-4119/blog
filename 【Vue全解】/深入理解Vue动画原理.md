@@ -9,9 +9,7 @@ Vue动画支持很多种不同的方式。
 > Vue提供了transition组件
 
 ```js
-HTML
-//先引入Vue(bootCDN)
-<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script> //先引入Vue(bootCDN)
 
 <div id="demo">
   <button v-on:click="show = !show">
@@ -22,23 +20,24 @@ HTML
     <p v-if="show">hello</p>
   </transition>
 </div>
-
-CSS
+```
+```css
 //2.写类
 .fade-enter-active, .fade-leave-active {
   transition: all 2s;
-  }
+}
 .fade-enter, .fade-leave-to {
   opacity: 0;
   width:100px
-  }
+}
+
 //3.设置初始值
 p{ 
   border:1px solid red;
   width:300px
-  }
-  
-JS
+}
+```
+```js
 new Vue({
   el: '#demo',
   data: { show: true }
