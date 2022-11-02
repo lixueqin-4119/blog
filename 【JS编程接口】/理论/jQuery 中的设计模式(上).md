@@ -1,28 +1,20 @@
 上一次我们用对象风格封装DOM操作(原生js)，这次用jQuery风格重新封装。
   
 **jQuery核心思想** 
-
 > 接受一个selector。\
 > 根据这个选择器得到一些元素。\
 > return 一个对象。\
 > 这个对象有些方法可以操作这个元素。
 
-# 用jQuery风格重新封装
-[完整代码](https://sourcegraph.com/github.com/FrankFang/dom-2@master/-/blob/src/jquery.js?L94)
-
-**链式风格也叫jQuery风格**
-
-window.jQuery()是我们提供的全局函数
-
-**特殊函数jQuery**
-
-jQuery(选择器)用于获取对应的元素
-
-但它却不返回这些元素
-
-相反，它返回一个对象，称为**jQuery构造出来的对象**
-
-**这个对象可以操作对应的元素**
+**用jQuery风格封装**
+> [完整代码](https://sourcegraph.com/github.com/FrankFang/dom-2@master/-/blob/src/jquery.js?L94)\
+> **链式风格也叫jQuery风格**\
+> window.jQuery()是我们提供的全局函数\
+> **特殊函数jQuery**\
+> jQuery(选择器)用于获取对应的元素\
+> 但它却不返回这些元素\
+> 相反，它返回一个对象，称为jQuery构造出来的对象\
+> 这个对象可以操作对应的元素
 
 # jQuery核心思想
 ### 1.闭包 ＆ 链式操作
