@@ -1,15 +1,9 @@
----
-theme: juejin
----
+
 # Hooks 原理解析
-> **内容**
-> 
-> 1.分析useState原理和源码
-> 
-> 2.useRef的作用
-> 
-> 3.useContext的作用
-> 
+> **内容**\
+> 1.分析useState原理和源码\
+> 2.useRef的作用\
+> 3.useContext的作用\
 > 4.Vue3 对比 React
 
 ## 分析useState原理
@@ -81,18 +75,12 @@ App()会重新执行吗？当然会
 
 **分析**
 
-**1.setN**
-
-setN一定会修改`某个数据x`,将n+1存入`某个数据x里`
-
-setN一定会触发<App/>重新渲染(re-render)
-
-**2.useState**
-
-useState肯定会从`某个数据x`读取n的最新值
-
-**3.x**
-
+**1.setN**\
+setN一定会修改`某个数据x`,将n+1存入`某个数据x里`\
+setN一定会触发<App/>重新渲染(re-render)\
+**2.useState**\
+useState肯定会从`某个数据x`读取n的最新值\
+**3.x**\
 每个组件有自己的数据x,我们将其命名为state
 
 ### 实现React.useState
@@ -293,20 +281,13 @@ function App(){
 其实它的模型非常简单，就是我去改这个虚拟组件，我所有的东西都放在虚拟组件的上面。函数每次执行都会得到虚拟组件的对象`App1`，这个对象`Patch`可以去更新这个虚拟组件。
 每一个组件都有自己的虚拟节点，每一个虚拟节点都会存储_state和index。
 
-**总结**
-
-**1.每个函数组件对应一个React节点***
-
-**2.每个节点保存着state和index**
-
-**3.每个函数里用useState会读取对应节点的state[index]**
-
-**4.index由useState出现的顺序决定**
-
-第一次调用useState index等于0.第二次调用index等于1，以此类推。
-
-**5.setState会修改state，并触发更新**
-
+**总结**\
+**1.每个函数组件对应一个React节点***\
+**2.每个节点保存着state和index**\
+**3.每个函数里用useState会读取对应节点的state[index]**\
+**4.index由useState出现的顺序决定**\
+第一次调用useState index等于0.第二次调用index等于1，以此类推。\
+**5.setState会修改state，并触发更新**\
 useState会得到setState，得到n和setN，setN会修改n的对应的state,这个state是存在节点上的，修改之后会触发更新。
 
 > **注意:** 这篇文章对React的实现做了简化，React节点应该是FiberNode,_state的真实名称为memorizedState,index的实现则用到了链表，有兴趣的可以[自行学习](https://juejin.cn/post/6844903704437456909)
@@ -363,22 +344,17 @@ n和setN不变，`console.log(n)`会先读取n的值,然后在3s后打印`0`
 
 **三种方法**
 
-**1' 全局变量**
-
+**1' 全局变量**\
 用window.xxx即可
 
-**2' useRef**
-
+**2' useRef**\
 useRef不仅可以用于div,还能用于任意数据
 
-**3' useContext**
-
+**3' useContext**\
 useContext不仅能贯穿始终，还能贯穿不同组件
 
-**useRef例子**
-
-因为只有一个n,只有一个current值。
-
+**useRef例子**\
+因为只有一个n,只有一个current值。\
 但是有个bug,useRef不会让App重新渲染，所以**页面上的n不会实时更新**。
 
 **题外话:** Vue 3可以做到当你修改useRef值时，自动渲染App。
@@ -420,12 +396,9 @@ function App() {
 ```
 这种情况不如直接学Vue3。
 
-Vue3
-
- 1.借鉴了hook这个思想
- 
- 2.不使用useState 而是使用useRef，并把useRef用到了极致。
- 
+Vue3\
+ 1.借鉴了hook这个思想\
+ 2.不使用useState 而是使用useRef，并把useRef用到了极致。\
  3.自创:当你对`useRef.current`的值进行变更时，它会自动的去update。
 
 **useContext例子：** 全局切换主题
@@ -492,13 +465,11 @@ ReactDOM.render(<App />, rootElement);
 表示我们一开始就把这个全局变量的初始值赋值为一个对象，这个对象有theme、setTheme两个属性。
 
 2.`<themeContext.Provider>`标签
-
 ```js
 <themeContext.Provider>
   //标签内是上下文全局变量themeContext的作用域。
 </themeContext.Provider>
 ```
-
 **3.如何在点击button时调用全局变量setTheme？**
 
 用全局变量,从themeContext读取setTheme
@@ -511,16 +482,11 @@ const { setTheme } = React.useContext(themeContext);
 
 大部分时候用useRef，useRef用多了你就会想用Vue3。
 
-**总结**
-
-**1.组件每次重新渲染，组件函数就会再次执行**
-
-**2.对应的所有state都会出现分身**
-
-新旧n会同时存在，如果你没有setTimeout,旧的n就会自动消失，会被垃圾回收掉。
-
-如果你有setTimeout，它就会setTimeout之后再被垃圾回收掉。
-
+**总结**\
+**1.组件每次重新渲染，组件函数就会再次执行**\
+**2.对应的所有state都会出现分身**\
+新旧n会同时存在，如果你没有setTimeout,旧的n就会自动消失，会被垃圾回收掉。\
+如果你有setTimeout，它就会setTimeout之后再被垃圾回收掉。\
 **3.如果你不希望出现分身,可以用useRef/useContect 或者Vue3**
 
 
