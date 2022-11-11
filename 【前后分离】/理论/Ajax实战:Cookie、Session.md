@@ -218,16 +218,12 @@ request.on('end', () => { //结束后做的事情
   response.end('很好')
 })
 ```
-
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f5e1b17e3a7c496ea98f8712b3cd4242~tplv-k3u1fbpfcp-zoom-1.image)
 
 **这就是UTF-8的编码，怎么变成字符串？**\
 用`Buffer.concat(）`
 
-
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d90cb63b93c34a0189e3673c4bc6e0f6~tplv-k3u1fbpfcp-zoom-1.image)
-
-
 
 别忘了JSON.parse()解析JSON字符串，构造由字符串描述的js值或对象(一般是对象)。\
 server.js
@@ -477,7 +473,6 @@ response.setHeader('Set-Cookie','logined=1')//发票，1是true
 
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c496e35d96164153a9a63e9c48838e96~tplv-k3u1fbpfcp-zoom-1.image)
 
-
 ![在这里插入图片描述](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13eb11c50e604649a910b6e2274c861a~tplv-k3u1fbpfcp-zoom-1.image)
 
 **读票**\
@@ -705,10 +700,10 @@ if (sessionId && session[sessionId]) {
   
 **思路2**，加密\
 将user_id加密发送给前端，后端读取user_id时解密，此法可行但有安全漏洞。\
-漏洞：加密后的内容可以无限期使用**没办法注销掉**，如果被窃听者拿到了加密的user_id，他就可以一直用这个加密的user_id复制到他的浏览器上，然后不停的模拟你登录。\
+漏洞：加密后的内容可以无限期使用**没办法注销掉**，如果被窃听者拿到了加密的user_id，他就可以一直用这个加密的user_id复制到他的浏览器上，然后不停的模拟你登录。
+    
 解决办法：JWT
 
-\
 **注销功能一般如何实现?**\
 安全起见，不能用JS删Cookie，应该使用HttpOnly的Cookie，然后JS发请求让服务器删 Cookie\
 安全起见，除了删除浏览器端的Cookie，还需要把对应的Session数据删掉
