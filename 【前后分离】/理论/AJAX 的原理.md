@@ -29,7 +29,8 @@ Usage使用: node-dev src/server.js
 ```
 
 用node-dev代替node方便开发，node-dev修改时会自动保存重启Restarting\
-⚠️node-dev 已经出 bug 没人修理了，不要使用，请直接使用 node 并手动重启。\
+⚠️node-dev 已经出 bug 没人修理了，不要使用，请直接使用 node 并手动重启。
+
 **添加index.html/main.js两个路由**
 
 ```js
