@@ -1,11 +1,8 @@
 # Vue Router 前端路由实现的思路
-**路由器(面试题)**
-
-**一.前端路由是什么？**
-
-**二.hash模式? history模式? memory模式?**
-
-  三.[VueRouter源码](https://github.com/vuejs/vue-router/blob/dev/dist/vue-router.js)
+**面试题(路由器)**\
+一.前端路由是什么？\
+二.hash模式? history模式? memory模式?\
+三.[VueRouter源码](https://github.com/vuejs/vue-router/blob/dev/dist/vue-router.js)
 
 ## 一.前端路由是什么？
 **路由是什么？**
@@ -14,10 +11,9 @@
 
 你要上网就需要连接到路由器上，路由器要连接到电信/联通公司，电信公司会出售一些网络IP或端口，百度就会购买这些IP(大概会购买几千个IP)作为它的服务器，腾讯也会购买它的IP，抖音同样也要购买它的IP。
 
-你连路由器，路由器看你想连哪里，比如你想连百度，它就会把包发给百度。当你打开抖音时，它就会把你这个信号发到抖音。**只要满足一对多的关系就叫分发，** 分别发送到各个地方。**路由就是分发请求，路由器就是分发请求的东西。**
+你连路由器，路由器看你想连哪里，比如你想连百度，它就会把包发给百度。当你打开抖音时，它就会把你这个信号发到抖音。只要满足一对多的关系就叫分发， 分别发送到各个地方。路由就是分发请求，路由器就是分发请求的东西。
 
-[实例1:](https://codesandbox.io/s/sweet-northcutt-v6vqtm?file=/src/index.js:656-700)实现路由router
-
+**[实例1:](https://codesandbox.io/s/sweet-northcutt-v6vqtm?file=/src/index.js:656-700)实现路由router**\
 需求:根据用户URL后接的hash是#x 比如`http://127.0.0.1/#1`以此来判断用户想去的界面，界面用div代表。#1代表界面1`Div1`
 ```js
 index.html
